@@ -1,14 +1,63 @@
 
 # coding: utf-8
 
-# In[3]:
-
-## Simple API call to NOAA
+# In[ ]:
 
 import requests
 import json
 from pandas.io.json import json_normalize
 
+with open('token.json') as token_file:
+    header = json.load(token_file)
+    print(header)
+
+
+# In[19]:
+
+url = 'http://www.ncdc.noaa.gov/cdo-web/api/v2/datacategories?limit=41'
+resp = requests.get(url=url, headers=header)
+print(resp.json())
+
+try:
+    pd_metadata = json_normalize(resp.json()['metadata'])
+#     pd_metadata.columns = ['Station ID', 'Latitude', 'Longitude', 'Location']
+    pd_results = json_normalize(resp.json()['results'])
+    
+except KeyError:
+    print(resp.json()['error'])
+    print('Error in the api input')
+
+
+# In[20]:
+
+pd_results
+
+
+# In[26]:
+
+url = 'http://www.ncdc.noaa.gov/cdo-web/api/v2/datatypes?datacategoryid=HYDROMETEOR'
+
+resp = requests.get(url=url, headers=header)
+print(resp.json())
+
+try:
+    pd_metadata = json_normalize(resp.json()['metadata'])
+#     pd_metadata.columns = ['Station ID', 'Latitude', 'Longitude', 'Location']
+    pd_results = json_normalize(resp.json()['results'])
+    
+except KeyError:
+    print(resp.json()['error'])
+    print('Error in the api input')
+
+
+# In[27]:
+
+pd_results
+
+
+# In[28]:
+
+# Old version of NOAA API
 
 url = 'https://tidesandcurrents.noaa.gov/api/datagetter?'
 
@@ -28,7 +77,7 @@ resp = requests.get(url=url, params=params)
 print(resp.json())
 
 
-# In[4]:
+# In[29]:
 
 try:
     pd_metadata = json_normalize(resp.json()['metadata'])
@@ -40,19 +89,19 @@ except KeyError:
     print('Error in the api input')
 
 
-# In[8]:
+# In[36]:
 
-resp.url
-
-
-# In[5]:
-
-pd_metadata
+pd_metadata['Station ID'].value_counts()
 
 
-# In[7]:
+# In[30]:
 
-pd_data['b'!=6]
+pd_data
+
+
+# In[34]:
+
+
 
 
 # In[ ]:

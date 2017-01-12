@@ -11748,15 +11748,451 @@ div#notebook {
 
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## Simple API call to NOAA</span>
-
-<span class="kn">import</span> <span class="nn">requests</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">import</span> <span class="nn">json</span>
 <span class="kn">from</span> <span class="nn">pandas.io.json</span> <span class="k">import</span> <span class="n">json_normalize</span>
 
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;token.json&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">token_file</span><span class="p">:</span>
+    <span class="n">header</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">token_file</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">header</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://www.ncdc.noaa.gov/cdo-web/api/v2/datacategories?limit=41&#39;</span>
+<span class="n">resp</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">header</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">pd_metadata</span> <span class="o">=</span> <span class="n">json_normalize</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;metadata&#39;</span><span class="p">])</span>
+<span class="c1">#     pd_metadata.columns = [&#39;Station ID&#39;, &#39;Latitude&#39;, &#39;Longitude&#39;, &#39;Location&#39;]</span>
+    <span class="n">pd_results</span> <span class="o">=</span> <span class="n">json_normalize</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;results&#39;</span><span class="p">])</span>
+    
+<span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;error&#39;</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Error in the api input&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>{&#39;token&#39;: &#39;NdcMuOrLSajCbDKVVwVFROxVuJmUAIPN&#39;}
+{&#39;metadata&#39;: {&#39;resultset&#39;: {&#39;count&#39;: 42, &#39;limit&#39;: 41, &#39;offset&#39;: 1}}, &#39;results&#39;: [{&#39;name&#39;: &#39;Annual Agricultural&#39;, &#39;id&#39;: &#39;ANNAGR&#39;}, {&#39;name&#39;: &#39;Annual Degree Days&#39;, &#39;id&#39;: &#39;ANNDD&#39;}, {&#39;name&#39;: &#39;Annual Precipitation&#39;, &#39;id&#39;: &#39;ANNPRCP&#39;}, {&#39;name&#39;: &#39;Annual Temperature&#39;, &#39;id&#39;: &#39;ANNTEMP&#39;}, {&#39;name&#39;: &#39;Autumn Agricultural&#39;, &#39;id&#39;: &#39;AUAGR&#39;}, {&#39;name&#39;: &#39;Autumn Degree Days&#39;, &#39;id&#39;: &#39;AUDD&#39;}, {&#39;name&#39;: &#39;Autumn Precipitation&#39;, &#39;id&#39;: &#39;AUPRCP&#39;}, {&#39;name&#39;: &#39;Autumn Temperature&#39;, &#39;id&#39;: &#39;AUTEMP&#39;}, {&#39;name&#39;: &#39;Computed&#39;, &#39;id&#39;: &#39;COMP&#39;}, {&#39;name&#39;: &#39;Computed Agricultural&#39;, &#39;id&#39;: &#39;COMPAGR&#39;}, {&#39;name&#39;: &#39;Degree Days&#39;, &#39;id&#39;: &#39;DD&#39;}, {&#39;name&#39;: &#39;Dual-Pol Moments&#39;, &#39;id&#39;: &#39;DUALPOLMOMENT&#39;}, {&#39;name&#39;: &#39;Echo Tops&#39;, &#39;id&#39;: &#39;ECHOTOP&#39;}, {&#39;name&#39;: &#39;Evaporation&#39;, &#39;id&#39;: &#39;EVAP&#39;}, {&#39;name&#39;: &#39;Hydrometeor Type&#39;, &#39;id&#39;: &#39;HYDROMETEOR&#39;}, {&#39;name&#39;: &#39;Land&#39;, &#39;id&#39;: &#39;LAND&#39;}, {&#39;name&#39;: &#39;Miscellany&#39;, &#39;id&#39;: &#39;MISC&#39;}, {&#39;name&#39;: &#39;Other&#39;, &#39;id&#39;: &#39;OTHER&#39;}, {&#39;name&#39;: &#39;Overlay&#39;, &#39;id&#39;: &#39;OVERLAY&#39;}, {&#39;name&#39;: &#39;Precipitation&#39;, &#39;id&#39;: &#39;PRCP&#39;}, {&#39;name&#39;: &#39;Pressure&#39;, &#39;id&#39;: &#39;PRES&#39;}, {&#39;name&#39;: &#39;Reflectivity&#39;, &#39;id&#39;: &#39;REFLECTIVITY&#39;}, {&#39;name&#39;: &#39;Sky cover &amp; clouds&#39;, &#39;id&#39;: &#39;SKY&#39;}, {&#39;name&#39;: &#39;Spring Agricultural&#39;, &#39;id&#39;: &#39;SPAGR&#39;}, {&#39;name&#39;: &#39;Spring Degree Days&#39;, &#39;id&#39;: &#39;SPDD&#39;}, {&#39;name&#39;: &#39;Spring Precipitation&#39;, &#39;id&#39;: &#39;SPPRCP&#39;}, {&#39;name&#39;: &#39;Spring Temperature&#39;, &#39;id&#39;: &#39;SPTEMP&#39;}, {&#39;name&#39;: &#39;Summer Agricultural&#39;, &#39;id&#39;: &#39;SUAGR&#39;}, {&#39;name&#39;: &#39;Summer Degree Days&#39;, &#39;id&#39;: &#39;SUDD&#39;}, {&#39;name&#39;: &#39;Sunshine&#39;, &#39;id&#39;: &#39;SUN&#39;}, {&#39;name&#39;: &#39;Summer Precipitation&#39;, &#39;id&#39;: &#39;SUPRCP&#39;}, {&#39;name&#39;: &#39;Summer Temperature&#39;, &#39;id&#39;: &#39;SUTEMP&#39;}, {&#39;name&#39;: &#39;Air Temperature&#39;, &#39;id&#39;: &#39;TEMP&#39;}, {&#39;name&#39;: &#39;Velocity&#39;, &#39;id&#39;: &#39;VELOCITY&#39;}, {&#39;name&#39;: &#39;Vertical Integrated Liquid&#39;, &#39;id&#39;: &#39;VERTINTLIQUID&#39;}, {&#39;name&#39;: &#39;Water&#39;, &#39;id&#39;: &#39;WATER&#39;}, {&#39;name&#39;: &#39;Winter Agricultural&#39;, &#39;id&#39;: &#39;WIAGR&#39;}, {&#39;name&#39;: &#39;Winter Degree Days&#39;, &#39;id&#39;: &#39;WIDD&#39;}, {&#39;name&#39;: &#39;Wind&#39;, &#39;id&#39;: &#39;WIND&#39;}, {&#39;name&#39;: &#39;Winter Precipitation&#39;, &#39;id&#39;: &#39;WIPRCP&#39;}, {&#39;name&#39;: &#39;Winter Temperature&#39;, &#39;id&#39;: &#39;WITEMP&#39;}]}
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd_results</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[20]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>ANNAGR</td>
+      <td>Annual Agricultural</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>ANNDD</td>
+      <td>Annual Degree Days</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>ANNPRCP</td>
+      <td>Annual Precipitation</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>ANNTEMP</td>
+      <td>Annual Temperature</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>AUAGR</td>
+      <td>Autumn Agricultural</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>AUDD</td>
+      <td>Autumn Degree Days</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>AUPRCP</td>
+      <td>Autumn Precipitation</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>AUTEMP</td>
+      <td>Autumn Temperature</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>COMP</td>
+      <td>Computed</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>COMPAGR</td>
+      <td>Computed Agricultural</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>DD</td>
+      <td>Degree Days</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>DUALPOLMOMENT</td>
+      <td>Dual-Pol Moments</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>ECHOTOP</td>
+      <td>Echo Tops</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>EVAP</td>
+      <td>Evaporation</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>HYDROMETEOR</td>
+      <td>Hydrometeor Type</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>LAND</td>
+      <td>Land</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>MISC</td>
+      <td>Miscellany</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>OTHER</td>
+      <td>Other</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>OVERLAY</td>
+      <td>Overlay</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>PRCP</td>
+      <td>Precipitation</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>PRES</td>
+      <td>Pressure</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>REFLECTIVITY</td>
+      <td>Reflectivity</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>SKY</td>
+      <td>Sky cover &amp; clouds</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>SPAGR</td>
+      <td>Spring Agricultural</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>SPDD</td>
+      <td>Spring Degree Days</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>SPPRCP</td>
+      <td>Spring Precipitation</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>SPTEMP</td>
+      <td>Spring Temperature</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>SUAGR</td>
+      <td>Summer Agricultural</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>SUDD</td>
+      <td>Summer Degree Days</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>SUN</td>
+      <td>Sunshine</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>SUPRCP</td>
+      <td>Summer Precipitation</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>SUTEMP</td>
+      <td>Summer Temperature</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>TEMP</td>
+      <td>Air Temperature</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>VELOCITY</td>
+      <td>Velocity</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>VERTINTLIQUID</td>
+      <td>Vertical Integrated Liquid</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>WATER</td>
+      <td>Water</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>WIAGR</td>
+      <td>Winter Agricultural</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>WIDD</td>
+      <td>Winter Degree Days</td>
+    </tr>
+    <tr>
+      <th>38</th>
+      <td>WIND</td>
+      <td>Wind</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>WIPRCP</td>
+      <td>Winter Precipitation</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>WITEMP</td>
+      <td>Winter Temperature</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://www.ncdc.noaa.gov/cdo-web/api/v2/datatypes?datacategoryid=HYDROMETEOR&#39;</span>
+
+<span class="n">resp</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">header</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">pd_metadata</span> <span class="o">=</span> <span class="n">json_normalize</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;metadata&#39;</span><span class="p">])</span>
+<span class="c1">#     pd_metadata.columns = [&#39;Station ID&#39;, &#39;Latitude&#39;, &#39;Longitude&#39;, &#39;Location&#39;]</span>
+    <span class="n">pd_results</span> <span class="o">=</span> <span class="n">json_normalize</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;results&#39;</span><span class="p">])</span>
+    
+<span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;error&#39;</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Error in the api input&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>{&#39;metadata&#39;: {&#39;resultset&#39;: {&#39;count&#39;: 7, &#39;limit&#39;: 25, &#39;offset&#39;: 1}}, &#39;results&#39;: [{&#39;id&#39;: &#39;HHC&#39;, &#39;datacoverage&#39;: 0.95, &#39;name&#39;: &#39;Hybrid Hydrometeor Classification&#39;, &#39;maxdate&#39;: &#39;2017-01-08&#39;, &#39;mindate&#39;: &#39;2011-03-08&#39;}, {&#39;id&#39;: &#39;N0H&#39;, &#39;datacoverage&#39;: 0.95, &#39;name&#39;: &#39;Hydrometeor Classification (approx. elev.: 0.5 deg)&#39;, &#39;maxdate&#39;: &#39;2017-01-08&#39;, &#39;mindate&#39;: &#39;2011-03-08&#39;}, {&#39;id&#39;: &#39;N1H&#39;, &#39;datacoverage&#39;: 0.95, &#39;name&#39;: &#39;Hydrometeor Classification (approx. elev.: 1.5 deg)&#39;, &#39;maxdate&#39;: &#39;2017-01-08&#39;, &#39;mindate&#39;: &#39;2011-03-08&#39;}, {&#39;id&#39;: &#39;N2H&#39;, &#39;datacoverage&#39;: 0.95, &#39;name&#39;: &#39;Hydrometeor Classification (approx. elev.: 2.4 deg)&#39;, &#39;maxdate&#39;: &#39;2017-01-08&#39;, &#39;mindate&#39;: &#39;2011-03-08&#39;}, {&#39;id&#39;: &#39;N3H&#39;, &#39;datacoverage&#39;: 0.95, &#39;name&#39;: &#39;Hydrometeor Classification (approx. elev.: 3.4 deg)&#39;, &#39;maxdate&#39;: &#39;2017-01-08&#39;, &#39;mindate&#39;: &#39;2011-03-08&#39;}, {&#39;id&#39;: &#39;NAH&#39;, &#39;datacoverage&#39;: 0.95, &#39;name&#39;: &#39;Hydrometeor Classification (approx. elev.: 0.8 deg)&#39;, &#39;maxdate&#39;: &#39;2017-01-08&#39;, &#39;mindate&#39;: &#39;2011-03-08&#39;}, {&#39;id&#39;: &#39;NBH&#39;, &#39;datacoverage&#39;: 0.95, &#39;name&#39;: &#39;Hydrometeor Classification (approx. elev.: 1.8 deg)&#39;, &#39;maxdate&#39;: &#39;2017-01-08&#39;, &#39;mindate&#39;: &#39;2011-03-08&#39;}]}
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd_results</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[27]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>datacoverage</th>
+      <th>id</th>
+      <th>maxdate</th>
+      <th>mindate</th>
+      <th>name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.95</td>
+      <td>HHC</td>
+      <td>2017-01-08</td>
+      <td>2011-03-08</td>
+      <td>Hybrid Hydrometeor Classification</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.95</td>
+      <td>N0H</td>
+      <td>2017-01-08</td>
+      <td>2011-03-08</td>
+      <td>Hydrometeor Classification (approx. elev.: 0.5...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.95</td>
+      <td>N1H</td>
+      <td>2017-01-08</td>
+      <td>2011-03-08</td>
+      <td>Hydrometeor Classification (approx. elev.: 1.5...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.95</td>
+      <td>N2H</td>
+      <td>2017-01-08</td>
+      <td>2011-03-08</td>
+      <td>Hydrometeor Classification (approx. elev.: 2.4...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.95</td>
+      <td>N3H</td>
+      <td>2017-01-08</td>
+      <td>2011-03-08</td>
+      <td>Hydrometeor Classification (approx. elev.: 3.4...</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0.95</td>
+      <td>NAH</td>
+      <td>2017-01-08</td>
+      <td>2011-03-08</td>
+      <td>Hydrometeor Classification (approx. elev.: 0.8...</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>0.95</td>
+      <td>NBH</td>
+      <td>2017-01-08</td>
+      <td>2011-03-08</td>
+      <td>Hydrometeor Classification (approx. elev.: 1.8...</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Old version of NOAA API</span>
 
 <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://tidesandcurrents.noaa.gov/api/datagetter?&#39;</span>
 
@@ -11797,7 +12233,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">try</span><span class="p">:</span>
@@ -11817,10 +12253,10 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">resp</span><span class="o">.</span><span class="n">url</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd_metadata</span><span class="p">[</span><span class="s1">&#39;Station ID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
 </pre></div>
 
 </div>
@@ -11831,11 +12267,12 @@ div#notebook {
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[8]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[36]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&#39;https://tidesandcurrents.noaa.gov/api/datagetter?units=metric&amp;product=currents&amp;time_zone=gmt&amp;begin_date=20160101+10%3A00&amp;station=nb0301&amp;format=json&amp;application=web_services&amp;end_date=20160201+10%3A00&#39;</pre>
+<pre>nb0301    1
+Name: Station ID, dtype: int64</pre>
 </div>
 
 </div>
@@ -11846,10 +12283,10 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd_metadata</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd_data</span>
 </pre></div>
 
 </div>
@@ -11860,7 +12297,7 @@ div#notebook {
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[5]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[30]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
@@ -11868,22 +12305,443 @@ div#notebook {
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Station ID</th>
-      <th>Latitude</th>
-      <th>Longitude</th>
-      <th>Location</th>
+      <th>b</th>
+      <th>d</th>
+      <th>s</th>
+      <th>t</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>nb0301</td>
-      <td>41.5834</td>
-      <td>-71.3957</td>
-      <td>Quonset Point</td>
+      <td>6</td>
+      <td>237</td>
+      <td>5.600</td>
+      <td>2016-01-01 10:04</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>6</td>
+      <td>257</td>
+      <td>4.000</td>
+      <td>2016-01-01 10:10</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>6</td>
+      <td>269</td>
+      <td>2.500</td>
+      <td>2016-01-01 10:16</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>6</td>
+      <td>296</td>
+      <td>4.200</td>
+      <td>2016-01-01 10:22</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>6</td>
+      <td>315</td>
+      <td>3.700</td>
+      <td>2016-01-01 10:28</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>6</td>
+      <td>318</td>
+      <td>6.000</td>
+      <td>2016-01-01 10:34</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>6</td>
+      <td>316</td>
+      <td>5.100</td>
+      <td>2016-01-01 10:40</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>6</td>
+      <td>325</td>
+      <td>6.100</td>
+      <td>2016-01-01 10:46</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>6</td>
+      <td>333</td>
+      <td>7.000</td>
+      <td>2016-01-01 10:52</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>6</td>
+      <td>344</td>
+      <td>8.000</td>
+      <td>2016-01-01 10:58</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>6</td>
+      <td>340</td>
+      <td>10.100</td>
+      <td>2016-01-01 11:04</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>6</td>
+      <td>349</td>
+      <td>10.100</td>
+      <td>2016-01-01 11:10</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>6</td>
+      <td>356</td>
+      <td>10.300</td>
+      <td>2016-01-01 11:16</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>6</td>
+      <td>346</td>
+      <td>9.700</td>
+      <td>2016-01-01 11:22</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>6</td>
+      <td>347</td>
+      <td>11.500</td>
+      <td>2016-01-01 11:28</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>6</td>
+      <td>352</td>
+      <td>11.800</td>
+      <td>2016-01-01 11:34</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>6</td>
+      <td>356</td>
+      <td>10.000</td>
+      <td>2016-01-01 11:40</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>6</td>
+      <td>0</td>
+      <td>8.600</td>
+      <td>2016-01-01 11:46</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>6</td>
+      <td>11</td>
+      <td>7.500</td>
+      <td>2016-01-01 11:52</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>6</td>
+      <td>17</td>
+      <td>7.000</td>
+      <td>2016-01-01 11:58</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>6</td>
+      <td>14</td>
+      <td>6.400</td>
+      <td>2016-01-01 12:04</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>6</td>
+      <td>24</td>
+      <td>6.900</td>
+      <td>2016-01-01 12:10</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>6</td>
+      <td>33</td>
+      <td>7.600</td>
+      <td>2016-01-01 12:16</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>6</td>
+      <td>42</td>
+      <td>6.200</td>
+      <td>2016-01-01 12:22</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>6</td>
+      <td>44</td>
+      <td>7.400</td>
+      <td>2016-01-01 12:28</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>6</td>
+      <td>49</td>
+      <td>6.000</td>
+      <td>2016-01-01 12:34</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>6</td>
+      <td>47</td>
+      <td>6.600</td>
+      <td>2016-01-01 12:40</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>6</td>
+      <td>37</td>
+      <td>5.800</td>
+      <td>2016-01-01 12:46</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>6</td>
+      <td>19</td>
+      <td>6.400</td>
+      <td>2016-01-01 12:52</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>6</td>
+      <td>11</td>
+      <td>5.000</td>
+      <td>2016-01-01 12:58</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>7078</th>
+      <td>6</td>
+      <td>181</td>
+      <td>10.500</td>
+      <td>2016-02-01 07:04</td>
+    </tr>
+    <tr>
+      <th>7079</th>
+      <td>6</td>
+      <td>187</td>
+      <td>11.400</td>
+      <td>2016-02-01 07:10</td>
+    </tr>
+    <tr>
+      <th>7080</th>
+      <td>6</td>
+      <td>187</td>
+      <td>12.300</td>
+      <td>2016-02-01 07:16</td>
+    </tr>
+    <tr>
+      <th>7081</th>
+      <td>6</td>
+      <td>191</td>
+      <td>12.100</td>
+      <td>2016-02-01 07:22</td>
+    </tr>
+    <tr>
+      <th>7082</th>
+      <td>6</td>
+      <td>189</td>
+      <td>13.700</td>
+      <td>2016-02-01 07:28</td>
+    </tr>
+    <tr>
+      <th>7083</th>
+      <td>6</td>
+      <td>194</td>
+      <td>14.100</td>
+      <td>2016-02-01 07:34</td>
+    </tr>
+    <tr>
+      <th>7084</th>
+      <td>6</td>
+      <td>192</td>
+      <td>15.400</td>
+      <td>2016-02-01 07:40</td>
+    </tr>
+    <tr>
+      <th>7085</th>
+      <td>6</td>
+      <td>195</td>
+      <td>16.800</td>
+      <td>2016-02-01 07:46</td>
+    </tr>
+    <tr>
+      <th>7086</th>
+      <td>6</td>
+      <td>197</td>
+      <td>17.100</td>
+      <td>2016-02-01 07:52</td>
+    </tr>
+    <tr>
+      <th>7087</th>
+      <td>6</td>
+      <td>197</td>
+      <td>17.200</td>
+      <td>2016-02-01 07:58</td>
+    </tr>
+    <tr>
+      <th>7088</th>
+      <td>6</td>
+      <td>199</td>
+      <td>19.300</td>
+      <td>2016-02-01 08:04</td>
+    </tr>
+    <tr>
+      <th>7089</th>
+      <td>6</td>
+      <td>197</td>
+      <td>21.900</td>
+      <td>2016-02-01 08:10</td>
+    </tr>
+    <tr>
+      <th>7090</th>
+      <td>6</td>
+      <td>199</td>
+      <td>22.900</td>
+      <td>2016-02-01 08:16</td>
+    </tr>
+    <tr>
+      <th>7091</th>
+      <td>6</td>
+      <td>200</td>
+      <td>22.600</td>
+      <td>2016-02-01 08:22</td>
+    </tr>
+    <tr>
+      <th>7092</th>
+      <td>6</td>
+      <td>196</td>
+      <td>22.200</td>
+      <td>2016-02-01 08:28</td>
+    </tr>
+    <tr>
+      <th>7093</th>
+      <td>6</td>
+      <td>197</td>
+      <td>20.800</td>
+      <td>2016-02-01 08:34</td>
+    </tr>
+    <tr>
+      <th>7094</th>
+      <td>6</td>
+      <td>200</td>
+      <td>20.400</td>
+      <td>2016-02-01 08:40</td>
+    </tr>
+    <tr>
+      <th>7095</th>
+      <td>6</td>
+      <td>200</td>
+      <td>21.400</td>
+      <td>2016-02-01 08:46</td>
+    </tr>
+    <tr>
+      <th>7096</th>
+      <td>6</td>
+      <td>203</td>
+      <td>19.700</td>
+      <td>2016-02-01 08:52</td>
+    </tr>
+    <tr>
+      <th>7097</th>
+      <td>6</td>
+      <td>198</td>
+      <td>19.700</td>
+      <td>2016-02-01 08:58</td>
+    </tr>
+    <tr>
+      <th>7098</th>
+      <td>6</td>
+      <td>199</td>
+      <td>18.900</td>
+      <td>2016-02-01 09:04</td>
+    </tr>
+    <tr>
+      <th>7099</th>
+      <td>6</td>
+      <td>198</td>
+      <td>19.300</td>
+      <td>2016-02-01 09:10</td>
+    </tr>
+    <tr>
+      <th>7100</th>
+      <td>6</td>
+      <td>196</td>
+      <td>19.500</td>
+      <td>2016-02-01 09:16</td>
+    </tr>
+    <tr>
+      <th>7101</th>
+      <td>6</td>
+      <td>194</td>
+      <td>19.500</td>
+      <td>2016-02-01 09:22</td>
+    </tr>
+    <tr>
+      <th>7102</th>
+      <td>6</td>
+      <td>196</td>
+      <td>20.600</td>
+      <td>2016-02-01 09:28</td>
+    </tr>
+    <tr>
+      <th>7103</th>
+      <td>6</td>
+      <td>193</td>
+      <td>20.600</td>
+      <td>2016-02-01 09:34</td>
+    </tr>
+    <tr>
+      <th>7104</th>
+      <td>6</td>
+      <td>198</td>
+      <td>19.500</td>
+      <td>2016-02-01 09:40</td>
+    </tr>
+    <tr>
+      <th>7105</th>
+      <td>6</td>
+      <td>194</td>
+      <td>19.500</td>
+      <td>2016-02-01 09:46</td>
+    </tr>
+    <tr>
+      <th>7106</th>
+      <td>6</td>
+      <td>192</td>
+      <td>19.500</td>
+      <td>2016-02-01 09:52</td>
+    </tr>
+    <tr>
+      <th>7107</th>
+      <td>6</td>
+      <td>191</td>
+      <td>18.300</td>
+      <td>2016-02-01 09:58</td>
     </tr>
   </tbody>
 </table>
+<p>7108 rows × 4 columns</p>
 </div>
 </div>
 
@@ -11895,10 +12753,10 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd_data</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="o">!=</span><span class="mi">6</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span> 
 </pre></div>
 
 </div>
@@ -11913,72 +12771,18 @@ div#notebook {
 <div class="output_subarea output_text output_error">
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">KeyError</span>                                  Traceback (most recent call last)
-<span class="ansi-green-fg">/Users/Cain/anaconda2/envs/py3/lib/python3.5/site-packages/pandas/indexes/base.py</span> in <span class="ansi-cyan-fg">get_loc</span><span class="ansi-blue-fg">(self, key, method, tolerance)</span>
-<span class="ansi-green-intense-fg ansi-bold">   2103</span>             <span class="ansi-green-fg">try</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">-&gt; 2104</span><span class="ansi-red-fg">                 </span><span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">.</span>_engine<span class="ansi-blue-fg">.</span>get_loc<span class="ansi-blue-fg">(</span>key<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   2105</span>             <span class="ansi-green-fg">except</span> KeyError<span class="ansi-blue-fg">:</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-34-1ff9d9ac1f35&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>pd_data<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;b&#39;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">~</span>pd_data<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;b&#39;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">==</span><span class="ansi-cyan-fg">6</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">.</span>value_counts<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
 
-<span class="ansi-green-fg">pandas/index.pyx</span> in <span class="ansi-cyan-fg">pandas.index.IndexEngine.get_loc (pandas/index.c:4160)</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">/Users/Cain/anaconda2/envs/py3/lib/python3.5/site-packages/pandas/core/generic.py</span> in <span class="ansi-cyan-fg">__invert__</span><span class="ansi-blue-fg">(self)</span>
+<span class="ansi-green-intense-fg ansi-bold">    805</span>     <span class="ansi-green-fg">def</span> __invert__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    806</span>         <span class="ansi-green-fg">try</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 807</span><span class="ansi-red-fg">             </span>arr <span class="ansi-blue-fg">=</span> operator<span class="ansi-blue-fg">.</span>inv<span class="ansi-blue-fg">(</span>_values_from_object<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    808</span>             <span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">.</span>__array_wrap__<span class="ansi-blue-fg">(</span>arr<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    809</span>         <span class="ansi-green-fg">except</span><span class="ansi-blue-fg">:</span>
 
-<span class="ansi-green-fg">pandas/index.pyx</span> in <span class="ansi-cyan-fg">pandas.index.IndexEngine.get_loc (pandas/index.c:4024)</span><span class="ansi-blue-fg">()</span>
-
-<span class="ansi-green-fg">pandas/src/hashtable_class_helper.pxi</span> in <span class="ansi-cyan-fg">pandas.hashtable.PyObjectHashTable.get_item (pandas/hashtable.c:13161)</span><span class="ansi-blue-fg">()</span>
-
-<span class="ansi-green-fg">pandas/src/hashtable_class_helper.pxi</span> in <span class="ansi-cyan-fg">pandas.hashtable.PyObjectHashTable.get_item (pandas/hashtable.c:13115)</span><span class="ansi-blue-fg">()</span>
-
-<span class="ansi-red-fg">KeyError</span>: True
-
-During handling of the above exception, another exception occurred:
-
-<span class="ansi-red-fg">KeyError</span>                                  Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-7-eff03d7b49da&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>pd_data<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;b&#39;</span><span class="ansi-blue-fg">!=</span><span class="ansi-cyan-fg">6</span><span class="ansi-blue-fg">]</span>
-
-<span class="ansi-green-fg">/Users/Cain/anaconda2/envs/py3/lib/python3.5/site-packages/pandas/core/frame.py</span> in <span class="ansi-cyan-fg">__getitem__</span><span class="ansi-blue-fg">(self, key)</span>
-<span class="ansi-green-intense-fg ansi-bold">   2055</span>             <span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">.</span>_getitem_multilevel<span class="ansi-blue-fg">(</span>key<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   2056</span>         <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">-&gt; 2057</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">.</span>_getitem_column<span class="ansi-blue-fg">(</span>key<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   2058</span> 
-<span class="ansi-green-intense-fg ansi-bold">   2059</span>     <span class="ansi-green-fg">def</span> _getitem_column<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> key<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-
-<span class="ansi-green-fg">/Users/Cain/anaconda2/envs/py3/lib/python3.5/site-packages/pandas/core/frame.py</span> in <span class="ansi-cyan-fg">_getitem_column</span><span class="ansi-blue-fg">(self, key)</span>
-<span class="ansi-green-intense-fg ansi-bold">   2062</span>         <span class="ansi-red-fg"># get column</span>
-<span class="ansi-green-intense-fg ansi-bold">   2063</span>         <span class="ansi-green-fg">if</span> self<span class="ansi-blue-fg">.</span>columns<span class="ansi-blue-fg">.</span>is_unique<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">-&gt; 2064</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">.</span>_get_item_cache<span class="ansi-blue-fg">(</span>key<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   2065</span> 
-<span class="ansi-green-intense-fg ansi-bold">   2066</span>         <span class="ansi-red-fg"># duplicate columns &amp; possible reduce dimensionality</span>
-
-<span class="ansi-green-fg">/Users/Cain/anaconda2/envs/py3/lib/python3.5/site-packages/pandas/core/generic.py</span> in <span class="ansi-cyan-fg">_get_item_cache</span><span class="ansi-blue-fg">(self, item)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1384</span>         res <span class="ansi-blue-fg">=</span> cache<span class="ansi-blue-fg">.</span>get<span class="ansi-blue-fg">(</span>item<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1385</span>         <span class="ansi-green-fg">if</span> res <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">-&gt; 1386</span><span class="ansi-red-fg">             </span>values <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>_data<span class="ansi-blue-fg">.</span>get<span class="ansi-blue-fg">(</span>item<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1387</span>             res <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>_box_item_values<span class="ansi-blue-fg">(</span>item<span class="ansi-blue-fg">,</span> values<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1388</span>             cache<span class="ansi-blue-fg">[</span>item<span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">=</span> res
-
-<span class="ansi-green-fg">/Users/Cain/anaconda2/envs/py3/lib/python3.5/site-packages/pandas/core/internals.py</span> in <span class="ansi-cyan-fg">get</span><span class="ansi-blue-fg">(self, item, fastpath)</span>
-<span class="ansi-green-intense-fg ansi-bold">   3518</span> 
-<span class="ansi-green-intense-fg ansi-bold">   3519</span>             <span class="ansi-green-fg">if</span> <span class="ansi-green-fg">not</span> isnull<span class="ansi-blue-fg">(</span>item<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">-&gt; 3520</span><span class="ansi-red-fg">                 </span>loc <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>items<span class="ansi-blue-fg">.</span>get_loc<span class="ansi-blue-fg">(</span>item<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   3521</span>             <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">   3522</span>                 indexer <span class="ansi-blue-fg">=</span> np<span class="ansi-blue-fg">.</span>arange<span class="ansi-blue-fg">(</span>len<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>items<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">[</span>isnull<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>items<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">]</span>
-
-<span class="ansi-green-fg">/Users/Cain/anaconda2/envs/py3/lib/python3.5/site-packages/pandas/indexes/base.py</span> in <span class="ansi-cyan-fg">get_loc</span><span class="ansi-blue-fg">(self, key, method, tolerance)</span>
-<span class="ansi-green-intense-fg ansi-bold">   2104</span>                 <span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">.</span>_engine<span class="ansi-blue-fg">.</span>get_loc<span class="ansi-blue-fg">(</span>key<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   2105</span>             <span class="ansi-green-fg">except</span> KeyError<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">-&gt; 2106</span><span class="ansi-red-fg">                 </span><span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">.</span>_engine<span class="ansi-blue-fg">.</span>get_loc<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>_maybe_cast_indexer<span class="ansi-blue-fg">(</span>key<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   2107</span> 
-<span class="ansi-green-intense-fg ansi-bold">   2108</span>         indexer <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>get_indexer<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">[</span>key<span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">,</span> method<span class="ansi-blue-fg">=</span>method<span class="ansi-blue-fg">,</span> tolerance<span class="ansi-blue-fg">=</span>tolerance<span class="ansi-blue-fg">)</span>
-
-<span class="ansi-green-fg">pandas/index.pyx</span> in <span class="ansi-cyan-fg">pandas.index.IndexEngine.get_loc (pandas/index.c:4160)</span><span class="ansi-blue-fg">()</span>
-
-<span class="ansi-green-fg">pandas/index.pyx</span> in <span class="ansi-cyan-fg">pandas.index.IndexEngine.get_loc (pandas/index.c:4024)</span><span class="ansi-blue-fg">()</span>
-
-<span class="ansi-green-fg">pandas/src/hashtable_class_helper.pxi</span> in <span class="ansi-cyan-fg">pandas.hashtable.PyObjectHashTable.get_item (pandas/hashtable.c:13161)</span><span class="ansi-blue-fg">()</span>
-
-<span class="ansi-green-fg">pandas/src/hashtable_class_helper.pxi</span> in <span class="ansi-cyan-fg">pandas.hashtable.PyObjectHashTable.get_item (pandas/hashtable.c:13115)</span><span class="ansi-blue-fg">()</span>
-
-<span class="ansi-red-fg">KeyError</span>: True</pre>
+<span class="ansi-red-fg">TypeError</span>: bad operand type for unary ~: &#39;str&#39;</pre>
 </div>
 </div>
 
