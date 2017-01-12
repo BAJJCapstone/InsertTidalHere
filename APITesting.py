@@ -1,7 +1,7 @@
 
 # coding: utf-8
 
-# In[28]:
+# In[3]:
 
 ## Simple API call to NOAA
 
@@ -13,9 +13,9 @@ from pandas.io.json import json_normalize
 url = 'https://tidesandcurrents.noaa.gov/api/datagetter?'
 
 params = {
-    'begin_date':'20130101 10:00',
-    'end_date':'20130201 10:24',
-    'station':'8454000',
+    'begin_date':'20160101 10:00',
+    'end_date':'20160201 10:00',
+    'station':'nb0301',
     'product':'currents',
      #'datum':'mllw',
     'units':'metric',
@@ -28,7 +28,7 @@ resp = requests.get(url=url, params=params)
 print(resp.json())
 
 
-# In[24]:
+# In[4]:
 
 try:
     pd_metadata = json_normalize(resp.json()['metadata'])
@@ -40,14 +40,19 @@ except KeyError:
     print('Error in the api input')
 
 
-# In[20]:
+# In[8]:
+
+resp.url
+
+
+# In[5]:
 
 pd_metadata
 
 
-# In[21]:
+# In[7]:
 
-pd_data
+pd_data['b'!=6]
 
 
 # In[ ]:
