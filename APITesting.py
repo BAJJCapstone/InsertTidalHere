@@ -20,7 +20,7 @@ print(resp.json())
 
 try:
     pd_metadata = json_normalize(resp.json()['metadata'])
-#     pd_metadata.columns = ['Station ID', 'Latitude', 'Longitude', 'Location']
+    # pd_metadata.columns = ['Station ID', 'Latitude', 'Longitude', 'Location']
     pd_results = json_normalize(resp.json()['results'])
     
 except KeyError:
@@ -97,11 +97,6 @@ pd_metadata['Station ID'].value_counts()
 # In[30]:
 
 pd_data
-
-
-# In[34]:
-
-
 
 
 # In[ ]:

@@ -11776,7 +11776,7 @@ div#notebook {
 
 <span class="k">try</span><span class="p">:</span>
     <span class="n">pd_metadata</span> <span class="o">=</span> <span class="n">json_normalize</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;metadata&#39;</span><span class="p">])</span>
-<span class="c1">#     pd_metadata.columns = [&#39;Station ID&#39;, &#39;Latitude&#39;, &#39;Longitude&#39;, &#39;Location&#39;]</span>
+    <span class="c1"># pd_metadata.columns = [&#39;Station ID&#39;, &#39;Latitude&#39;, &#39;Longitude&#39;, &#39;Location&#39;]</span>
     <span class="n">pd_results</span> <span class="o">=</span> <span class="n">json_normalize</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;results&#39;</span><span class="p">])</span>
     
 <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
@@ -12745,45 +12745,6 @@ Name: Station ID, dtype: int64</pre>
 </div>
 </div>
 
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[34]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-34-1ff9d9ac1f35&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>pd_data<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;b&#39;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">~</span>pd_data<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;b&#39;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">==</span><span class="ansi-cyan-fg">6</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">.</span>value_counts<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
-
-<span class="ansi-green-fg">/Users/Cain/anaconda2/envs/py3/lib/python3.5/site-packages/pandas/core/generic.py</span> in <span class="ansi-cyan-fg">__invert__</span><span class="ansi-blue-fg">(self)</span>
-<span class="ansi-green-intense-fg ansi-bold">    805</span>     <span class="ansi-green-fg">def</span> __invert__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    806</span>         <span class="ansi-green-fg">try</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 807</span><span class="ansi-red-fg">             </span>arr <span class="ansi-blue-fg">=</span> operator<span class="ansi-blue-fg">.</span>inv<span class="ansi-blue-fg">(</span>_values_from_object<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    808</span>             <span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">.</span>__array_wrap__<span class="ansi-blue-fg">(</span>arr<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    809</span>         <span class="ansi-green-fg">except</span><span class="ansi-blue-fg">:</span>
-
-<span class="ansi-red-fg">TypeError</span>: bad operand type for unary ~: &#39;str&#39;</pre>
-</div>
 </div>
 
 </div>
