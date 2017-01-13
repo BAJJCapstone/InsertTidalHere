@@ -12114,7 +12114,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="prompt input_prompt">In&nbsp;[58]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
@@ -12122,8 +12122,7 @@ div#notebook {
 <span class="kn">import</span> <span class="nn">datetime</span>
 
 <span class="k">def</span> <span class="nf">datesToInt</span><span class="p">(</span><span class="n">date</span><span class="p">):</span>
-    
-    <span class="k">if</span> <span class="n">date</span> <span class="o">=</span> <span class="s1">&#39;present&#39;</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">date</span> <span class="o">==</span> <span class="s1">&#39;present&#39;</span><span class="p">:</span>
         <span class="n">date_string</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%x</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">now</span><span class="o">.</span><span class="n">year</span><span class="p">,</span> <span class="n">now</span><span class="o">.</span><span class="n">month</span><span class="p">,</span> <span class="n">now</span><span class="o">.</span><span class="n">day</span>
@@ -12139,14 +12138,115 @@ div#notebook {
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[52]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">pd_stations</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">20</span><span class="p">:</span>
+        <span class="k">break</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
 <div class="output_wrapper">
 <div class="output">
 
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>1978822
-1979105
+<pre>ABBOTSMEADOW,NJ
+ID                           8537774
+dates    Aug 22, 1978 - Jan 05, 1979
+Name: ABBOTSMEADOW,NJ, dtype: object
+ABSECON,ABSECONCREEK,NJ
+ID                           8534540
+dates    May 19, 1977 - Dec 12, 1978
+Name: ABSECON,ABSECONCREEK,NJ, dtype: object
+ABSECONCHANNAL,NJ
+ID                           8534638
+dates    May 19, 1977 - Nov 09, 1978
+Name: ABSECONCHANNAL,NJ, dtype: object
+ADAMSKEY,FL
+ID                           8723453
+dates    Jun 24, 1974 - Oct 23, 1987
+Name: ADAMSKEY,FL, dtype: object
+ADAMSPOINT,DURHAM,NH
+ID                           8422272
+dates    Jun 25, 1975 - Sep 03, 1975
+Name: ADAMSPOINT,DURHAM,NH, dtype: object
+ADDISONBAY,FL
+ID                           8724992
+dates    Apr 27, 1978 - Nov 16, 1978
+Name: ADDISONBAY,FL, dtype: object
+AGNESCOVE,AK
+ID                           9455120
+dates    Aug 15, 2001 - Sep 20, 2001
+Name: AGNESCOVE,AK, dtype: object
+AGUCHIKISLAND,KUKAKBAY,AK
+ID                           9456901
+dates    May 23, 2000 - Jun 26, 2000
+Name: AGUCHIKISLAND,KUKAKBAY,AK, dtype: object
+AIALIKBAY,NORTHEND,AK
+ID                           9455145
+dates    Jun 29, 2000 - Aug 26, 2000
+Name: AIALIKBAY,NORTHEND,AK, dtype: object
+AIALIKSILL,AIALIKBAY,AK
+ID                           9455146
+dates    Jun 29, 2000 - Nov 11, 2000
+Name: AIALIKSILL,AIALIKBAY,AK, dtype: object
+AIRYHALL,ASHEPOORIVER,SC
+ID                           8666749
+dates    Apr 22, 1981 - Nov 09, 1981
+Name: AIRYHALL,ASHEPOORIVER,SC, dtype: object
+ALAFIARIVERNORTH,FL
+ID                           8726614
+dates    Dec 09, 1976 - May 02, 1977
+Name: ALAFIARIVERNORTH,FL, dtype: object
+ALAMEDACREEK,SANFRANCISCOBAY,CA
+ID                           9414632
+dates    Nov 30, 1976 - Apr 14, 1977
+Name: ALAMEDACREEK,SANFRANCISCOBAY,CA, dtype: object
+ALAMEDANAS,NAVYFUELPIER,CA
+ID                           9414767
+dates    Jul 29, 1994 - Sep 08, 1994
+Name: ALAMEDANAS,NAVYFUELPIER,CA, dtype: object
+ALBANY,HUDSONRIVER,NY
+ID                           8518995
+dates    Oct 02, 1981 - Jul 25, 1987
+Name: ALBANY,HUDSONRIVER,NY, dtype: object
+ALLANTON,EASTBAY,FL
+ID                           8729015
+dates    Jan 13, 1976 - Oct 29, 1991
+Name: ALLANTON,EASTBAY,FL, dtype: object
+ALLAQUAYBAYOU,FL
+ID                           8729364
+dates    Jun 22, 1977 - Dec 27, 1977
+Name: ALLAQUAYBAYOU,FL, dtype: object
+ALLENHURST,HAULOVERCANAL,FL
+ID                           8721374
+dates    Feb 11, 1966 - May 21, 1983
+Name: ALLENHURST,HAULOVERCANAL,FL, dtype: object
+ALLIANCE,MISSISSIPPIRIVER,LA
+ID                           8761727
+dates    May 15, 1996 - Jan 19, 1999
+Name: ALLIANCE,MISSISSIPPIRIVER,LA, dtype: object
+ALLIGATORBAYOU,PANAMACITY,FL
+ID                           8729152
+dates    Mar 21, 1956 - Oct 31, 1991
+Name: ALLIGATORBAYOU,PANAMACITY,FL, dtype: object
+ALLIGATORHARBOR,FL
+ID                           8728255
+dates    Mar 18, 1976 - Sep 22, 1976
+Name: ALLIGATORHARBOR,FL, dtype: object
 </pre>
 </div>
 </div>
@@ -12188,11 +12288,11 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[40]:</div>
+<div class="prompt input_prompt">In&nbsp;[76]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">retrieveLifetimeData</span><span class="p">(</span><span class="n">pandas_thing</span><span class="p">):</span>
-    <span class="n">date_range_string</span> <span class="o">=</span> <span class="n">pandas_thing</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span>
+    <span class="n">date_range_string</span> <span class="o">=</span> <span class="n">pandas_thing</span><span class="p">[</span><span class="s1">&#39;dates&#39;</span><span class="p">]</span>
     <span class="n">station_id</span> <span class="o">=</span> <span class="n">pandas_thing</span><span class="p">[</span><span class="s1">&#39;ID&#39;</span><span class="p">]</span>
 
     <span class="n">dates</span> <span class="o">=</span> <span class="n">date_range_string</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
@@ -12200,18 +12300,18 @@ div#notebook {
     <span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span> <span class="o">=</span> <span class="n">datesToInt</span><span class="p">(</span><span class="n">dates</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 
     <span class="n">end_year</span><span class="p">,</span> <span class="n">end_month</span><span class="p">,</span> <span class="n">end_day</span> <span class="o">=</span> <span class="n">datesToInt</span><span class="p">(</span><span class="n">dates</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-
-    <span class="n">pd_metadata</span> <span class="o">=</span> <span class="n">json_normalize</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;metadata&#39;</span><span class="p">])</span>
-    <span class="n">pd_metadata</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Station ID&#39;</span><span class="p">,</span> <span class="s1">&#39;Latitude&#39;</span><span class="p">,</span> <span class="s1">&#39;Longitude&#39;</span><span class="p">,</span> <span class="s1">&#39;Location&#39;</span><span class="p">]</span>
-    <span class="n">pd_data</span> <span class="o">=</span> <span class="n">json_normalize</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;data&#39;</span><span class="p">])</span>
+    <span class="n">this_is_silly</span> <span class="o">=</span> <span class="n">end_year</span><span class="o">*</span><span class="mi">10000</span><span class="o">+</span><span class="n">end_month</span><span class="o">*</span><span class="mi">100</span><span class="o">+</span><span class="n">end_day</span>
+<span class="c1">#     pd_metadata = json_normalize(resp.json()[&#39;metadata&#39;])</span>
+<span class="c1">#     pd_metadata.columns = [&#39;Station ID&#39;, &#39;Latitude&#39;, &#39;Longitude&#39;, &#39;Location&#39;]</span>
+<span class="c1">#     pd_data = json_normalize(resp.json()[&#39;data&#39;])</span>
     <span class="n">first_loop</span> <span class="o">=</span> <span class="kc">True</span>
     <span class="k">while</span> <span class="mi">1</span><span class="p">:</span>
         <span class="n">end_loop</span> <span class="o">=</span> <span class="kc">False</span>
-        <span class="k">if</span> <span class="n">year</span> <span class="o">&lt;</span> <span class="n">end_year</span> <span class="ow">and</span> <span class="n">month</span><span class="o">+</span><span class="mi">1</span> <span class="o">&lt;</span> <span class="n">end_month</span> <span class="ow">and</span> <span class="n">day</span> <span class="o">&lt;</span> <span class="n">end_day</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">year</span><span class="o">*</span><span class="mi">10000</span><span class="o">+</span><span class="p">(</span><span class="n">month</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="o">+</span><span class="n">end_day</span> <span class="o">&lt;</span> <span class="n">this_is_silly</span><span class="p">:</span>
             <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://tidesandcurrents.noaa.gov/api/datagetter?&#39;</span>
             <span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
-                <span class="s1">&#39;begin_date&#39;</span><span class="p">:</span> <span class="s1">&#39;</span><span class="si">{0}</span><span class="s1">/</span><span class="si">{1}</span><span class="s1">/</span><span class="si">{2}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="p">,</span> <span class="n">year</span><span class="p">),</span>
-                <span class="s1">&#39;end_date&#39;</span><span class="p">:</span><span class="s1">&#39;</span><span class="si">{0}</span><span class="s1">/</span><span class="si">{1}</span><span class="s1">/</span><span class="si">{2}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">month</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">day</span><span class="p">,</span> <span class="n">year</span><span class="p">),</span>
+                <span class="s1">&#39;begin_date&#39;</span><span class="p">:</span> <span class="s1">&#39;</span><span class="si">{:02d}</span><span class="s1">/</span><span class="si">{:02d}</span><span class="s1">/</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="p">,</span> <span class="n">year</span><span class="p">),</span>
+                <span class="s1">&#39;end_date&#39;</span><span class="p">:</span><span class="s1">&#39;</span><span class="si">{:02d}</span><span class="s1">/</span><span class="si">{:02d}</span><span class="s1">/</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">month</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">day</span><span class="p">,</span> <span class="n">year</span><span class="p">),</span>
                 <span class="s1">&#39;station&#39;</span><span class="p">:</span><span class="n">station_id</span><span class="p">,</span>
                 <span class="s1">&#39;product&#39;</span><span class="p">:</span><span class="s1">&#39;water_level&#39;</span><span class="p">,</span>
                 <span class="s1">&#39;datum&#39;</span><span class="p">:</span><span class="s1">&#39;mllw&#39;</span><span class="p">,</span>
@@ -12223,8 +12323,8 @@ div#notebook {
         <span class="k">else</span><span class="p">:</span>
             <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://tidesandcurrents.noaa.gov/api/datagetter?&#39;</span>
             <span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
-                <span class="s1">&#39;begin_date&#39;</span><span class="p">:</span> <span class="s1">&#39;</span><span class="si">{0}</span><span class="s1">/</span><span class="si">{1}</span><span class="s1">/</span><span class="si">{2}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="p">,</span> <span class="n">year</span><span class="p">),</span>
-                <span class="s1">&#39;end_date&#39;</span><span class="p">:</span><span class="s1">&#39;</span><span class="si">{0}</span><span class="s1">/</span><span class="si">{1}</span><span class="s1">/</span><span class="si">{2}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">end_month</span><span class="p">,</span> <span class="n">end_day</span><span class="p">,</span> <span class="n">end_year</span><span class="p">),</span>
+                <span class="s1">&#39;begin_date&#39;</span><span class="p">:</span> <span class="s1">&#39;</span><span class="si">{:02d}</span><span class="s1">/</span><span class="si">{:02d}</span><span class="s1">/</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="p">,</span> <span class="n">year</span><span class="p">),</span>
+                <span class="s1">&#39;end_date&#39;</span><span class="p">:</span><span class="s1">&#39;</span><span class="si">{:02d}</span><span class="s1">/</span><span class="si">{:02d}</span><span class="s1">/</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">end_month</span><span class="p">,</span> <span class="n">end_day</span><span class="p">,</span> <span class="n">end_year</span><span class="p">),</span>
                 <span class="s1">&#39;station&#39;</span><span class="p">:</span><span class="n">station_id</span><span class="p">,</span>
                 <span class="s1">&#39;product&#39;</span><span class="p">:</span><span class="s1">&#39;water_level&#39;</span><span class="p">,</span>
                 <span class="s1">&#39;datum&#39;</span><span class="p">:</span><span class="s1">&#39;mllw&#39;</span><span class="p">,</span>
@@ -12236,13 +12336,19 @@ div#notebook {
             <span class="n">end_loop</span> <span class="o">=</span> <span class="kc">True</span>
         <span class="n">resp</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">first_loop</span><span class="p">:</span>
-            <span class="n">pd_metadata</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;metadata&#39;</span><span class="p">])</span>
-            <span class="n">first_loop</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="k">try</span><span class="p">:</span>
+                
+                <span class="n">metadata_dict</span> <span class="o">=</span> <span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;metadata&#39;</span><span class="p">]</span>
+                <span class="n">pd_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;data&#39;</span><span class="p">])</span>
+            <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;error&#39;</span><span class="p">])</span>
+                <span class="k">return</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
+            
         <span class="n">pd_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;data&#39;</span><span class="p">])</span>
         
         <span class="n">month</span> <span class="o">+=</span> <span class="mi">1</span>
         <span class="k">if</span> <span class="n">end_loop</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">pd_metadata</span><span class="p">,</span> <span class="n">pd_data</span>
+            <span class="k">return</span> <span class="n">metadata_dict</span><span class="p">,</span> <span class="n">pd_data</span>
 </pre></div>
 
 </div>
@@ -12252,11 +12358,14 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[46]:</div>
+<div class="prompt input_prompt">In&nbsp;[77]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd_item</span> <span class="o">=</span> <span class="n">pd_stations</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span>
-<span class="n">retrieveLifetimeData</span><span class="p">(</span><span class="n">pd_item</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">pd_stations</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="n">metadata_dict</span><span class="p">,</span> <span class="n">pd_data</span> <span class="o">=</span> <span class="n">retrieveLifetimeData</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">pd_metadata</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">break</span>
+<span class="n">pd_data</span>
 </pre></div>
 
 </div>
@@ -12268,36 +12377,58 @@ div#notebook {
 
 
 <div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>{&#39;message&#39;: &#39; Wrong Datum: No valid datum value for MLLW ***station=8537774&#39;}
+{&#39;message&#39;: &#39;No data was found. This product may not be offered at this station at the requested time.&#39;}
+{&#39;message&#39;: &#39; Wrong Datum: No valid datum value for MLLW ***station=8534638&#39;}
+{&#39;message&#39;: &#39;No data was found. This product may not be offered at this station at the requested time.&#39;}
+{&#39;message&#39;: &#39; Wrong Datum: No valid datum value for MLLW ***station=8422272&#39;}
+{&#39;message&#39;: &#39;No data was found. This product may not be offered at this station at the requested time.&#39;}
+{&#39;message&#39;: &#39; Range Limit Exceeded: The size limit for data retrieval for this product is 31 days &#39;}
+{&#39;message&#39;: &#39; Range Limit Exceeded: The size limit for data retrieval for this product is 31 days &#39;}
+{&#39;message&#39;: &#39;No data was found. This product may not be offered at this station at the requested time.&#39;}
+{&#39;message&#39;: &#39; Wrong Date: Please submit a valid date&#39;}
+{&#39;message&#39;: &#39;No data was found. This product may not be offered at this station at the requested time.&#39;}
+{&#39;message&#39;: &#39;No data was found. This product may not be offered at this station at the requested time.&#39;}
+{&#39;message&#39;: &#39;No data was found. This product may not be offered at this station at the requested time.&#39;}
+{&#39;message&#39;: &#39;No data was found. This product may not be offered at this station at the requested time.&#39;}
+{&#39;message&#39;: &#39; The supported Datum values are: MSL, NAVD&#39;}
+{&#39;message&#39;: &#39; Wrong Datum: No valid datum value for MLLW ***station=8761727&#39;}
+{&#39;message&#39;: &#39;No data was found. This product may not be offered at this station at the requested time.&#39;}
+{&#39;message&#39;: &#39;No data was found. This product may not be offered at this station at the requested time.&#39;}
+{&#39;message&#39;: &#39;No data was found. This product may not be offered at this station at the requested time.&#39;}
+{&#39;message&#39;: &#39; Wrong Date: Please submit a valid date&#39;}
+</pre>
+</div>
+</div>
+
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_text output_error">
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-46-2bafeff5be66&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>pd_item <span class="ansi-blue-fg">=</span> pd_stations<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">,</span><span class="ansi-blue-fg">:</span><span class="ansi-blue-fg">]</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span> retrieveLifetimeData<span class="ansi-blue-fg">(</span>pd_item<span class="ansi-blue-fg">)</span>
+<span class="ansi-red-fg">IndexError</span>                                Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-77-c99f672c713b&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-green-fg">for</span> index<span class="ansi-blue-fg">,</span> row <span class="ansi-green-fg">in</span> pd_stations<span class="ansi-blue-fg">.</span>iterrows<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg">     </span>metadata_dict<span class="ansi-blue-fg">,</span> pd_data <span class="ansi-blue-fg">=</span> retrieveLifetimeData<span class="ansi-blue-fg">(</span>row<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span>     <span class="ansi-green-fg">if</span> pd_metadata <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">not</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">      4</span>         <span class="ansi-green-fg">break</span>
+<span class="ansi-green-intense-fg ansi-bold">      5</span> pd_data
 
-<span class="ansi-green-fg">/Users/Cain/anaconda2/envs/py3/lib/python3.5/site-packages/pandas/core/frame.py</span> in <span class="ansi-cyan-fg">__getitem__</span><span class="ansi-blue-fg">(self, key)</span>
-<span class="ansi-green-intense-fg ansi-bold">   2055</span>             <span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">.</span>_getitem_multilevel<span class="ansi-blue-fg">(</span>key<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   2056</span>         <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">-&gt; 2057</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">.</span>_getitem_column<span class="ansi-blue-fg">(</span>key<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   2058</span> 
-<span class="ansi-green-intense-fg ansi-bold">   2059</span>     <span class="ansi-green-fg">def</span> _getitem_column<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> key<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">&lt;ipython-input-76-3f1a10472bd5&gt;</span> in <span class="ansi-cyan-fg">retrieveLifetimeData</span><span class="ansi-blue-fg">(pandas_thing)</span>
+<span class="ansi-green-intense-fg ansi-bold">      6</span>     dates <span class="ansi-blue-fg">=</span> date_range_string<span class="ansi-blue-fg">.</span>split<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;-&#39;</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      7</span>     <span class="ansi-green-fg">assert</span> dates<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">!=</span> <span class="ansi-blue-fg">&#39;&#39;</span>
+<span class="ansi-green-fg">----&gt; 8</span><span class="ansi-red-fg">     </span>year<span class="ansi-blue-fg">,</span> month<span class="ansi-blue-fg">,</span> day <span class="ansi-blue-fg">=</span> datesToInt<span class="ansi-blue-fg">(</span>dates<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      9</span> 
+<span class="ansi-green-intense-fg ansi-bold">     10</span>     end_year<span class="ansi-blue-fg">,</span> end_month<span class="ansi-blue-fg">,</span> end_day <span class="ansi-blue-fg">=</span> datesToInt<span class="ansi-blue-fg">(</span>dates<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
 
-<span class="ansi-green-fg">/Users/Cain/anaconda2/envs/py3/lib/python3.5/site-packages/pandas/core/frame.py</span> in <span class="ansi-cyan-fg">_getitem_column</span><span class="ansi-blue-fg">(self, key)</span>
-<span class="ansi-green-intense-fg ansi-bold">   2062</span>         <span class="ansi-red-fg"># get column</span>
-<span class="ansi-green-intense-fg ansi-bold">   2063</span>         <span class="ansi-green-fg">if</span> self<span class="ansi-blue-fg">.</span>columns<span class="ansi-blue-fg">.</span>is_unique<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">-&gt; 2064</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">.</span>_get_item_cache<span class="ansi-blue-fg">(</span>key<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   2065</span> 
-<span class="ansi-green-intense-fg ansi-bold">   2066</span>         <span class="ansi-red-fg"># duplicate columns &amp; possible reduce dimensionality</span>
+<span class="ansi-green-fg">&lt;ipython-input-58-deb670818cea&gt;</span> in <span class="ansi-cyan-fg">datesToInt</span><span class="ansi-blue-fg">(date)</span>
+<span class="ansi-green-intense-fg ansi-bold">      9</span>         <span class="ansi-green-fg">return</span> now<span class="ansi-blue-fg">.</span>year<span class="ansi-blue-fg">,</span> now<span class="ansi-blue-fg">.</span>month<span class="ansi-blue-fg">,</span> now<span class="ansi-blue-fg">.</span>day
+<span class="ansi-green-intense-fg ansi-bold">     10</span>     date_list <span class="ansi-blue-fg">=</span> re<span class="ansi-blue-fg">.</span>findall<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">r&#34;[\w&#39;]+&#34;</span><span class="ansi-blue-fg">,</span> date<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">---&gt; 11</span><span class="ansi-red-fg">     </span>day <span class="ansi-blue-fg">=</span> int<span class="ansi-blue-fg">(</span>date_list<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     12</span>     year <span class="ansi-blue-fg">=</span> int<span class="ansi-blue-fg">(</span>date_list<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">2</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     13</span>     month <span class="ansi-blue-fg">=</span> int<span class="ansi-blue-fg">(</span>strptime<span class="ansi-blue-fg">(</span>date_list<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">,</span><span class="ansi-blue-fg">&#39;%b&#39;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>tm_mon<span class="ansi-blue-fg">)</span>
 
-<span class="ansi-green-fg">/Users/Cain/anaconda2/envs/py3/lib/python3.5/site-packages/pandas/core/generic.py</span> in <span class="ansi-cyan-fg">_get_item_cache</span><span class="ansi-blue-fg">(self, item)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1382</span>         <span class="ansi-blue-fg">&#34;&#34;&#34;Return the cached item, item represents a label indexer.&#34;&#34;&#34;</span>
-<span class="ansi-green-intense-fg ansi-bold">   1383</span>         cache <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>_item_cache
-<span class="ansi-green-fg">-&gt; 1384</span><span class="ansi-red-fg">         </span>res <span class="ansi-blue-fg">=</span> cache<span class="ansi-blue-fg">.</span>get<span class="ansi-blue-fg">(</span>item<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1385</span>         <span class="ansi-green-fg">if</span> res <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">   1386</span>             values <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>_data<span class="ansi-blue-fg">.</span>get<span class="ansi-blue-fg">(</span>item<span class="ansi-blue-fg">)</span>
-
-<span class="ansi-red-fg">TypeError</span>: unhashable type: &#39;slice&#39;</pre>
+<span class="ansi-red-fg">IndexError</span>: list index out of range</pre>
 </div>
 </div>
 
