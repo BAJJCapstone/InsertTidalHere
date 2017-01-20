@@ -1,0 +1,710 @@
+Station ID, Station Name, Latitude, Longitude, Project
+db0201, Reedy Point, 39.55858, -75.55148, Delaware Bay PORTS
+g02010, Morgans Point, 29.6816, -94.9823, Houston/Galveston PORTS
+g04010, Houston Ship CH Entrance LBB 18, 29.35116, -94.78368, Houston/Galveston PORTS
+g05010, Galveston Causeway, 29.29747, -94.885818, Houston/Galveston PORTS
+g07010, ExxonMobil Baytown, 29.72704, -95.02194, Houston/Galveston PORTS
+gp0101, Gulfport Ship Channel LB 22, 30.19406, -88.98917, Gulfport PORTS
+gp0201, Gulfport Ship Channel LB 26, 30.21607, -88.994629, Gulfport PORTS
+gp0301, Day Marker 32, 30.23917, -89.0, Gulfport PORTS
+gp0401, Gulfport Harbor  West Pier, 30.34775, -89.08694, Gulfport PORTS
+hb0101, Humboldt Bay Bar Channel LBB 2, 40.76678, -124.24981, Humboldt Bay PORTS
+lb0101, Queens Gate, 33.717, -118.1879, Los Angeles/Long Beach PORTS
+mb0101, Mobile Bay Buoy M, 30.1253, -88.0687, Mobile Bay PORTS
+n05010, Gowanus Flats LBB 32, 40.67207, -74.03993, New York/New Jersey PORTS
+nb0101, Providence, 41.8087, -71.39747, Narragansett Bay PORTS
+BOS1101, Little Misery Island, 42.54217, -70.80013, Boston Harbor 2011 Current Survey
+BOS1102, Haste Shoal, 42.53935, -70.84496, Boston Harbor 2011 Current Survey
+BOS1103, Abbot Rock, 42.52962, -70.85992, Boston Harbor 2011 Current Survey
+BOS1104, Ft. Pickering, 42.52238, -70.86795, Boston Harbor 2011 Current Survey
+BOS1105, Marblehead Channel, 42.5007, -70.82023, Boston Harbor 2011 Current Survey
+BOS1106, Northeast Grave, 42.37176, -70.8618, Boston Harbor 2011 Current Survey
+BOS1107, Commissioners Ledge, 42.33584, -70.91296, Boston Harbor 2011 Current Survey
+BOS1108, Lovell Island, 42.35498, -70.9319, Boston Harbor 2011 Current Survey
+BOS1109, South Channel Aldridge Ledge, 42.34958, -70.91286, Boston Harbor 2011 Current Survey
+BOS1110, Deer Island (0.7 mi.), 42.34413, -70.93888, Boston Harbor 2011 Current Survey
+BOS1111, Boston Harbor  Deer Island Light, 42.33778, -70.95578, Boston Harbor 2011 Current Survey
+BOS1112, Spectacle Island, 42.33422, -70.98598, Boston Harbor 2011 Current Survey
+BOS1113, Boston Channel Light #5, 42.33578, -71.00028, Boston Harbor 2011 Current Survey
+BOS1114, Fort Independence, 42.3418, -71.00892, Boston Harbor 2011 Current Survey
+BOS1115, Ted Williams Tunnel, 42.3517, -71.02611, Boston Harbor 2011 Current Survey
+BOS1117, Charles River Entrance, 42.3705, -71.05181, Boston Harbor 2011 Current Survey
+BOS1118, Charlestown Pier 1, 42.37996, -71.04502, Boston Harbor 2011 Current Survey
+BOS1119, Nixes Mate, 42.33248, -70.9394, Boston Harbor 2011 Current Survey
+BOS1120, Lovell Island Narrows, 42.32817, -70.93313, Boston Harbor 2011 Current Survey
+BOS1121, Fort Warren, 42.3218, -70.92098, Boston Harbor 2011 Current Survey
+BOS1122, Georges Island, 42.31293, -70.91995, Boston Harbor 2011 Current Survey
+BOS1123, Hull Gut, 42.30338, -70.92492, Boston Harbor 2011 Current Survey
+BOS1124, The Piglets  0.4 nm NE of, 42.28338, -70.93093, Boston Harbor 2011 Current Survey
+BOS1125, Jacknife Ledge, 42.25878, -70.94102, Boston Harbor 2011 Current Survey
+BOS1126, Weymouth Harbor Entrance, 42.2482, -70.96072, Boston Harbor 2011 Current Survey
+BOS1127, Point Allerton, 42.31926, -70.88706, Boston Harbor 2011 Current Survey
+BOS1128, Minots Light  3.3 mi north, 42.3186, -70.75083, Boston Harbor 2011 Current Survey
+BOS1129, Minot Light - 6.5 mi N, 42.36325, -70.73805, Boston Harbor 2011 Current Survey
+BOS1130, Stellwagen Basin east end, 42.33813, -70.532, Boston Harbor 2011 Current Survey
+BOS1131, Stellwagen Bank, 42.32397, -70.29397, Boston Harbor 2011 Current Survey
+BOS1132, Traffic Scheme, 42.31213, -70.11202, Boston Harbor 2011 Current Survey
+BOS1133, Sanctuary 1, 42.4224, -70.44982, Boston Harbor 2011 Current Survey
+BOS1134, Sanctuary 2, 42.38818, -70.48302, Boston Harbor 2011 Current Survey
+BOS1135, Sanctuary 3, 42.47305, -70.31203, Boston Harbor 2011 Current Survey
+CAB1401, Portland Harbor Entrance, 43.628, -70.2095, Casco Bay 2014 Current Survey
+CAB1402, Spring Point  NE of, 43.65367, -70.22267, Casco Bay 2014 Current Survey
+CAB1403, Portland Breakwater Light  0.3 n.mi east of, 43.65534, -70.22783, Casco Bay 2014 Current Survey
+CAB1404, Diamond Island Roads, 43.66253, -70.21567, Casco Bay 2014 Current Survey
+CAB1405, Ocean Gate Terminal, 43.661, -70.24, Casco Bay 2014 Current Survey
+CAB1406, State Pier  Portland Harbor, 43.65466, -70.245, Casco Bay 2014 Current Survey
+CAB1407, Fore River  Portland River Bridge, 43.64583, -70.25733, Casco Bay 2014 Current Survey
+CAB1409, Chandler Cove  S. Ent, 43.70698, -70.1323, Casco Bay 2014 Current Survey
+CAB1410, Hussey Sound  Between Long & Peaks Is., 43.670799255371094, -70.17632293701172, Casco Bay 2014 Current Survey
+CAB1411, Long Island  Mariner Ledge, 43.702, -70.16417, Casco Bay 2014 Current Survey
+CAB1412, Hussey Sound  Cow Island, 43.68983, -70.17834, Casco Bay 2014 Current Survey
+CAB1413, Cow Island  NE of, 43.69417, -70.181, Casco Bay 2014 Current Survey
+CAB1414, Lucksee Sound Between Hope and Cliff Is., 43.69838, -70.11567, Casco Bay 2014 Current Survey
+CAB1415, Stepping Stones, 43.69583, -70.13267, Casco Bay 2014 Current Survey
+CAB1416, Eagle Island W. of.  Broad Sound, 43.71, -70.06283, Casco Bay 2014 Current Survey
+CAB1417, Littlejohn Island  South of Town Ledge, 43.75417, -70.12767, Casco Bay 2014 Current Survey
+CAB1418, Maine Kennebec Bridge  0.2 n.mi. SW of, 44.088, -69.78517, Casco Bay 2014 Current Survey
+CAB1419, Goose Cove  south of Chops Passage  Kennebec River, 43.97516, -69.82667, Casco Bay 2014 Current Survey
+CAB1420, Bath Iron Works  Kennebec River, 43.90383, -69.80933, Casco Bay 2014 Current Survey
+CAB1421, Merrymeeting Bay  north of Chops Passage  Kennebec River, 43.98433, -69.83617, Casco Bay 2014 Current Survey
+CAB1423, Seal Cove  Cape Elizabeth, 43.55233, -70.21767, Casco Bay 2014 Current Survey
+CAB1425, Saco River Entrance, 43.4621, -70.35116, Casco Bay 2014 Current Survey
+CAM0001, Cape May Inlet Entrance, 38.9475, -74.87267, New Jersey Coast (HAZMAT Support)
+CHB0301, Cedar point  4.7 n.mi. east of, 38.2985, -76.273, Chesapeake Bay 2003 Current Survey
+CHB0302, Love Point  2.0 n.mi. north of, 39.074, -76.30317, Chesapeake Bay 2003 Current Survey
+CHB0303, Smith Point Light  5.0 n.mi. NW of, 37.93652, -76.26135, Chesapeake Bay 2003 Current Survey
+CHB0304, James Island  1.6 n.mi. SW of, 38.48573, -76.36457, Chesapeake Bay 2003 Current Survey
+CHB0305, Taylors Island, 38.48573, -76.36457, Chesapeake Bay 2003 Current Survey
+CHB9902, Thimble Shoal Channel  0.75 nm west, 36.97739, -76.1242, Chesapeake Bay 1999 Current Survey
+CHB9903, Hampton Roads Entrance  midchannel, 36.99428, -76.30527, Chesapeake Bay 1999 Current Survey
+CHB9904, Newport News  0.15 nm WSW of Pier No.2, 36.97925, -76.44348, Chesapeake Bay 1999 Current Survey
+CHB9905, Craney Island Reach, 36.89053, -76.33575, Chesapeake Bay 1999 Current Survey
+COD0901, Cape Cod Canal  East End, 41.77553, -70.49932, Buzzards Bay 2009 Current Survey
+COD0902, Cape Cod Canal  Sagamore Bridge, 41.77617, -70.5433, Buzzards Bay 2009 Current Survey
+COD0903, Cape Cod Canal  Bournedale, 41.76654, -70.56702, Buzzards Bay 2009 Current Survey
+COD0904, Cape Cod Canal  Railroad Bridge, 41.74268, -70.61418, Buzzards Bay 2009 Current Survey
+COD0905, Hog Neck, 41.72389, -70.63938, Buzzards Bay 2009 Current Survey
+COD0906, Abiels Ledge, 41.68973, -70.67081, Buzzards Bay 2009 Current Survey
+COD0907, Cleveland Ledge, 41.63223, -70.69685, Buzzards Bay 2009 Current Survey
+COD0908, West Island  1 mi SE of, 41.5657, -70.81098, Buzzards Bay 2009 Current Survey
+COD0909, New Bedford Hurricane Barrier, 41.62324, -70.90509, Buzzards Bay 2009 Current Survey
+COD0910, Woods Hole  North End, 41.52297, -70.693, Buzzards Bay 2009 Current Survey
+COD0911, Woods Hole  The Strait, 41.51929, -70.68289, Buzzards Bay 2009 Current Survey
+COD0912, Juniper Point, 41.51588, -70.67167, Buzzards Bay 2009 Current Survey
+COD0913, Robinsons Hole - Nashuon Point, 41.44972, -70.8067, Buzzards Bay 2009 Current Survey
+COD0914, Quicks Hole  Middle, 41.44269, -70.84825, Buzzards Bay 2009 Current Survey
+COD0915, Canapitsit Channel, 41.42414, -70.90788, Buzzards Bay 2009 Current Survey
+COI0206, Point Woronzof, 61.21685, -149.98435, Cook Inlet 2002 Current Survey
+COI0207, Fire Island  1 nm E, 61.17923, -150.12553, Cook Inlet 2002 Current Survey
+COI0213, Fire Island, 61.19218, -150.17585, Cook Inlet 2002 Current Survey
+COI0301, Knik Arm  NW of POA, 61.27822, -149.89452, Cook Inlet 2003 Current Survey
+COI0302, Knik Arm  East Side, 61.27463, -149.88222, Cook Inlet 2003 Current Survey
+COI0303, Port Mackenzie  South of, 61.25225, -149.92067, Cook Inlet 2003 Current Survey
+COI0306, Fire Island Shoal  NW of, 61.16085, -150.56492, Cook Inlet 2003 Current Survey
+COI0307, Beluga Shoal  S. of, 61.10137, -150.56155, Cook Inlet 2003 Current Survey
+COI0418, Kennedy Entrance, 59.0658, -151.98232, Cook Inlet 2004 Current Survey
+COI0419, Anchor Point West, 59.83933, -152.36833, Cook Inlet 2004 Current Survey
+COI0420, Anchor Point East, 59.8187, -152.15553, Cook Inlet 2004 Current Survey
+COI0421, Barabara Point, 59.57542, -151.6519, Cook Inlet 2004 Current Survey
+COI0422, Glacier Split, 59.66667, -151.19163, Cook Inlet 2004 Current Survey
+COI0501, West Foreland, 60.72198, -151.6469, Cook Inlet 2005 Current Survey
+COI0502, The Forelands, 60.72067, -151.55733, Cook Inlet 2005 Current Survey
+COI0503, East Foreland, 60.71727, -151.43297, Cook Inlet 2005 Current Survey
+COI0504, Nikiski  .8 nm west of, 60.68338, -151.41787, Cook Inlet 2005 Current Survey
+COI0505, West Foreland  south of, 60.59667, -151.73981, Cook Inlet 2005 Current Survey
+COI0506, Kenai River  north of, 60.58083, -151.44453, Cook Inlet 2005 Current Survey
+COI0507, Drift River Terminal, 60.5517, -152.12773, Cook Inlet 2005 Current Survey
+COI0508, Kalgin Island  east of, 60.48295, -151.67325, Cook Inlet 2005 Current Survey
+COI0509, Harriot Pt.  west of, 60.37918, -152.1817, Cook Inlet 2005 Current Survey
+COI0510, Kalgin Island  SE of, 60.24802, -151.75453, Cook Inlet 2005 Current Survey
+COI0511, Cape Ninilchik  west of, 60.02327, -152.12018, Cook Inlet 2005 Current Survey
+COI0512, Iliamna Bay, 59.56661, -153.42212, Cook Inlet 2005 Current Survey
+COI0513, Seldovia, 59.4828, -151.75505, Cook Inlet 2005 Current Survey
+COI0514, Augustine Island, 59.3018, -152.93028, Cook Inlet 2005 Current Survey
+COI0515, Kachemak Bay  southwest of, 59.31487, -152.36497, Cook Inlet 2005 Current Survey
+COI0516, Port Graham, 59.40002, -151.9659, Cook Inlet 2005 Current Survey
+COI0517, Cape Douglas, 58.89005, -153.1842, Cook Inlet 2005 Current Survey
+COI0518, Cape Douglas  NE, 58.98048, -152.7277, Cook Inlet 2005 Current Survey
+COI0519, Stevenson Passage, 58.808, -152.40778, Cook Inlet 2005 Current Survey
+COI0520, West Armatuli Island  North, 59.0492, -152.15185, Cook Inlet 2005 Current Survey
+COI0521, Cape Elizabeth, 59.12072, -151.89483, Cook Inlet 2005 Current Survey
+COI0522, Port Chatham, 59.21125, -151.78703, Cook Inlet 2005 Current Survey
+COI0523, Chugach Passage, 59.16658, -151.77543, Cook Inlet 2005 Current Survey
+COI0524, Chugach Passage  east of, 59.13387, -151.7055, Cook Inlet 2005 Current Survey
+COI0801, Tesoro Pier  N of, 60.6869, -151.4037, Cook Inlet 2008 Current Survey
+COI0802, Unocal Pier  S of, 60.66782, -151.39162, Cook Inlet 2008 Current Survey
+COI1201, Homer Spit, 59.5925, -151.40017, Cook Inlet 2012 Current Survey
+COI1202, Pt. Pogishi  SW of, 59.42247, -151.91688, Cook Inlet 2012 Current Survey
+COI1203, Anchor Point  W of, 59.74383, -152.03417, Cook Inlet 2012 Current Survey
+COI1204, North Forelands, 61.05982, -151.08065, Cook Inlet 2012 Current Survey
+COI1205, Kalgin Island  4nm E of, 60.47183, -151.70633, Cook Inlet 2012 Current Survey
+COI1207, Point Possession, 61.0566, -150.36035, Cook Inlet 2012 Current Survey
+COI1208, Fire Island  South of, 61.1036, -150.26492, Cook Inlet 2012 Current Survey
+COI1209, Fire Island  North of, 61.18483, -150.2015, Cook Inlet 2012 Current Survey
+COI1210, Middle Ground Shoal  E of., 60.88697, -151.23268, Cook Inlet 2012 Current Survey
+DEB0002, Cape Henlopen  3.0 n.mi. NNE of, 38.85362, -75.07703, Delaware Bay 2000-2001 Current Survey
+EPT0003, Estes Head, 44.88793, -66.99565, Eastport  Maine 2000 Current Survey
+EPT0004, Robbinston  St. Croix River, 45.0763, -67.10097, Eastport  Maine 2000 Current Survey
+FEB1101, Entrance Channel  between jetties, 30.70913, -81.42017, Fernandina Beach 2011 Current Survey
+FEB1102, Ft Clinch  0.54nm ENE of, 30.70792, -81.44463, Fernandina Beach 2011 Current Survey
+FEB1103, Quarantine Reach  0.4nm west of Ft Clinch, 30.7047, -81.462, Fernandina Beach 2011 Current Survey
+FEB1104, Old Fernandina  Amelia River  Old Town Reach, 30.68604, -81.46074, Fernandina Beach 2011 Current Survey
+FEB1107, Fernandina Beach  City Front Reach  Amelia R, 30.67019, -81.46789, Fernandina Beach 2011 Current Survey
+FEB1108, South Jetty  St Marys Entrance, 30.70693, -81.39861, Fernandina Beach 2011 Current Survey
+FLK1301, Key West  0.3mi W of Fort Taylor, 24.54798, -81.81686, Florida Keys 2013 Current Survey
+FLK1302, Main Ship Channel Entrance, 24.47071, -81.81177, Florida Keys 2013 Current Survey
+FLK1303, Cut 'A'/Cut 'B'  Key West Harbor, 24.52603, -81.81819, Florida Keys 2013 Current Survey
+FLK1304, Southwest Channel  SW of Key West, 24.53421, -81.83212, Florida Keys 2013 Current Survey
+FLK1306, Key West Harbor Range, 24.56301, -81.80934, Florida Keys 2013 Current Survey
+FLK1307, Key West Turning Basin, 24.56389, -81.80622, Florida Keys 2013 Current Survey
+FLK1308, Man of War Harbor  N, 24.58701, -81.80624, Florida Keys 2013 Current Survey
+FLK1309, Fleming Key  N of, 24.59673, -81.7986, Florida Keys 2013 Current Survey
+FLK1310, Fleming Key Cut, 24.56814, -81.80182, Florida Keys 2013 Current Survey
+FLK1311, Safe Harbor Entrance  Stock Isl, 24.55583, -81.73446, Florida Keys 2013 Current Survey
+FLK1313, Northwest Channel  W of Calda Bank, 24.61539, -81.87154, Florida Keys 2013 Current Survey
+FLK1315, Northwest Channel  W of Middle Ground, 24.56827, -81.83502, Florida Keys 2013 Current Survey
+FLK1316, Boca Grande Channel, 24.56656, -82.06678, Florida Keys 2013 Current Survey
+FLK1317, New Ground, 24.65071, -82.4162, Florida Keys 2013 Current Survey
+FLK1324, Moser Channel  between Molasses and Pige, 24.698169708251953, -81.16924285888672, Florida Keys 2013 Current Survey
+FLK1325, E of Loggerhead Key (Key Lois), 24.61617, -81.45322, Florida Keys 2013 Current Survey
+FLK1327, Bahia Honda Harbor, 24.6563, -81.28848, Florida Keys 2013 Current Survey
+FPI0901, Ft. Pierce Inlet, 27.47114, -80.29258, Florida East Coast 2009 Current Survey
+FPI0902, Ft Pierce Inner Range (n of USCG stn), 27.46641, -80.30824, Florida East Coast 2009 Current Survey
+FPI0903, South Bridge (ICW)  Ft Pierce Inlet, 27.45997, -80.3192, Florida East Coast 2009 Current Survey
+FPI0904, Ft. Pierce Turning Basin, 27.46014, -80.32093, Florida East Coast 2009 Current Survey
+HAI1101, Nawiliwili Harbor, 21.95492, -159.34718, Hawaii 2011 Current Observation Project
+HAI1102, Port Allen, 21.89638, -159.59232, Hawaii 2011 Current Observation Project
+HAI1103, Barbers Point Entrance, 21.31235, -158.13288, Hawaii 2011 Current Observation Project
+HAI1104, Barbers Point Jetty, 21.32258, -158.12183, Hawaii 2011 Current Observation Project
+HAI1105, South of Barbers Point, 21.2696, -158.10157, Hawaii 2011 Current Observation Project
+HAI1106, Diamond Head, 21.2395, -157.8058, Hawaii 2011 Current Observation Project
+HAI1107, Approach to Honolulu Harbor, 21.29147, -157.87377, Hawaii 2011 Current Observation Project
+HAI1108, Honolulu Harbor Entrance, 21.30173, -157.86772, Hawaii 2011 Current Observation Project
+HAI1109, Pearl Harbor Entrance, 21.29853, -157.95658, Hawaii 2011 Current Observation Project
+HAI1110, Iroquois Point  Pearl Harbor, 21.33498, -157.97023, Hawaii 2011 Current Observation Project
+HAI1111, Makapu'u Point, 21.26423, -157.60542, Hawaii 2011 Current Observation Project
+HAI1112, Kahuku Point, 21.72998, -157.98995, Hawaii 2011 Current Observation Project
+HAI1113, Laau Point  SW of, 21.07645, -157.3616, Hawaii 2011 Current Observation Project
+HAI1114, Kaunakakai Harbor, 21.07643, -157.0315, Hawaii 2011 Current Observation Project
+HAI1115, Pailolo Channel, 21.08695, -156.73148, Hawaii 2011 Current Observation Project
+HAI1116, Kalohi Channel, 21.0033, -156.95883, Hawaii 2011 Current Observation Project
+HAI1117, Kaumalapau Harbor, 20.78462, -156.99242, Hawaii 2011 Current Observation Project
+HAI1118, Hawea Point, 21.00178, -156.69182, Hawaii 2011 Current Observation Project
+HAI1119, Auau Channel  East Side, 20.86727, -156.74717, Hawaii 2011 Current Observation Project
+HAI1120, Lahaina, 20.86845, -156.68528, Hawaii 2011 Current Observation Project
+HAI1121, Alalakeiki Channel, 20.61252, -156.50812, Hawaii 2011 Current Observation Project
+HAI1122, Maalaea Bay, 20.76525, -156.49235, Hawaii 2011 Current Observation Project
+HAI1123, Kahului Harbor, 20.90213, -156.47175, Hawaii 2011 Current Observation Project
+HAI1124, Hana Bay, 20.76123, -155.9781, Hawaii 2011 Current Observation Project
+HAI1125, Approach to Hilo Harbor, 19.74517, -155.08198, Hawaii 2011 Current Observation Project
+HAI1126, Hilo Harbor, 19.74167, -155.06997, Hawaii 2011 Current Observation Project
+HAI1127, Upolu Point, 20.26502, -155.90157, Hawaii 2011 Current Observation Project
+HAI1128, Kawaihae Entrance, 20.04108, -155.84163, Hawaii 2011 Current Observation Project
+HAI1129, Kailua Kona, 19.6351, -155.99915, Hawaii 2011 Current Observation Project
+HAI1130, Honokohau, 19.6678, -156.0319, Hawaii 2011 Current Observation Project
+HUB0202, Humboldt Bay Entrance Channel, 40.75792, -124.23278, Humboldt Bay 2002-2003 Current Survey
+HUB0203, North Bay Channel, 40.78715, -124.19268, Humboldt Bay 2002-2003 Current Survey
+HUB0206, Humboldt Bay Entrance, 40.75775, -124.22278, Humboldt Bay 2002-2003 Current Survey
+HUB0207, Fields Landing Channel Entrance, 40.74785, -124.2241, Humboldt Bay 2002-2003 Current Survey
+HUB0401, Bar Channel Entrance, 40.76688, -124.25298, Humboldt Bay 2004 Current Survey
+HUB0402, Humboldt Bay Entrance Channel, 40.7651, -124.23753, Humboldt Bay 2004 Current Survey
+HUR0401, Haverstraw, 41.20917, -73.95133, Hudson River 2004 Current Survey
+HUR0501, George Washington Bridge, 40.84855, -73.95032, Hudson River 2005 Current Survey
+HUR0502, Tappan Zee Bridge, 41.06743, -73.88154, Hudson River 2005 Current Survey
+HUR0503, Stony Point, 41.24158, -73.96668, Hudson River 2005 Current Survey
+HUR0504, Bear Mountain Bridge, 41.31592, -73.98385, Hudson River 2005 Current Survey
+HUR0506, Newburgh Beacon Bridge, 41.51658, -73.99168, Hudson River 2005 Current Survey
+HUR0507, Roseton, 41.56247, -73.97053, Hudson River 2005 Current Survey
+HUR0509, Kingston Pt  S. of, 41.91827, -73.9595, Hudson River 2005 Current Survey
+HUR0510, Kingston Rhinecliff Bridge, 41.97738, -73.95227, Hudson River 2005 Current Survey
+HUR0511, George Washington Bridge, 40.85002, -73.95, Hudson River 2005 Current Survey
+HUR0601, George Washington Bridge, 40.84948, -73.94968, Hudson River 2006 Current Survey
+HUR0602, Kingston Rhinecliff Bridge, 41.9771, -73.95246, Hudson River 2006 Current Survey
+HUR0603, Silver Point  south of, 42.1383, -73.90842, Hudson River 2006 Current Survey
+HUR0604, Hudson, 42.24788, -73.8186, Hudson River 2006 Current Survey
+HUR0605, Coxsackie, 42.35127, -73.78988, Hudson River 2006 Current Survey
+HUR0606, Houghtaling Island  South of, 42.42242, -73.78006, Hudson River 2006 Current Survey
+HUR0607, Castleton-on-Hudson Bridge, 42.50443, -73.77738, Hudson River 2006 Current Survey
+HUR0608, Port of Albany, 42.6231, -73.7556, Hudson River 2006 Current Survey
+HUR0609, Troy  below the locks, 42.73405, -73.69078, Hudson River 2006 Current Survey
+HUR0610, Mid Hudson Suspension Bridge, 41.70167, -73.94585, Hudson River 2006 Current Survey
+HUR0611, George Washington Bridge, 40.84958, -73.94982, Hudson River 2006 Current Survey
+HUR0612, Kingston Rhinecliff Bridge, 41.97708, -73.95225, Hudson River 2006 Current Survey
+HUR0613, Silver Point  South of, 42.13818, -73.90852, Hudson River 2006 Current Survey
+HUR0614, Hudson, 42.24792, -73.8184, Hudson River 2006 Current Survey
+HUR0615, Coxsackie, 42.35135, -73.78992, Hudson River 2006 Current Survey
+HUR0616, Houghtaling Island  South of, 42.42258, -73.77995, Hudson River 2006 Current Survey
+HUR0617, Castleton-on-Hudson Bridge, 42.50435, -73.77738, Hudson River 2006 Current Survey
+HUR0618, Port of Albany, 42.62317, -73.75558, Hudson River 2006 Current Survey
+HUR0619, Troy  below the Locks, 42.73393, -73.6908, Hudson River 2006 Current Survey
+HUR0620, Mid-Hudson Suspension Bridge, 41.70182, -73.94593, Hudson River 2006 Current Survey
+JOP1101, Johns Pass Entrance (by Buoy '2A'), 27.77815, -82.78722, Johns Pass 2011 Current Survey
+JOP1103, Johns Pass  north span of the bridge, 27.78331, -82.78216, Johns Pass 2011 Current Survey
+JOP1104, Johns Pass  0.3nm NE of bridge, 27.78499, -82.77988, Johns Pass 2011 Current Survey
+KOD0901, Chiniak Bay, 57.73559, -152.38463, Kodiak Island 2009 Current Survey
+KOD0902, St. Paul Harbor, 57.77457, -152.43469, Kodiak Island 2009 Current Survey
+KOD0903, Kodiak Harbor Narrows  Chiniak Bay, 57.78918, -152.394, Kodiak Island 2009 Current Survey
+KOD0904, Woody Island  N of, 57.80578, -152.33434, Kodiak Island 2009 Current Survey
+KOD0905, Woody Channel, 57.78043, -152.36638, Kodiak Island 2009 Current Survey
+KOD0906, Cape Chiniak, 57.60784, -152.08979, Kodiak Island 2009 Current Survey
+KOD0907, Ugak Bay Entrance, 57.3995, -152.53466, Kodiak Island 2009 Current Survey
+KOD0910, Left Cape  E of, 57.23088, -152.88443, Kodiak Island 2009 Current Survey
+KOD0911, Cathedral Island  E of, 57.1978, -153.10517, Kodiak Island 2009 Current Survey
+KOD0912, Old Harbor, 57.17866, -153.32511, Kodiak Island 2009 Current Survey
+KOD0913, Natalia Peninsula  W of, 57.07323, -153.45106, Kodiak Island 2009 Current Survey
+KOD0914, Geese Channel, 56.77892, -153.80912, Kodiak Island 2009 Current Survey
+KOD0915, Geese Islands  S of, 56.68618, -153.92006, Kodiak Island 2009 Current Survey
+KOD0916, Cape Sitkinak  E of, 56.57744, -153.79126, Kodiak Island 2009 Current Survey
+KOD0917, Sitkinak Strait  SW, 56.65504, -154.13396, Kodiak Island 2009 Current Survey
+KOD0918, Cape Trinity, 56.74982, -154.201, Kodiak Island 2009 Current Survey
+KOD0919, Russian Harbor, 56.73967, -154.03397, Kodiak Island 2009 Current Survey
+KOD0920, Approach to Alitak Bay, 56.78384, -154.64118, Kodiak Island 2009 Current Survey
+KOD0921, Cape Ikolik, 57.28605, -154.82843, Kodiak Island 2009 Current Survey
+KOD0922, Cape Grant, 57.41718, -154.76648, Kodiak Island 2009 Current Survey
+KOD0923, Uyak Anchorage, 57.63732, -153.99539, Kodiak Island 2009 Current Survey
+KOD0924, Larsen Bay, 57.54221, -153.98831, Kodiak Island 2009 Current Survey
+KOD0925, Cape Kuliuk, 57.79352, -154.03236, Kodiak Island 2009 Current Survey
+KOD0926, Steep Cape, 58.21452, -153.22028, Kodiak Island 2009 Current Survey
+KOD0927, Raspberry Cape  S of, 58.01902, -153.43005, Kodiak Island 2009 Current Survey
+KOD0928, Kupreanof Strait, 57.99757, -153.15648, Kodiak Island 2009 Current Survey
+KOD0929, Kupreanof Strait  0.8 mi. off Chernof Pt., 57.96041, -152.90063, Kodiak Island 2009 Current Survey
+KOD0930, Whale Passage  Northwest Entrance, 57.93959, -152.86278, Kodiak Island 2009 Current Survey
+KOD0931, Whale Passage  off Bird Point, 57.91885, -152.79529, Kodiak Island 2009 Current Survey
+KOD0932, Shag Rocks, 57.90752, -152.77663, Kodiak Island 2009 Current Survey
+KOD0933, Narrow Strait  off Ouzinkie Point, 57.9121, -152.52407, Kodiak Island 2009 Current Survey
+KOD0934, Afognak Strait  East Entrance, 57.99474, -152.68417, Kodiak Island 2009 Current Survey
+KOD0935, Raspberry Strait, 58.07176, -153.06462, Kodiak Island 2009 Current Survey
+KOD0936, Black Cape, 58.40572, -152.90728, Kodiak Island 2009 Current Survey
+KOD0937, Alligator Island, 58.46107, -152.82645, Kodiak Island 2009 Current Survey
+KOD0938, Lighthouse Point, 58.48523, -152.67029, Kodiak Island 2009 Current Survey
+KOD0939, Cape Current Narrows  Shuyak Strait, 58.46688, -152.49512, Kodiak Island 2009 Current Survey
+KOD0940, East Shuyak Strait, 58.4579, -152.42785, Kodiak Island 2009 Current Survey
+KOD0941, Tonki Cape  E of, 58.34598, -151.91508, Kodiak Island 2009 Current Survey
+KOD0942, Marmot Island  W of, 58.24443, -151.93232, Kodiak Island 2009 Current Survey
+KOD0943, Marmot Island  SW of, 58.17085, -151.96862, Kodiak Island 2009 Current Survey
+KOD0944, Perevalnie Island  N of, 58.65111, -152.39663, Kodiak Island 2009 Current Survey
+LIS1001, The Race, 41.22818, -72.06252, Long Island Sound 2010 Current Survey
+LIS1002, Wicopesset Island  NE of, 41.29841, -71.90096, Long Island Sound 2010 Current Survey
+LIS1003, Thames River Approach, 41.29387, -72.07842, Long Island Sound 2010 Current Survey
+LIS1004, New London Harbor Entrance, 41.31875, -72.08173, Long Island Sound 2010 Current Survey
+LIS1005, Fort Trumbull State Park, 41.34544, -72.08629, Long Island Sound 2010 Current Survey
+LIS1006, New London State Pier, 41.35728, -72.08673, Long Island Sound 2010 Current Survey
+LIS1007, U.S. Coast Guard Academy, 41.37373, -72.0895, Long Island Sound 2010 Current Survey
+LIS1008, Smith Cove, 41.39658, -72.09592, Long Island Sound 2010 Current Survey
+LIS1009, Allyn Point, 41.44296, -72.0856, Long Island Sound 2010 Current Survey
+LIS1010, Great Gull Island, 41.19444, -72.13363, Long Island Sound 2010 Current Survey
+LIS1011, Plum Island  3 nm. North of  PI Buoy, 41.22245, -72.17709, Long Island Sound 2010 Current Survey
+LIS1012, Plum Gut, 41.15917, -72.2075, Long Island Sound 2010 Current Survey
+LIS1013, Saybrook Breakwater Light, 41.2582, -72.34207, Long Island Sound 2010 Current Survey
+LIS1014, Connecticut River I-95 Bridge, 41.3182, -72.34583, Long Island Sound 2010 Current Survey
+LIS1015, Saybrook Channel, 41.2833, -72.34757, Long Island Sound 2010 Current Survey
+LIS1016, Cornfield Point  4 miles south of  CF Buoy, 41.18945, -72.3696, Long Island Sound 2010 Current Survey
+LIS1017, Six Mile Reef  2 miles south of  Buoy TE, 41.1345, -72.48927, Long Island Sound 2010 Current Survey
+LIS1018, Six Mile Reef  1 mile south of, 41.16835, -72.4994, Long Island Sound 2010 Current Survey
+LIS1019, Six Mile Reef  1 mile west of, 41.17973, -72.55177, Long Island Sound 2010 Current Survey
+LIS1020, Roanoke Point  2 miles NE of, 41.00697, -72.66322, Long Island Sound 2010 Current Survey
+LIS1021, Branford Reef  5.0 miles south of, 41.14443, -72.82798, Long Island Sound 2010 Current Survey
+LIS1022, New Haven Harbor  Tanker Terminal, 41.29507, -72.909, Long Island Sound 2010 Current Survey
+LIS1023, New Haven Harbor Entrance, 41.22238, -72.90932, Long Island Sound 2010 Current Survey
+LIS1024, New Haven Harbor  Gateway Terminal Approach, 41.28267, -72.91197, Long Island Sound 2010 Current Survey
+LIS1025, Port Jefferson Harbor Entrance, 40.9699, -73.09165, Long Island Sound 2010 Current Survey
+LIS1026, Stratford Point  3.5 miles south of, 41.08998, -73.10452, Long Island Sound 2010 Current Survey
+LIS1027, Stratford Shoal  2 miles south of, 41.02297, -73.10477, Long Island Sound 2010 Current Survey
+LIS1028, Tongue Point, 41.16668, -73.17533, Long Island Sound 2010 Current Survey
+LIS1029, Bridgeport Harbor Entrance, 41.12138, -73.18945, Long Island Sound 2010 Current Survey
+LIS1030, Eatons Neck  2.5 miles east of, 40.95742, -73.34198, Long Island Sound 2010 Current Survey
+LIS1031, Norwalk Harbor, 41.08535, -73.4024, Long Island Sound 2010 Current Survey
+LIS1032, Eatons Neck  3 miles north of, 41.00505, -73.405, Long Island Sound 2010 Current Survey
+LIS1033, The Cows  2 miles SE of, 40.98858, -73.49582, Long Island Sound 2010 Current Survey
+LIS1034, Stamford Harbor Entrance, 41.01535, -73.53695, Long Island Sound 2010 Current Survey
+LIS1035, Matinecock Pt  1.7 miles northwest of, 40.92455, -73.65585, Long Island Sound 2010 Current Survey
+LIS1036, Execution Rocks, 40.87325, -73.7334, Long Island Sound 2010 Current Survey
+LIS1037, Hart Island  southeast of, 40.8432, -73.76225, Long Island Sound 2010 Current Survey
+LIS1038, Throgs Neck Bridge, 40.80105, -73.7921, Long Island Sound 2010 Current Survey
+LWI0901, Lake Worth Inlet (between jetties  0.3nm w of), 26.77298, -80.0362, Florida East Coast 2009 Current Survey
+LWI0903, Pier 13  Lake Worth Inlet, 26.76704, -80.05013, Florida East Coast 2009 Current Survey
+LWI0904, N. Turning Basin  Lake Worth Inlet, 26.77126, -80.0504, Florida East Coast 2009 Current Survey
+MIH0802, South Jetty, 25.760429, -80.126877, Miami Harbor 2008 Current Survey
+MIH0803, Miami Harbor Entrance, 25.76412, -80.134117, Miami Harbor 2008 Current Survey
+MIH0804, West Entrance South Side, 25.7646, -80.137428, Miami Harbor 2008 Current Survey
+MIH0805, Fisher Island Turning Basin, 25.767771, -80.143417, Miami Harbor 2008 Current Survey
+MIH0806, Fishermans Channel by Pilot House, 25.765779, -80.145821, Miami Harbor 2008 Current Survey
+MIH0807, Norris Cut, 25.764971, -80.151131, Miami Harbor 2008 Current Survey
+MIH0808, Main Ship Channel, 25.77335, -80.156921, Miami Harbor 2008 Current Survey
+MIH0809, Lummus Island SW corner, 25.765129, -80.161552, Miami Harbor 2008 Current Survey
+MIH0810, Lummus Island Turning Basin, 25.767651, -80.167747, Miami Harbor 2008 Current Survey
+MIH0811, West End  Dodge Island Cut, 25.772949, -80.178497, Miami Harbor 2008 Current Survey
+MIH0812, Dodge Island  SE Turning Basin, 25.78178, -80.180603, Miami Harbor 2008 Current Survey
+MIH0813, Dodge Island  NW Turning Basin, 25.7855, -80.183952, Miami Harbor 2008 Current Survey
+MIH0814, Miami River Entrance, 25.77038, -80.187477, Miami Harbor 2008 Current Survey
+MIH0901, Miami Harbor Entrance, 25.76405, -80.13394, Florida East Coast 2009 Current Survey
+MOB1101, Mobile Point, 30.22703, -88.03458, Mobile Bay 2011 Circulation Survey
+MOB1104, Entrance to Mississippi Sound - East, 30.22178, -88.3708, Mobile Bay 2011 Circulation Survey
+MOB1105, Entrance to Mississippi Sound - West, 30.22569, -88.53994, Mobile Bay 2011 Circulation Survey
+MOB1106, Dauphin Island Causeway, 30.28926, -88.1287, Mobile Bay 2011 Circulation Survey
+PEB0502, Searsport  Mack Point Pier, 44.4504, -68.89675, Penobscot Bay & River 2005 Current Survey
+PEB0601, Bangor, 44.78222, -68.77813, Penobscot Bay & River 2006 Current Survey
+PEB0604, Snub Point, 44.70945, -68.84107, Penobscot Bay & River 2006 Current Survey
+PEB0605, Winterport, 44.63132, -68.8424, Penobscot Bay & River 2006 Current Survey
+PEB0606, Frankfort Flats at Marsh River, 44.6049, -68.84673, Penobscot Bay & River 2006 Current Survey
+PEB0607, Bucksport, 44.57132, -68.8077, Penobscot Bay & River 2006 Current Survey
+PEB0608, Bridge Crossing, 44.56227, -68.80053, Penobscot Bay & River 2006 Current Survey
+PEB0609, Odom Ledge, 44.51673, -68.80317, Penobscot Bay & River 2006 Current Survey
+PEB0610, Fort Point Ledge, 44.46425, -68.81155, Penobscot Bay & River 2006 Current Survey
+PEB0611, Hosmer Ledge, 44.38345, -68.79, Penobscot Bay & River 2006 Current Survey
+PEB0612, Islesboro Ledge, 44.34995, -68.84278, Penobscot Bay & River 2006 Current Survey
+PEV0901, Port Everglades Entrance, 26.09318, -80.10549, Florida East Coast 2009 Current Survey
+PEV0902, Port Everglades Turning Basin, 26.09486, -80.11741, Florida East Coast 2009 Current Survey
+PEV0903, 17th St Bridge  Port Everglades, 26.09973, -80.1191, Florida East Coast 2009 Current Survey
+PEV0904, Entrance South (ICW)  Port Everglades, 26.08733, -80.11312, Florida East Coast 2009 Current Survey
+PEV0905, South Port  at the Terminals  Port Everglades, 26.0744, -80.11385, Florida East Coast 2009 Current Survey
+PIR0701, Portsmouth Entrance, 43.06237, -70.70532, Piscataqua River 2007 Current Survey
+PIR0702, Fort Point, 43.0745, -70.70675, Piscataqua River 2007 Current Survey
+PIR0703, Little Harbor Entrance, 43.0554, -70.71568, Piscataqua River 2007 Current Survey
+PIR0704, Henderson Pt., 43.07488, -70.73838, Piscataqua River 2007 Current Survey
+PIR0705, Memorial Bridge, 43.07938, -70.75208, Piscataqua River 2007 Current Survey
+PIR0706, Sara Long Bridge, 43.0887, -70.76198, Piscataqua River 2007 Current Survey
+PIR0707, I-95 Bridge, 43.09282, -70.76708, Piscataqua River 2007 Current Survey
+PIR0708, Schiller Station, 43.09738, -70.78108, Piscataqua River 2007 Current Survey
+PIR0709, Frankfort Island, 43.11412, -70.80525, Piscataqua River 2007 Current Survey
+PIR0710, General Sullivan, 43.11785, -70.82608, Piscataqua River 2007 Current Survey
+PIR0711, Furber Strait, 43.09112, -70.86135, Piscataqua River 2007 Current Survey
+PUG1501, Agate Passage  south end, 47.711021423339844, -122.56714630126953, Puget Sound 2015 Current Survey
+PUG1502, Alki Point  1 mile West of, 47.58367919921875, -122.45175170898438, Puget Sound 2015 Current Survey
+PUG1503, Edmonds  2.5 miles West of, 47.80712127685547, -122.44412994384766, Puget Sound 2015 Current Survey
+PUG1504, Entrance to Ballard Locks, 47.67097854614258, -122.40699768066406, Puget Sound 2015 Current Survey
+PUG1505, Entrance to Eagle Harbor, 47.619571685791016, -122.49530029296875, Puget Sound 2015 Current Survey
+PUG1506, Harbor Island East, 47.58845138549805, -122.3439712524414, Puget Sound 2015 Current Survey
+PUG1507, Harbor Island West, 47.5831298828125, -122.36022186279297, Puget Sound 2015 Current Survey
+PUG1508, Liberty Bay (entrance)  Port Orchard, 47.70682144165039, -122.62825012207031, Puget Sound 2015 Current Survey
+PUG1509, Point Jefferson  East of, 47.744468688964844, -122.468017578125, Puget Sound 2015 Current Survey
+PUG1510, Port Washington Narrows  Warren Ave. Bridge, 47.57957077026367, -122.63065338134766, Puget Sound 2015 Current Survey
+PUG1511, President Point  1.5 miles east of, 47.76712, -122.4319, Puget Sound 2015 Current Survey
+PUG1512, Restoration Point, 47.57884979248047, -122.46871948242188, Puget Sound 2015 Current Survey
+PUG1513, Rich Passage  East end, 47.57001876831055, -122.52980041503906, Puget Sound 2015 Current Survey
+PUG1514, Rich Passage  West end, 47.58993148803711, -122.56233215332031, Puget Sound 2015 Current Survey
+PUG1515, West Point  West of, 47.662071228027344, -122.44168090820312, Puget Sound 2015 Current Survey
+PUG1516, Alki Point  West of, 47.57606887817383, -122.4278335571289, Puget Sound 2015 Current Survey
+PUG1517, Blake Island  S of, 47.52027893066406, -122.48792266845703, Puget Sound 2015 Current Survey
+PUG1518, Anderson Point  East of  Colvos Passage, 47.43943, -122.52578, Puget Sound 2015 Current Survey
+PUG1519, Point Richmond  East of  Colvos Passage, 47.37662124633789, -122.52867126464844, Puget Sound 2015 Current Survey
+PUG1520, Dolphin Point  1.3 miles East of, 47.501548767089844, -122.42357635498047, Puget Sound 2015 Current Survey
+PUG1521, Browns Point  1.6 miles North of, 47.32870101928711, -122.45404815673828, Puget Sound 2015 Current Survey
+PUG1522, Dalco Passage, 47.32511901855469, -122.5246810913086, Puget Sound 2015 Current Survey
+PUG1523, Gig Harbor Entrance, 47.32415008544922, -122.57186889648438, Puget Sound 2015 Current Survey
+PUG1524, The Narrows  North end - midstream, 47.305999755859375, -122.55003356933594, Puget Sound 2015 Current Survey
+PUG1525, The Narrows  North End (east side), 47.30778, -122.54213, Puget Sound 2015 Current Survey
+PUG1526, The Narrows  North End (west side), 47.30400085449219, -122.55674743652344, Puget Sound 2015 Current Survey
+PUG1527, The Narrows  0.3 miles North of Bridge, 47.27431869506836, -122.54531860351562, Puget Sound 2015 Current Survey
+PUG1528, The Narrows  South end (midstream), 47.26129913330078, -122.55828094482422, Puget Sound 2015 Current Survey
+PUG1529, Hale Passage  East end, 47.24789810180664, -122.59559631347656, Puget Sound 2015 Current Survey
+PUG1530, Hale Passage  West end, 47.28137969970703, -122.66311645507812, Puget Sound 2015 Current Survey
+PUG1531, Gibson Point  0.8 miles East of, 47.21913146972656, -122.58866882324219, Puget Sound 2015 Current Survey
+PUG1532, Steilacoom  0.8 miles North of, 47.18238067626953, -122.60559844970703, Puget Sound 2015 Current Survey
+PUG1533, Ketron Island  West of, 47.14860153198242, -122.6594009399414, Puget Sound 2015 Current Survey
+PUG1534, Nisqually Reach  0.5 miles South of Lyle Point, 47.11692810058594, -122.6988525390625, Puget Sound 2015 Current Survey
+PUG1535, Balch Passage  NE of Eagle Island, 47.19062042236328, -122.6915512084961, Puget Sound 2015 Current Survey
+PUG1536, Pitt Passage  NE of Pitt Island, 47.22383117675781, -122.71137237548828, Puget Sound 2015 Current Survey
+PUG1537, Drayton Passage, 47.17258071899414, -122.7414779663086, Puget Sound 2015 Current Survey
+PUG1538, Devils Head  West of, 47.16067123413086, -122.78936767578125, Puget Sound 2015 Current Survey
+PUG1539, Dana Passage, 47.16310119628906, -122.86810302734375, Puget Sound 2015 Current Survey
+PUG1540, Budd Inlet Entrance, 47.140159606933594, -122.92144775390625, Puget Sound 2015 Current Survey
+PUG1541, Peale Passage  South end, 47.174949645996094, -122.88697052001953, Puget Sound 2015 Current Survey
+PUG1542, Peale Passage  North end, 47.21752166748047, -122.9146499633789, Puget Sound 2015 Current Survey
+PUG1543, Squaxin Passage  North of Hunter Point, 47.17626953125, -122.91899871826172, Puget Sound 2015 Current Survey
+PUG1544, Totten Inlet Entrance, 47.18825149536133, -122.94537353515625, Puget Sound 2015 Current Survey
+PUG1545, Libby Point  Hammersley Inlet, 47.19892120361328, -122.98899841308594, Puget Sound 2015 Current Survey
+PUG1546, Pickering Passage  West of Squaxin Island, 47.21928024291992, -122.93451690673828, Puget Sound 2015 Current Survey
+PUG1547, Pickering Passage  off Graham Point, 47.247249603271484, -122.92591857910156, Puget Sound 2015 Current Survey
+PUG1548, Pickering Passage  North end, 47.305721282958984, -122.85092163085938, Puget Sound 2015 Current Survey
+PWS0701, College Fiord, 60.98983, -148.0467, Prince William Sound 2007 Current Survey
+PWS0702, Esther Pass North Entrance, 60.93072, -148.07088, Prince William Sound 2007 Current Survey
+PWS0703, Blackstone Point, 60.77342, -148.35264, Prince William Sound 2007 Current Survey
+PWS0704, Pt Culross  Wells Passage, 60.75442, -148.12186, Prince William Sound 2007 Current Survey
+PWS0705, Esther Pass South Entrance, 60.80512, -147.88943, Prince William Sound 2007 Current Survey
+PWS0706, Perry Passage, 60.67099, -148.01548, Prince William Sound 2007 Current Survey
+PWS0707, Culross Pass Entrance, 60.61083, -148.16669, Prince William Sound 2007 Current Survey
+PWS0708, Crafton Is  Knight Is Passage, 60.50249, -147.89787, Prince William Sound 2007 Current Survey
+PWS0709, Dangerous Pass, 60.37463, -148.07217, Prince William Sound 2007 Current Survey
+PWS0710, Knight Island Pass  W of Johnson Bay, 60.35899, -147.93291, Prince William Sound 2007 Current Survey
+PWS0711, Chenega South, 60.26789, -148.09789, Prince William Sound 2007 Current Survey
+PWS0712, Bainbridge Pass North, 60.18291, -148.10109, Prince William Sound 2007 Current Survey
+PWS0713, Bainbridge Pass, 60.1291, -148.20235, Prince William Sound 2007 Current Survey
+PWS0714, Prince of Whales Pass, 60.0362, -148.13448, Prince William Sound 2007 Current Survey
+PWS0715, Evans Is  Sawmill Bay Entrance, 60.0591, -147.97423, Prince William Sound 2007 Current Survey
+PWS0716, Elrington Passage, 59.97951, -148.1167, Prince William Sound 2007 Current Survey
+PWS0717, Latouche Pass, 59.97666, -148.04645, Prince William Sound 2007 Current Survey
+PWS0718, Pt Elrington, 59.92525, -148.32319, Prince William Sound 2007 Current Survey
+PWS0719, Montague Strait  W of Pt Woodcock, 59.9146, -147.96072, Prince William Sound 2007 Current Survey
+PWS0720, Cape Cleare, 59.74765, -148.0115, Prince William Sound 2007 Current Survey
+PWS0721, Wooded Is, 59.86825, -147.28112, Prince William Sound 2007 Current Survey
+PWS0722, Hinch Ent  W of Seal Rocks, 60.11194, -146.7331, Prince William Sound 2007 Current Survey
+PWS0723, Snug Harbor, 60.2758, -147.63456, Prince William Sound 2007 Current Survey
+PWS0724, Green Is Pass, 60.26732, -147.30157, Prince William Sound 2007 Current Survey
+PWS0725, Montague Pt, 60.39838, -147.09389, Prince William Sound 2007 Current Survey
+PWS0726, Bear Cape, 60.35199, -146.74626, Prince William Sound 2007 Current Survey
+PWS0727, Johnston Pt, 60.48874, -146.61651, Prince William Sound 2007 Current Survey
+PWS0728, Hinchinbrook Ent, 60.06757, -146.39448, Prince William Sound 2007 Current Survey
+PWS0729, Approach Cape Hinchinbrook, 60.22488, -146.22623, Prince William Sound 2007 Current Survey
+PWS0730, Cottonwood Pt, 60.13093, -145.07967, Prince William Sound 2007 Current Survey
+PWS0731, N of Middle Ground Shoal, 60.55797, -146.36622, Prince William Sound 2007 Current Survey
+PWS0732, Channel Island, 60.60438, -145.84024, Prince William Sound 2007 Current Survey
+PWS0733, Salmo Point, 60.61672, -145.77075, Prince William Sound 2007 Current Survey
+PWS0734, Old Log Boom, 60.5723, -145.74343, Prince William Sound 2007 Current Survey
+PWS0735, Mud Bay, 60.54765, -145.84088, Prince William Sound 2007 Current Survey
+PWS0736, Port Gravina, 60.60636, -146.38952, Prince William Sound 2007 Current Survey
+PWS0737, Knowles Head, 60.66767, -146.72437, Prince William Sound 2007 Current Survey
+PWS0738, Tatitlek Narrows, 60.90865, -146.75947, Prince William Sound 2007 Current Survey
+PWS0739, Between Naked and Eleanor Islands, 60.607669830322266, -147.4893341064453, Prince William Sound 2007 Current Survey
+PWS0740, Storey Island and Peak Island  between, 60.72666931152344, -147.30482482910156, Prince William Sound 2007 Current Survey
+PWS0741, Storey Is  N of, 60.75041, -147.40586, Prince William Sound 2007 Current Survey
+PWS0742, Outpost Is, 60.83539, -147.44942, Prince William Sound 2007 Current Survey
+PWS0743, Slipper Pt, 60.90998, -147.26555, Prince William Sound 2007 Current Survey
+PWS0744, Finski Pt, 60.90195, -147.06415, Prince William Sound 2007 Current Survey
+PWS0745, Valdez Narrows, 61.06976, -146.66077, Prince William Sound 2007 Current Survey
+PWS0746, Valdez Boat Harbor Approach, 61.12126, -146.36412, Prince William Sound 2007 Current Survey
+PWS0747, Valdez Terminal Berth 4, 61.09171, -146.3858, Prince William Sound 2007 Current Survey
+SAB0803, St. Andrew Bay Entrance, 30.121771, -85.729721, St. Andrew Bay 2008 Current Survey
+SAB0805, Paper Mill, 30.130449, -85.631622, St. Andrew Bay 2008 Current Survey
+SAB0806, Redfish Point, 30.14402, -85.6668, St. Andrew Bay 2008 Current Survey
+SAB0807, Courtney Point  0.75 miles SE of, 30.138729, -85.699181, St. Andrew Bay 2008 Current Survey
+SAB0808, Courtney Point  0.4 miles ESE of, 30.14423, -85.703331, St. Andrew Bay 2008 Current Survey
+SAB0809, Bear Point  0.6 nm E of, 30.164351, -85.713417, St. Andrew Bay 2008 Current Survey
+SAB0812, West Bay  Long Point, 30.23925, -85.749832, St. Andrew Bay 2008 Current Survey
+SAV9701, Savannah River Entrance, 32.03565, -80.89028, Savannah River 1997 Current Survey
+SAV9702, St. Simons Sound Entrance  N. of Channel, 31.13367, -81.40367, Savannah River 1997 Current Survey
+SEA0101, Ketchikan, 55.35115, -131.69435, Southeast Alaska 2001 Current Survey
+SEA0102, Snow Passage, 56.29135, -132.9923, Southeast Alaska 2001 Current Survey
+SEA0103, Wrangell Narrows  Petersburg, 56.815, -132.96278, Southeast Alaska 2001 Current Survey
+SEA0104, Wrangell Narrows  South Ledge, 56.62056, -132.96344, Southeast Alaska 2001 Current Survey
+SEA0202, Sergius Narrows, 57.40702, -135.63115, Southeast Alaska 2002 Current Survey
+SEA0203, Kakul Narrows, 57.3699, -135.6925, Southeast Alaska 2002 Current Survey
+SEA0204, Whitestone Narrows, 57.24495, -135.5639, Southeast Alaska 2002 Current Survey
+SEA0205, Olga Strait, 57.21014, -135.49492, Southeast Alaska 2002 Current Survey
+SEA0301, Deadman Reach, 57.54323, -135.5026, Southeast Alaska 2003 Current Survey
+SEA0302, Povorotini Is.  W of, 57.5105, -135.56167, Southeast Alaska 2003 Current Survey
+SEA0303, Adams Channel, 57.45308, -135.5373, Southeast Alaska 2003 Current Survey
+SEA0304, Suloia Point, 57.39217, -135.64105, Southeast Alaska 2003 Current Survey
+SEA0305, Kane Island  E. of, 57.3221, -135.6535, Southeast Alaska 2003 Current Survey
+SEA0306, Zeal Point Narrows, 57.2869, -135.6079, Southeast Alaska 2003 Current Survey
+SEA0307, Tracy Arm, 57.77973, -133.63224, Southeast Alaska 2003 Current Survey
+SEA0401, Shrubby Island  East of, 56.22667, -132.90867, Southeast Alaska 2004 Current Survey
+SEA0402, Snow Passage  Southern Approach, 56.25633, -132.9405, Southeast Alaska 2004 Current Survey
+SEA0403, Snow Passage Narrows, 56.279, -132.953, Southeast Alaska 2004 Current Survey
+SEA0404, Round Island Light  E. of, 56.31417, -133.094, Southeast Alaska 2004 Current Survey
+SEA0405, Vichnefski Rock Light, 56.446, -133.0195, Southeast Alaska 2004 Current Survey
+SEA0406, Killisnoo Harbor, 57.46322, -134.56463, Southeast Alaska 2004 Current Survey
+SEA0407, Sitka Sound  Eastern Channel, 57.01453, -135.35922, Southeast Alaska 2004 Current Survey
+SEA0408, Sitka Sound  Middle Channel, 57.02728, -135.3916, Southeast Alaska 2004 Current Survey
+SEA0409, Sitka Sound  Western Channel, 57.0503, -135.39578, Southeast Alaska 2004 Current Survey
+SEA0501, The Brothers  West, 57.30443, -133.9087, Southeast Alaska 2005 Current Survey
+SEA0502, The Brothers  East, 57.32245, -133.7334, Southeast Alaska 2005 Current Survey
+SEA0503, The Five Fingers, 57.26632, -133.60353, Southeast Alaska 2005 Current Survey
+SEA0504, Turnabout Island, 57.11598, -133.92482, Southeast Alaska 2005 Current Survey
+SEA0505, Kake Harbor, 56.96571, -133.95223, Southeast Alaska 2005 Current Survey
+SEA0506, Hawk Inlet  Entrance, 58.08805, -134.79373, Southeast Alaska 2005 Current Survey
+SEA0507, Hawk Inlet  Hawk Point, 58.09733, -134.77512, Southeast Alaska 2005 Current Survey
+SEA0601, The Eye Opener, 56.37623, -133.24576, Southeast Alaska 2006 Current Survey
+SEA0602, Red Bay Entrance, 56.32918, -133.30283, Southeast Alaska 2006 Current Survey
+SEA0603, Sumner Island, 56.40549, -133.74774, Southeast Alaska 2006 Current Survey
+SEA0604, Helm Rock, 56.37537, -133.66786, Southeast Alaska 2006 Current Survey
+SEA0605, Sumner Strait, 56.33161, -133.72589, Southeast Alaska 2006 Current Survey
+SEA0606, Port Protection, 56.33142, -133.64065, Southeast Alaska 2006 Current Survey
+SEA0607, Port Beauclerc, 56.27313, -133.8968, Southeast Alaska 2006 Current Survey
+SEA0608, Calder Rocks, 56.23982, -133.73993, Southeast Alaska 2006 Current Survey
+SEA0609, Amelius Is  1 Mi E of, 56.17779, -133.84177, Southeast Alaska 2006 Current Survey
+SEA0610, Shakan Light  2.4 Mi W of, 56.1455, -133.69709, Southeast Alaska 2006 Current Survey
+SEA0611, Shipley Bay Entrance, 56.09037, -133.68957, Southeast Alaska 2006 Current Survey
+SEA0612, Shakan Strait  West end, 56.12992, -133.57493, Southeast Alaska 2006 Current Survey
+SEA0613, Shakan Strait Rock, 56.12743, -133.49875, Southeast Alaska 2006 Current Survey
+SEA0614, El Capitan Strait NW Entrance, 56.15352, -133.45707, Southeast Alaska 2006 Current Survey
+SEA0615, The Quarries, 56.17308, -133.48422, Southeast Alaska 2006 Current Survey
+SEA0616, Dry Pass, 56.16123, -133.39945, Southeast Alaska 2006 Current Survey
+SEA0617, Affleck Canal, 56.10349, -134.06615, Southeast Alaska 2006 Current Survey
+SEA0618, Fairway Is  2nm E of, 56.04959, -133.98963, Southeast Alaska 2006 Current Survey
+SEA0619, Fairway Is  SW of, 56.03688, -134.07526, Southeast Alaska 2006 Current Survey
+SEA0620, Decision Pass, 55.997, -134.12896, Southeast Alaska 2006 Current Survey
+SEA0621, Coronation Is.  Spanish Is  between, 55.92551, -134.12815, Southeast Alaska 2006 Current Survey
+SEA0622, Warren Channel, 55.93346, -133.83525, Southeast Alaska 2006 Current Survey
+SEA0623, Davidson Inlet, 55.90483, -133.5347, Southeast Alaska 2006 Current Survey
+SEA0624, Whale Rock  1NM SE of, 55.83345, -133.67503, Southeast Alaska 2006 Current Survey
+SEA0625, Tokeen Bay, 56.00262, -133.45682, Southeast Alaska 2006 Current Survey
+SEA0626, El Capitan Pass  S Entrance, 55.89663, -133.36525, Southeast Alaska 2006 Current Survey
+SEA0627, Kutegi Point  N of, 55.908, -133.27065, Southeast Alaska 2006 Current Survey
+SEA0628, Sea Otter Sound, 55.84245, -133.51345, Southeast Alaska 2006 Current Survey
+SEA0629, Cob Is W of Karheen Passage, 55.79676, -133.30957, Southeast Alaska 2006 Current Survey
+SEA0630, Tonowek Narrows, 55.75918, -133.33546, Southeast Alaska 2006 Current Survey
+SEA0631, Tonowek Bay, 55.71887, -133.44645, Southeast Alaska 2006 Current Survey
+SEA0632, Boca de Finas, 55.69768, -133.58734, Southeast Alaska 2006 Current Survey
+SEA0633, Dead Tree Point, 55.74561, -133.67059, Southeast Alaska 2006 Current Survey
+SEA0634, Timbered Island, 55.69388, -133.78426, Southeast Alaska 2006 Current Survey
+SEA0635, Saint Nicholas Channel North, 55.52955, -133.56271, Southeast Alaska 2006 Current Survey
+SEA0636, Saint Nicholas Channel South, 55.45502, -133.63084, Southeast Alaska 2006 Current Survey
+SEA0637, Portillo Channel, 55.49249, -133.42566, Southeast Alaska 2006 Current Survey
+SEA0638, SC Channel Larz Lt. 0.25 N of, 55.58824, -133.3305, Southeast Alaska 2006 Current Survey
+SEA0639, San Christoval Rock, 55.562721, -133.29922, Southeast Alaska 2006 Current Survey
+SEA0640, Sonora Passage, 55.6051, -133.67644, Southeast Alaska 2006 Current Survey
+SEA0641, Arriaga Passage  West End, 55.57189, -133.73307, Southeast Alaska 2006 Current Survey
+SEA0642, Ursua Channel, 55.45814, -133.31621, Southeast Alaska 2006 Current Survey
+SEA0702, San Juanito Islands  south of, 55.393, -133.26567, Southeast Alaska 2007 Current Survey
+SEA0703, Point Rosary  west of, 55.27037, -133.5224, Southeast Alaska 2007 Current Survey
+SEA0704, Point Verde, 55.29915, -133.26773, Southeast Alaska 2007 Current Survey
+SEA0705, Eagle Point, 55.22023, -133.24109, Southeast Alaska 2007 Current Survey
+SEA0706, Tlevak Narrows  Turn Point  east of, 55.26486, -133.12236, Southeast Alaska 2007 Current Survey
+SEA0708, Cape Chacon  south of, 54.62556, -132.05715, Southeast Alaska 2007 Current Survey
+SEA0709, Happy Harbor  NE of Kasaan Island, 55.50378, -132.3162, Southeast Alaska 2007 Current Survey
+SEA0710, Grindall Island  south of, 55.41102, -132.12643, Southeast Alaska 2007 Current Survey
+SEA0711, Tongass Narrows  east of Airport, 55.35408, -131.69973, Southeast Alaska 2007 Current Survey
+SEA0712, Pennock Island  East Channel, 55.31227, -131.59635, Southeast Alaska 2007 Current Survey
+SEA0713, Walden Rocks, 55.2785, -131.61152, Southeast Alaska 2007 Current Survey
+SEA0714, Pennock Island  West Channel, 55.30143, -131.61598, Southeast Alaska 2007 Current Survey
+SEA0801, Juneau Harbor  North of, 58.29641, -134.42468, Southeast Alaska 2008 Current Survey
+SEA0802, Ferry Pier  NW of  Juneau Harbor, 58.296791, -134.40733, Southeast Alaska 2008 Current Survey
+SEA0803, Juneau Harbor  South of, 58.284779, -134.39763, Southeast Alaska 2008 Current Survey
+SEA0804, Gastineau Channel  N of Ship Creek, 58.257439, -134.33604, Southeast Alaska 2008 Current Survey
+SEA0805, Point Salisbury  W of, 58.209221, -134.24968, Southeast Alaska 2008 Current Survey
+SEA0806, Bishop Point  SE of  Taku Inlet, 58.193779, -134.1326, Southeast Alaska 2008 Current Survey
+SEA0807, Jaw Point  WNW of  Taku Inlet, 58.292839, -134.09891, Southeast Alaska 2008 Current Survey
+SEA0809, Taku Harbor Entrance, 58.0604, -134.03592, Southeast Alaska 2008 Current Survey
+SEA0810, Point Coke  SE of  Tracy Arm, 57.776031, -133.64967, Southeast Alaska 2008 Current Survey
+SEA0811, Point Astley  NE of  Tracy Arm, 57.730019, -133.63124, Southeast Alaska 2008 Current Survey
+SEA0812, Tantallon Point  SW of, 58.172871, -134.2881, Southeast Alaska 2008 Current Survey
+SEA0813, Point Young  Stephens Passage, 58.20903, -134.55865, Southeast Alaska 2008 Current Survey
+SEA0814, Portland Island  SW of, 58.31937, -134.7119, Southeast Alaska 2008 Current Survey
+SEA0815, Coghlan Island  E of  Auke Bay, 58.355431, -134.67911, Southeast Alaska 2008 Current Survey
+SEA0816, Piling Point  East of, 58.3281, -134.78336, Southeast Alaska 2008 Current Survey
+SEA0817, Point Lena  Favorite Channel, 58.39267, -134.80048, Southeast Alaska 2008 Current Survey
+SEA0818, Point Retreat  2 mi.E of  Saginaw Channel, 58.405, -134.885, Southeast Alaska 2008 Current Survey
+SEA0819, North Pass  Lincoln Island, 58.474739, -134.9323, Southeast Alaska 2008 Current Survey
+SEA0820, Point Retreat 1 mi.west of  Lynn Canal, 58.416779, -134.9666, Southeast Alaska 2008 Current Survey
+SEA0821, Clear Point  WNW of  Lynn Canal, 58.24894, -134.96309, Southeast Alaska 2008 Current Survey
+SEA0822, Vanderbilt Reef  2 mi. W of  Lynn Canal, 58.603531, -135.04314, Southeast Alaska 2008 Current Survey
+SEA0823, Berners Bay  Lynn Canal, 58.710918, -134.99263, Southeast Alaska 2008 Current Survey
+SEA0824, Skagway Harbor, 59.44717, -135.33127, Southeast Alaska 2008 Current Survey
+SEA0825, Low Point  entrance to Taiya Inlet, 59.267231, -135.38091, Southeast Alaska 2008 Current Survey
+SEA0826, Battery Point  Chilkoot Inlet, 59.216881, -135.35043, Southeast Alaska 2008 Current Survey
+SEA0827, Glacier Point  Chilkat Inlet  Lynn Canal, 59.104671, -135.3732, Southeast Alaska 2008 Current Survey
+SEA0828, Eldred Rock  Lynn Canal, 58.965271, -135.21248, Southeast Alaska 2008 Current Survey
+SEA0830, South Inian Pass - West End, 58.227909, -136.35449, Southeast Alaska 2008 Current Survey
+SEA0831, Port Althrop Entrance  E of George Island, 58.201672, -136.36292, Southeast Alaska 2008 Current Survey
+SEA0832, Cape Spencer  3 miles south of, 58.150318, -136.63261, Southeast Alaska 2008 Current Survey
+SEA0833, Yakobi Rock  1 mile west of, 58.082668, -136.59917, Southeast Alaska 2008 Current Survey
+SEA0835, Point Hogan  South Passage, 57.68816, -136.256, Southeast Alaska 2008 Current Survey
+SEA0836, Ogden Passage, 57.632191, -136.16418, Southeast Alaska 2008 Current Survey
+SEA0837, Elbow Passage  S of Klag Island, 57.613762, -136.09943, Southeast Alaska 2008 Current Survey
+SEA0838, Lituya Bay Entrance, 58.614288, -137.6601, Southeast Alaska 2008 Current Survey
+SEA0839, Sisters Reef  Icy Strait, 58.184361, -135.32483, Southeast Alaska 2008 Current Survey
+SEA0840, Porpoise Island, 58.340248, -135.43272, Southeast Alaska 2008 Current Survey
+SEA0841, Pleasant Island  3 mi. S of, 58.24712, -135.54715, Southeast Alaska 2008 Current Survey
+SEA0842, Pleasant Island  SW of  Icy Strait, 58.3203, -135.76636, Southeast Alaska 2008 Current Survey
+SEA0843, South Passage  Icy Strait, 58.235569, -136.09892, Southeast Alaska 2008 Current Survey
+SEA0844, Column Point  W of  Cross Sound, 58.117222, -136.46967, Southeast Alaska 2008 Current Survey
+SEA0845, North Passage  Icy Strait, 58.318218, -136.11786, Southeast Alaska 2008 Current Survey
+SEA0846, Point Gustavus  West of, 58.3842, -135.95277, Southeast Alaska 2008 Current Survey
+SEA0847, Beardslee Island  West of  Glacier Bay, 58.467072, -136.03453, Southeast Alaska 2008 Current Survey
+SEA0848, Muir Inlet  Mouth  Glacier Bay, 58.725971, -136.11327, Southeast Alaska 2008 Current Survey
+SEA0849, Drake Island  West of  Glacier Bay, 58.67635, -136.28613, Southeast Alaska 2008 Current Survey
+SEA0850, Hugh Miller Inlet  Glacier Bay, 58.7494, -136.37325, Southeast Alaska 2008 Current Survey
+SEA0851, Rock Point  N of  Lisianski Strait, 58.005741, -136.35194, Southeast Alaska 2008 Current Survey
+SEA0901, Fish Egg Island  N of  Klawock Narrows, 55.50733, -133.17993, Southeast Alaska 2009 Current Survey
+SEA1001, Pleasant Island  SW of  Icy Strait, 58.30968, -135.7382, Southeast Alaska 2010 Current Survey
+SEA1002, Entrance to Glacier Bay - East, 58.38242, -135.94617, Southeast Alaska 2010 Current Survey
+SEA1003, Entrance to Glacier Bay - Center, 58.38213, -135.97673, Southeast Alaska 2010 Current Survey
+SEA1004, Entrance to Glacier Bay - West, 58.38275, -136.0155, Southeast Alaska 2010 Current Survey
+SEA1005, South Inian Pass - East End, 58.2241, -136.30842, Southeast Alaska 2010 Current Survey
+SEA1006, North Inian Pass - East, 58.28403, -136.36993, Southeast Alaska 2010 Current Survey
+SEA1007, North Inian Pass - West, 58.28328, -136.38465, Southeast Alaska 2010 Current Survey
+SEA1008, Entrance to Cross Sound - South, 58.1225, -136.56735, Southeast Alaska 2010 Current Survey
+SEA1009, Entrance to Cross Sound - Center, 58.1531, -136.58747, Southeast Alaska 2010 Current Survey
+SEA1010, Entrance to Cross Sound - North, 58.17712, -136.61642, Southeast Alaska 2010 Current Survey
+SFB1201, San Francisco Bay Entrance, 37.8106, -122.502, San Francisco Bay 2012-2013 Current Survey
+SFB1202, Golden Gate Bridge, 37.82922, -122.46202, San Francisco Bay 2012-2013 Current Survey
+SFB1203, Golden Gate Bridge  0.46 nm E of, 37.82007, -122.473, San Francisco Bay 2012-2013 Current Survey
+SFB1204, Alcatraz Island  southwest of, 37.81425, -122.432, San Francisco Bay 2012-2013 Current Survey
+SFB1205, Pier 35  north of, 37.81423, -122.407, San Francisco Bay 2012-2013 Current Survey
+SFB1206, Pier 23, 37.8053, -122.39728, San Francisco Bay 2012-2013 Current Survey
+SFB1207, Bay Bridge Pier D, 37.80093, -122.37387, San Francisco Bay 2012-2013 Current Survey
+SFB1208, Bay Bridge B-C Span, 37.79748, -122.37387, San Francisco Bay 2012-2013 Current Survey
+SFB1209, YBI  W. of Midchannel, 37.81003, -122.38307, San Francisco Bay 2012-2013 Current Survey
+SFB1210, Treasure Island  0.78 NM NW of, 37.83733, -122.38717, San Francisco Bay 2012-2013 Current Survey
+SFB1211, Alcatraz Island  0.5 mile N of, 37.83513, -122.42013, San Francisco Bay 2012-2013 Current Survey
+SFB1212, Raccoon Strait, 37.87192, -122.44197, San Francisco Bay 2012-2013 Current Survey
+SFB1213, Oakland Inner Harbor Channel, 37.795, -122.3183, San Francisco Bay 2012-2013 Current Survey
+SFB1214, Oakland Inner Harbor Reach, 37.7929, -122.28552, San Francisco Bay 2012-2013 Current Survey
+SFB1215, Brooklyn Basin, 37.78523, -122.26055, San Francisco Bay 2012-2013 Current Survey
+SFB1216, Alameda Estuary  SE End, 37.76146, -122.22391, San Francisco Bay 2012-2013 Current Survey
+SFB1217, Rincon Point, 37.79027, -122.3734, San Francisco Bay 2012-2013 Current Survey
+SFB1218, Emmeryville Marina, 37.84332, -122.32537, San Francisco Bay 2012-2013 Current Survey
+SFB1219, Richardson Bay, 37.85668, -122.46987, San Francisco Bay 2012-2013 Current Survey
+SFB1220, Pt Bonita  0.95 nm SSE, 37.8011, -122.5184, San Francisco Bay 2012-2013 Current Survey
+SFB1221, SF Bar, 37.78529, -122.614, San Francisco Bay 2012-2013 Current Survey
+SFB1222, SF Buoy, 37.7505, -122.6996, San Francisco Bay 2012-2013 Current Survey
+SFB1223, Pt. San Pedro  8.8 SSE of, 37.64458, -122.6954, San Francisco Bay 2012-2013 Current Survey
+SFB1224, Farallon Isl Light  9.5 nm E of "W", 37.68824, -122.79983, San Francisco Bay 2012-2013 Current Survey
+SFB1225, Bolinas Point  7.0 NM SW of "N", 37.80437, -122.80515, San Francisco Bay 2012-2013 Current Survey
+SFB1301, Dumbarton Bridge, 37.50175, -122.11598, San Francisco Bay 2012-2013 Current Survey
+SFB1302, Redwood Point  1.7 nm E of, 37.53062, -122.1601, San Francisco Bay 2012-2013 Current Survey
+SFB1304, Redwood Creek, 37.52575, -122.1991, San Francisco Bay 2012-2013 Current Survey
+SFB1305, San Mateo Bridge, 37.58778, -122.25018, San Francisco Bay 2012-2013 Current Survey
+SFB1306, Anchorage 138, 37.62555, -122.29607, San Francisco Bay 2012-2013 Current Survey
+SFB1307, Mulford Gardens Channel Approach, 37.65008, -122.26282, San Francisco Bay 2012-2013 Current Survey
+SFB1308, Hunters Point  1.6 nm SE of, 37.69603, -122.33815, San Francisco Bay 2012-2013 Current Survey
+SFB1309, Point Chauncey  1.3 nm E of., 37.89082, -122.41878, San Francisco Bay 2012-2013 Current Survey
+SFB1310, Point Chauncey  1.25 miles N of., 37.9153, -122.44607, San Francisco Bay 2012-2013 Current Survey
+SFB1311, Red Rock  0.2 nm E of., 37.93017, -122.42448, San Francisco Bay 2012-2013 Current Survey
+SFB1312, Point San Pablo  Midchannel, 37.96888, -122.43913, San Francisco Bay 2012-2013 Current Survey
+SFB1313, Petaluma River approach (Buoys 3 and 4), 38.04349899291992, -122.42633056640625, San Francisco Bay 2012-2013 Current Survey
+SFB1314, Pinole Point  1.27 nmi. NNW of, 38.03083, -122.37715, San Francisco Bay 2012-2013 Current Survey
+SFB1315, Pinole Shoal, 38.04757, -122.33413, San Francisco Bay 2012-2013 Current Survey
+SFB1316, Davis Point  1.0 nmi. NW of, 38.0619, -122.27668, San Francisco Bay 2012-2013 Current Survey
+SFB1317, Mare Island Strait  Pier 34  NE of, 38.07725, -122.24565, San Francisco Bay 2012-2013 Current Survey
+SFB1318, I-80 Carquinez Bridge, 38.06237, -122.22753, San Francisco Bay 2012-2013 Current Survey
+SFB1319, Carquinez Strait, 38.06138, -122.21823, San Francisco Bay 2012-2013 Current Survey
+SFB1320, Dillon Point, 38.0589, -122.19305, San Francisco Bay 2012-2013 Current Survey
+SFB1322, Grizzly Bay  entrance, 38.10318, -122.05248, San Francisco Bay 2012-2013 Current Survey
+SFB1323, Roe Island Channel, 38.06507, -122.03445, San Francisco Bay 2012-2013 Current Survey
+SFB1324, Middle Point Lt.  0.18 nmi. NNW of, 38.05752, -121.99303, San Francisco Bay 2012-2013 Current Survey
+SFB1325, Simmons Point 0.6 nm ESE of, 38.04812, -121.9225, San Francisco Bay 2012-2013 Current Survey
+SFB1326, New York Slough, 38.0325, -121.86908, San Francisco Bay 2012-2013 Current Survey
+SFB1327, Antioch Point, 38.02395, -121.82258, San Francisco Bay 2012-2013 Current Survey
+SFB1328, West Island  N of, 38.02485, -121.79005, San Francisco Bay 2012-2013 Current Survey
+SFB1329, Route 160 Bridge, 38.02697, -121.75307, San Francisco Bay 2012-2013 Current Survey
+SFB1330, Sacramento River Entrance  0.7nm SW of Chain Island, 38.05847, -121.8712, San Francisco Bay 2012-2013 Current Survey
+SFB1331, Point Sacramento  0.2 nm NE of, 38.0643, -121.83372, San Francisco Bay 2012-2013 Current Survey
+SFB1332, Sacramento River  Light 14, 38.07715, -121.76393, San Francisco Bay 2012-2013 Current Survey
+SHR9901, Shark River Entrance, 40.1873, -74.0126, New Jersey Coast (HAZMAT Support)
+SJR0301, Dames Point, 30.3865, -81.55383, St. Johns River 2003 Current Survey
+SJR0302, Trout River, 30.37833, -81.62833, St. Johns River 2003 Current Survey
+SJR0303, Buoy 5, 30.39667, -81.375, St. Johns River 2003 Current Survey
+SJR0304, Buoy 6, 30.398, -81.39717, St. Johns River 2003 Current Survey
+SJR9801, St. Johns River Entrance, 30.40067, -81.386, St. Johns River 1998 Current Survey
+SJR9802, Outer Mayport, 30.397, -81.39882, St. Johns River 1998 Current Survey
+SJR9804, ICW Crossing, 30.38367, -81.45865, St. Johns River 1998 Current Survey
+SJR9805, Dames Point Bridge, 30.3846, -81.55492, St. Johns River 1998 Current Survey
+SJR9806, Trout River, 30.38358, -81.62785, St. Johns River 1998 Current Survey
+SJR9807, Blount Island East, 30.39228, -81.50872, St. Johns River 1998 Current Survey
+UNI1001, Unimak Pass  East Approach, 54.29981, -164.51693, Unimak Pass 2010 Current Survey
+UNI1002, Unimak Pass, 54.30863, -164.74683, Unimak Pass 2010 Current Survey
+UNI1003, Ugamak Strait, 54.15457, -164.87092, Unimak Pass 2010 Current Survey
+UNI1004, Unimak Pass  North Approach, 54.44831, -165.09124, Unimak Pass 2010 Current Survey
+UNI1005, Unimak Pass  West Approach, 54.36695, -165.36433, Unimak Pass 2010 Current Survey
+UNI1006, Avatanak Strait, 54.11279, -165.47573, Unimak Pass 2010 Current Survey
+UNI1007, Akun Strait, 54.1337, -165.65111, Unimak Pass 2010 Current Survey
+UNI1008, Akutan Bay, 54.18252, -165.72444, Unimak Pass 2010 Current Survey
+UNI1009, Baby Pass, 53.9812, -166.07178, Unimak Pass 2010 Current Survey
+UNI1010, Akutan Pass, 54.02455, -166.09753, Unimak Pass 2010 Current Survey
+UNI1011, Unalga Pass, 53.95372, -166.21471, Unimak Pass 2010 Current Survey
+UNI1012, Udagak Strait, 53.73414, -166.28904, Unimak Pass 2010 Current Survey
+UNI1013, Priest Rock, 54.01858, -166.37567, Unimak Pass 2010 Current Survey
+UNI1014, Ulakta Head  NE of, 53.93647, -166.47997, Unimak Pass 2010 Current Survey
+UNI1015, Iliuliuk Bay  East Channel, 53.87745, -166.52832, Unimak Pass 2010 Current Survey
+UNI1016, Captains Bay, 53.87716, -166.56829, Unimak Pass 2010 Current Survey
+UNI1017, Cape Kovrizhka, 53.84524, -167.18199, Unimak Pass 2010 Current Survey
+UNI1018, Paso Point, 53.41249, -167.69747, Unimak Pass 2010 Current Survey
+UNI1019, Umnak Pass, 53.36238, -167.81982, Unimak Pass 2010 Current Survey
+UNI1020, Konets Head, 53.32598, -167.90066, Unimak Pass 2010 Current Survey
+UNI1021, Sedanka Pass, 53.85121, -166.07639, Unimak Pass 2010 Current Survey
+UNI1022, Derbin Strait, 54.08391, -165.22707, Unimak Pass 2010 Current Survey
+UNI1023, Bishop Point, 53.97871, -166.95646, Unimak Pass 2010 Current Survey
+UNI1024, Cape Cheerful, 54.02659, -166.6724, Unimak Pass 2010 Current Survey
+WAC1401, Flat Rock  6 nm WSW, 47.3532, -124.4664, Olympic Coast National Marine Sanctuary Test

@@ -1,0 +1,59 @@
+Station ID, Station Name, Latitude, Longitude, Project
+cb0102, Cape Henry LB 2CH, 36.9594, -76.0128, Chesapeake Bay South PORTS
+cb0201, York Spit LBB 22, 37.13983, -76.1435, Chesapeake Bay South PORTS
+cb0301, Thimble Shoal LB 18, 37.01108, -76.24903, Chesapeake Bay South PORTS
+cb0402, Naval Station Norfolk LB 7, 36.96238, -76.33387, Chesapeake Bay South PORTS
+cb0601, Newport News Channel LB 14, 36.95602, -76.41448, Chesapeake Bay South PORTS
+cb0701, Dominion Terminal, 36.96233, -76.42417, Chesapeake Bay South PORTS
+cb0801, Rappahannock Shoal Channel LBB 60, 37.67442, -76.15462, Chesapeake Bay North PORTS
+cb0901, Potomac River MidChannel LWB B, 38.09098, -76.52975, Chesapeake Bay North PORTS
+cb1001, Cove Point LNG Pier, 38.40283, -76.38417, Chesapeake Bay North PORTS
+cb1101, Chesapeake Channel LBB 92, 38.98215, -76.38467, Chesapeake Bay North PORTS
+cb1201, Tolchester Front Range, 39.13997, -76.33072, Chesapeake Bay North PORTS
+cb1301, Chesapeake City, 39.53053, -75.82762, Chesapeake Bay North PORTS
+cp0101, Cherry Point, 48.8628, -122.761, Cherry Point PORTS
+db0301, Philadelphia, 39.94623, -75.1396, Delaware Bay PORTS
+db0501, Brown Shoal Light, 38.92244, -75.10075, Delaware Bay PORTS
+g06010, Galveston Bay Entr Channel LB 11, 29.34222, -94.74083, Houston/Galveston PORTS
+g08010, Fred Hartman Br.  Houston Ship Channel, 29.7035, -95.01892, Houston/Galveston PORTS
+gl0101, Cuyahoga River, 41.49448, -81.70292, Great Lakes Real-Time Currents Monitoring
+gl0201, Maumee River, 41.62913, -83.53022, Great Lakes Real-Time Currents Monitoring
+gl0301, St Clair River, 42.99873, -82.42527, Great Lakes Real-Time Currents Monitoring
+hb0201, Humboldt Bay Entrance Channel LB 9, 40.75696, -124.2234, Humboldt Bay PORTS
+hb0301, Hookton Channel Day Marker 5, 40.74233, -124.22506, Humboldt Bay PORTS
+hb0401, Chevron Pier, 40.7775, -124.19661, Humboldt Bay PORTS
+jx0101, St Johns River LBB 6, 30.39994, -81.37367, Jacksonville PORTS
+jx0201, Mayport Basin PC LBB, 30.39889, -81.39469, Jacksonville PORTS
+jx0301, Mile Point LB 24, 30.38275, -81.45556, Jacksonville PORTS
+jx0401, Fulton Cutoff LB 34, 30.39097, -81.49678, Jacksonville PORTS
+jx0501, Dames Point Bridge, 30.38599, -81.55786, Jacksonville PORTS
+jx0601, Trout River Cut LB 64, 30.39103, -81.62594, Jacksonville PORTS
+jx0701, Acosta Bridge, 30.32266, -81.66462, Jacksonville PORTS
+lc0101, Calcasieu Channel LB 36, 29.69347, -93.33118, Lake Charles PORTS
+lc0201, Cameron Fishing Pier, 29.76414, -93.34292, Lake Charles PORTS
+lc0301, Lake Charles City Docks, 30.21782, -93.24955, Lake Charles PORTS
+lm0101, First Street Wharf, 29.92244, -90.07114, Lower Mississippi River PORTS
+lm0201, Port Allen, 30.43547, -91.20056, Lower Mississippi River PORTS
+mb0301, Mobile State Dock Pier E, 30.72144, -88.04278, Mobile Bay PORTS
+mb0401, Mobile Container Terminal, 30.66435, -88.03235, Mobile Bay PORTS
+mc0101, Atchafalaya Bar Channel, 29.318, -91.42967, Morgan City PORTS
+n03020, The Narrows, 40.60623, -74.03842, New York/New Jersey PORTS
+nb0201, Fall River, 41.6999, -71.17842, Narragansett Bay PORTS
+nb0301, Quonset Point, 41.58363, -71.39733, Narragansett Bay PORTS
+nl0101, Groton  Thames River  Pier 6, 41.39175, -72.09233, New London PORTS
+ps0201, Pascagoula Harbor LB 17, 30.21503, -88.51089, Pascagoula PORTS
+ps0301, Northrop Grumman Pier, 30.35978, -88.56406, Pascagoula PORTS
+ps0401, Pascagoula Harbor LB 10, 30.19583, -88.52253, Pascagoula PORTS
+s06010, Martinez-AMORCO Pier, 38.03463, -122.12525, San Francisco Bay PORTS
+s08010, Southampton Shoal Channel LB 6, 37.91625, -122.42233, San Francisco Bay PORTS
+s09010, Oakland Outer Harbor LB3, 37.8082, -122.34434, San Francisco Bay PORTS
+s10010, Oakland Inner Harbor LB4, 37.80097, -122.34775, San Francisco Bay PORTS
+sn0101, Sabine Bank Channel LBB 34, 29.62873, -93.81617, Sabine Neches PORTS
+sn0201, USCG Sabine, 29.72861, -93.87001, Sabine Neches PORTS
+sn0301, Sabine Front Range, 29.758, -93.8902, Sabine Neches PORTS
+sn0401, West Port Arthur Bridge, 29.82361, -93.96472, Sabine Neches PORTS
+sn0501, Rainbow Bridge, 29.98111, -93.87111, Sabine Neches PORTS
+sn0601, Port of Beaumont, 30.0797, -94.08625, Sabine Neches PORTS
+sn0701, Port Arthur, 29.86708, -93.93111, Sabine Neches PORTS
+t01010, Sunshine Skyway Bridge, 27.625, -82.655, Tampa Bay PORTS
+t02010, Old Port Tampa, 27.86287, -82.55373, Tampa Bay PORTS
