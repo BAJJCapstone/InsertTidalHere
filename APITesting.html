@@ -11768,7 +11768,8 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd_stations</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="s1">&#39;station_info.json&#39;</span><span class="p">)</span>
-<span class="n">pd_stations</span>
+
+<span class="n">prefix</span> <span class="o">=</span> <span class="s1">&#39;https://tidesandcurrents.noaa.gov/inventory.html?id=&#39;</span>
 </pre></div>
 
 </div>
@@ -12116,7 +12117,6 @@ div#notebook {
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">current_stations</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;coops-activecurrentstations.csv&#39;</span><span class="p">)</span>
 <span class="n">historical_stations</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;coops-historiccurrentstations.csv&#39;</span><span class="p">)</span>
-<span class="n">current_stations</span>
 </pre></div>
 
 </div>

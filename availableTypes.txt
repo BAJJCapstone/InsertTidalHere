@@ -1,0 +1,14 @@
+Air Temperature
+Relative Humidity
+Rain Fall
+Verified Daily Mean Water Level
+Verified 6-Minute Water Level
+Verified Monthly Mean Water Level
+Water Conductivity
+Verified High/Low Water Level
+Wind
+Visibility
+Barometric Pressure
+Verified Hourly Height Water Level
+Preliminary 6-Minute Water Level
+Water Temperature

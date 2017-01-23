@@ -12,14 +12,14 @@ import pandas as pd
 # In[15]:
 
 pd_stations = pd.read_json('station_info.json')
-pd_stations
+
+prefix = 'https://tidesandcurrents.noaa.gov/inventory.html?id='
 
 
 # In[17]:
 
 current_stations = pd.read_csv('coops-activecurrentstations.csv')
 historical_stations = pd.read_csv('coops-historiccurrentstations.csv')
-current_stations
 
 
 # In[18]:
