@@ -1,7 +1,7 @@
 
 # coding: utf-8
 
-# In[12]:
+# In[2]:
 
 import requests
 import json
@@ -9,22 +9,30 @@ from pandas.io.json import json_normalize
 import pandas as pd
 
 
-# In[15]:
+# In[3]:
 
 pd_stations = pd.read_json('station_info.json')
 
 prefix = 'https://tidesandcurrents.noaa.gov/inventory.html?id='
 
 
-# In[17]:
+# In[4]:
 
-current_stations = pd.read_csv('coops-activecurrentstations.csv')
+current_stations = pd.readcsv('coops-activecurrentstations.csv')
 historical_stations = pd.read_csv('coops-historiccurrentstations.csv')
 
 
-# In[18]:
+# In[9]:
 
 historical_stations
+
+
+# In[6]:
+
+with open('current_station_info.json', 'r') as myFile:
+    current_dict = json.load(myFile)
+
+print(len(current_dict.keys()))
 
 
 # In[5]:
