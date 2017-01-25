@@ -11748,13 +11748,44 @@ div#notebook {
 
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">import</span> <span class="nn">json</span>
 <span class="kn">from</span> <span class="nn">pandas.io.json</span> <span class="k">import</span> <span class="n">json_normalize</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="k">import</span> <span class="n">strptime</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Investigating-currents">Investigating currents<a class="anchor-link" href="#Investigating-currents">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;current_station_info.json&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">station_info_file</span><span class="p">:</span>
+    <span class="n">currents_station_info</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">station_info_file</span><span class="p">)</span>
+    
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;current_station_intervals.json&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">station_dates_file</span><span class="p">:</span>
+    <span class="n">currents_station_intervals</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">station_dates_file</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -11767,9 +11798,18 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd_stations</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="s1">&#39;station_info.json&#39;</span><span class="p">)</span>
-
-<span class="n">prefix</span> <span class="o">=</span> <span class="s1">&#39;https://tidesandcurrents.noaa.gov/inventory.html?id=&#39;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">datesToInt</span><span class="p">(</span><span class="n">date</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">date</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+        <span class="n">date_string</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%x</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+        <span class="k">return</span> <span class="s1">&#39;</span><span class="si">{}{:02d}{:02d}</span><span class="s1"> 00:00:00&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">now</span><span class="o">.</span><span class="n">year</span><span class="p">,</span> <span class="n">now</span><span class="o">.</span><span class="n">month</span><span class="p">,</span> <span class="n">now</span><span class="o">.</span><span class="n">day</span><span class="p">)</span> 
+    <span class="n">split_date</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">r&quot;[\w&#39;]+&quot;</span><span class="p">,</span> <span class="n">date</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">split_date</span><span class="p">)</span>
+    <span class="n">day</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">split_date</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">year</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">split_date</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+    <span class="n">month</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">split_date</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="s1">&#39;%b&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">tm_mon</span><span class="p">)</span>
+    <span class="n">time</span> <span class="o">=</span> <span class="s1">&#39;:&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">split_date</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:])</span>
+    <span class="k">return</span> <span class="s1">&#39;</span><span class="si">{}{:02d}{:02d}</span><span class="s1"> </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="p">,</span> <span class="n">time</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -11782,556 +11822,27 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">current_stations</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">readcsv</span><span class="p">(</span><span class="s1">&#39;coops-activecurrentstations.csv&#39;</span><span class="p">)</span>
-<span class="n">historical_stations</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;coops-historiccurrentstations.csv&#39;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">historical_stations</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[9]:</div>
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Station ID</th>
-      <th>Station Name</th>
-      <th>Latitude</th>
-      <th>Longitude</th>
-      <th>Project</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>db0201</td>
-      <td>Reedy Point</td>
-      <td>39.55858</td>
-      <td>-75.551480</td>
-      <td>Delaware Bay PORTS</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>g02010</td>
-      <td>Morgans Point</td>
-      <td>29.68160</td>
-      <td>-94.982300</td>
-      <td>Houston/Galveston PORTS</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>g04010</td>
-      <td>Houston Ship CH Entrance LBB 18</td>
-      <td>29.35116</td>
-      <td>-94.783680</td>
-      <td>Houston/Galveston PORTS</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>g05010</td>
-      <td>Galveston Causeway</td>
-      <td>29.29747</td>
-      <td>-94.885818</td>
-      <td>Houston/Galveston PORTS</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>g07010</td>
-      <td>ExxonMobil Baytown</td>
-      <td>29.72704</td>
-      <td>-95.021940</td>
-      <td>Houston/Galveston PORTS</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>gp0101</td>
-      <td>Gulfport Ship Channel LB 22</td>
-      <td>30.19406</td>
-      <td>-88.989170</td>
-      <td>Gulfport PORTS</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>gp0201</td>
-      <td>Gulfport Ship Channel LB 26</td>
-      <td>30.21607</td>
-      <td>-88.994629</td>
-      <td>Gulfport PORTS</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>gp0301</td>
-      <td>Day Marker 32</td>
-      <td>30.23917</td>
-      <td>-89.000000</td>
-      <td>Gulfport PORTS</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>gp0401</td>
-      <td>Gulfport Harbor  West Pier</td>
-      <td>30.34775</td>
-      <td>-89.086940</td>
-      <td>Gulfport PORTS</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>hb0101</td>
-      <td>Humboldt Bay Bar Channel LBB 2</td>
-      <td>40.76678</td>
-      <td>-124.249810</td>
-      <td>Humboldt Bay PORTS</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>lb0101</td>
-      <td>Queens Gate</td>
-      <td>33.71700</td>
-      <td>-118.187900</td>
-      <td>Los Angeles/Long Beach PORTS</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>mb0101</td>
-      <td>Mobile Bay Buoy M</td>
-      <td>30.12530</td>
-      <td>-88.068700</td>
-      <td>Mobile Bay PORTS</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>n05010</td>
-      <td>Gowanus Flats LBB 32</td>
-      <td>40.67207</td>
-      <td>-74.039930</td>
-      <td>New York/New Jersey PORTS</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>nb0101</td>
-      <td>Providence</td>
-      <td>41.80870</td>
-      <td>-71.397470</td>
-      <td>Narragansett Bay PORTS</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>BOS1101</td>
-      <td>Little Misery Island</td>
-      <td>42.54217</td>
-      <td>-70.800130</td>
-      <td>Boston Harbor 2011 Current Survey</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>BOS1102</td>
-      <td>Haste Shoal</td>
-      <td>42.53935</td>
-      <td>-70.844960</td>
-      <td>Boston Harbor 2011 Current Survey</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>BOS1103</td>
-      <td>Abbot Rock</td>
-      <td>42.52962</td>
-      <td>-70.859920</td>
-      <td>Boston Harbor 2011 Current Survey</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>BOS1104</td>
-      <td>Ft. Pickering</td>
-      <td>42.52238</td>
-      <td>-70.867950</td>
-      <td>Boston Harbor 2011 Current Survey</td>
-    </tr>
-    <tr>
-      <th>18</th>
-      <td>BOS1105</td>
-      <td>Marblehead Channel</td>
-      <td>42.50070</td>
-      <td>-70.820230</td>
-      <td>Boston Harbor 2011 Current Survey</td>
-    </tr>
-    <tr>
-      <th>19</th>
-      <td>BOS1106</td>
-      <td>Northeast Grave</td>
-      <td>42.37176</td>
-      <td>-70.861800</td>
-      <td>Boston Harbor 2011 Current Survey</td>
-    </tr>
-    <tr>
-      <th>20</th>
-      <td>BOS1107</td>
-      <td>Commissioners Ledge</td>
-      <td>42.33584</td>
-      <td>-70.912960</td>
-      <td>Boston Harbor 2011 Current Survey</td>
-    </tr>
-    <tr>
-      <th>21</th>
-      <td>BOS1108</td>
-      <td>Lovell Island</td>
-      <td>42.35498</td>
-      <td>-70.931900</td>
-      <td>Boston Harbor 2011 Current Survey</td>
-    </tr>
-    <tr>
-      <th>22</th>
-      <td>BOS1109</td>
-      <td>South Channel Aldridge Ledge</td>
-      <td>42.34958</td>
-      <td>-70.912860</td>
-      <td>Boston Harbor 2011 Current Survey</td>
-    </tr>
-    <tr>
-      <th>23</th>
-      <td>BOS1110</td>
-      <td>Deer Island (0.7 mi.)</td>
-      <td>42.34413</td>
-      <td>-70.938880</td>
-      <td>Boston Harbor 2011 Current Survey</td>
-    </tr>
-    <tr>
-      <th>24</th>
-      <td>BOS1111</td>
-      <td>Boston Harbor  Deer Island Light</td>
-      <td>42.33778</td>
-      <td>-70.955780</td>
-      <td>Boston Harbor 2011 Current Survey</td>
-    </tr>
-    <tr>
-      <th>25</th>
-      <td>BOS1112</td>
-      <td>Spectacle Island</td>
-      <td>42.33422</td>
-      <td>-70.985980</td>
-      <td>Boston Harbor 2011 Current Survey</td>
-    </tr>
-    <tr>
-      <th>26</th>
-      <td>BOS1113</td>
-      <td>Boston Channel Light #5</td>
-      <td>42.33578</td>
-      <td>-71.000280</td>
-      <td>Boston Harbor 2011 Current Survey</td>
-    </tr>
-    <tr>
-      <th>27</th>
-      <td>BOS1114</td>
-      <td>Fort Independence</td>
-      <td>42.34180</td>
-      <td>-71.008920</td>
-      <td>Boston Harbor 2011 Current Survey</td>
-    </tr>
-    <tr>
-      <th>28</th>
-      <td>BOS1115</td>
-      <td>Ted Williams Tunnel</td>
-      <td>42.35170</td>
-      <td>-71.026110</td>
-      <td>Boston Harbor 2011 Current Survey</td>
-    </tr>
-    <tr>
-      <th>29</th>
-      <td>BOS1117</td>
-      <td>Charles River Entrance</td>
-      <td>42.37050</td>
-      <td>-71.051810</td>
-      <td>Boston Harbor 2011 Current Survey</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>679</th>
-      <td>SJR9802</td>
-      <td>Outer Mayport</td>
-      <td>30.39700</td>
-      <td>-81.398820</td>
-      <td>St. Johns River 1998 Current Survey</td>
-    </tr>
-    <tr>
-      <th>680</th>
-      <td>SJR9804</td>
-      <td>ICW Crossing</td>
-      <td>30.38367</td>
-      <td>-81.458650</td>
-      <td>St. Johns River 1998 Current Survey</td>
-    </tr>
-    <tr>
-      <th>681</th>
-      <td>SJR9805</td>
-      <td>Dames Point Bridge</td>
-      <td>30.38460</td>
-      <td>-81.554920</td>
-      <td>St. Johns River 1998 Current Survey</td>
-    </tr>
-    <tr>
-      <th>682</th>
-      <td>SJR9806</td>
-      <td>Trout River</td>
-      <td>30.38358</td>
-      <td>-81.627850</td>
-      <td>St. Johns River 1998 Current Survey</td>
-    </tr>
-    <tr>
-      <th>683</th>
-      <td>SJR9807</td>
-      <td>Blount Island East</td>
-      <td>30.39228</td>
-      <td>-81.508720</td>
-      <td>St. Johns River 1998 Current Survey</td>
-    </tr>
-    <tr>
-      <th>684</th>
-      <td>UNI1001</td>
-      <td>Unimak Pass  East Approach</td>
-      <td>54.29981</td>
-      <td>-164.516930</td>
-      <td>Unimak Pass 2010 Current Survey</td>
-    </tr>
-    <tr>
-      <th>685</th>
-      <td>UNI1002</td>
-      <td>Unimak Pass</td>
-      <td>54.30863</td>
-      <td>-164.746830</td>
-      <td>Unimak Pass 2010 Current Survey</td>
-    </tr>
-    <tr>
-      <th>686</th>
-      <td>UNI1003</td>
-      <td>Ugamak Strait</td>
-      <td>54.15457</td>
-      <td>-164.870920</td>
-      <td>Unimak Pass 2010 Current Survey</td>
-    </tr>
-    <tr>
-      <th>687</th>
-      <td>UNI1004</td>
-      <td>Unimak Pass  North Approach</td>
-      <td>54.44831</td>
-      <td>-165.091240</td>
-      <td>Unimak Pass 2010 Current Survey</td>
-    </tr>
-    <tr>
-      <th>688</th>
-      <td>UNI1005</td>
-      <td>Unimak Pass  West Approach</td>
-      <td>54.36695</td>
-      <td>-165.364330</td>
-      <td>Unimak Pass 2010 Current Survey</td>
-    </tr>
-    <tr>
-      <th>689</th>
-      <td>UNI1006</td>
-      <td>Avatanak Strait</td>
-      <td>54.11279</td>
-      <td>-165.475730</td>
-      <td>Unimak Pass 2010 Current Survey</td>
-    </tr>
-    <tr>
-      <th>690</th>
-      <td>UNI1007</td>
-      <td>Akun Strait</td>
-      <td>54.13370</td>
-      <td>-165.651110</td>
-      <td>Unimak Pass 2010 Current Survey</td>
-    </tr>
-    <tr>
-      <th>691</th>
-      <td>UNI1008</td>
-      <td>Akutan Bay</td>
-      <td>54.18252</td>
-      <td>-165.724440</td>
-      <td>Unimak Pass 2010 Current Survey</td>
-    </tr>
-    <tr>
-      <th>692</th>
-      <td>UNI1009</td>
-      <td>Baby Pass</td>
-      <td>53.98120</td>
-      <td>-166.071780</td>
-      <td>Unimak Pass 2010 Current Survey</td>
-    </tr>
-    <tr>
-      <th>693</th>
-      <td>UNI1010</td>
-      <td>Akutan Pass</td>
-      <td>54.02455</td>
-      <td>-166.097530</td>
-      <td>Unimak Pass 2010 Current Survey</td>
-    </tr>
-    <tr>
-      <th>694</th>
-      <td>UNI1011</td>
-      <td>Unalga Pass</td>
-      <td>53.95372</td>
-      <td>-166.214710</td>
-      <td>Unimak Pass 2010 Current Survey</td>
-    </tr>
-    <tr>
-      <th>695</th>
-      <td>UNI1012</td>
-      <td>Udagak Strait</td>
-      <td>53.73414</td>
-      <td>-166.289040</td>
-      <td>Unimak Pass 2010 Current Survey</td>
-    </tr>
-    <tr>
-      <th>696</th>
-      <td>UNI1013</td>
-      <td>Priest Rock</td>
-      <td>54.01858</td>
-      <td>-166.375670</td>
-      <td>Unimak Pass 2010 Current Survey</td>
-    </tr>
-    <tr>
-      <th>697</th>
-      <td>UNI1014</td>
-      <td>Ulakta Head  NE of</td>
-      <td>53.93647</td>
-      <td>-166.479970</td>
-      <td>Unimak Pass 2010 Current Survey</td>
-    </tr>
-    <tr>
-      <th>698</th>
-      <td>UNI1015</td>
-      <td>Iliuliuk Bay  East Channel</td>
-      <td>53.87745</td>
-      <td>-166.528320</td>
-      <td>Unimak Pass 2010 Current Survey</td>
-    </tr>
-    <tr>
-      <th>699</th>
-      <td>UNI1016</td>
-      <td>Captains Bay</td>
-      <td>53.87716</td>
-      <td>-166.568290</td>
-      <td>Unimak Pass 2010 Current Survey</td>
-    </tr>
-    <tr>
-      <th>700</th>
-      <td>UNI1017</td>
-      <td>Cape Kovrizhka</td>
-      <td>53.84524</td>
-      <td>-167.181990</td>
-      <td>Unimak Pass 2010 Current Survey</td>
-    </tr>
-    <tr>
-      <th>701</th>
-      <td>UNI1018</td>
-      <td>Paso Point</td>
-      <td>53.41249</td>
-      <td>-167.697470</td>
-      <td>Unimak Pass 2010 Current Survey</td>
-    </tr>
-    <tr>
-      <th>702</th>
-      <td>UNI1019</td>
-      <td>Umnak Pass</td>
-      <td>53.36238</td>
-      <td>-167.819820</td>
-      <td>Unimak Pass 2010 Current Survey</td>
-    </tr>
-    <tr>
-      <th>703</th>
-      <td>UNI1020</td>
-      <td>Konets Head</td>
-      <td>53.32598</td>
-      <td>-167.900660</td>
-      <td>Unimak Pass 2010 Current Survey</td>
-    </tr>
-    <tr>
-      <th>704</th>
-      <td>UNI1021</td>
-      <td>Sedanka Pass</td>
-      <td>53.85121</td>
-      <td>-166.076390</td>
-      <td>Unimak Pass 2010 Current Survey</td>
-    </tr>
-    <tr>
-      <th>705</th>
-      <td>UNI1022</td>
-      <td>Derbin Strait</td>
-      <td>54.08391</td>
-      <td>-165.227070</td>
-      <td>Unimak Pass 2010 Current Survey</td>
-    </tr>
-    <tr>
-      <th>706</th>
-      <td>UNI1023</td>
-      <td>Bishop Point</td>
-      <td>53.97871</td>
-      <td>-166.956460</td>
-      <td>Unimak Pass 2010 Current Survey</td>
-    </tr>
-    <tr>
-      <th>707</th>
-      <td>UNI1024</td>
-      <td>Cape Cheerful</td>
-      <td>54.02659</td>
-      <td>-166.672400</td>
-      <td>Unimak Pass 2010 Current Survey</td>
-    </tr>
-    <tr>
-      <th>708</th>
-      <td>WAC1401</td>
-      <td>Flat Rock  6 nm WSW</td>
-      <td>47.35320</td>
-      <td>-124.466400</td>
-      <td>Olympic Coast National Marine Sanctuary Test</td>
-    </tr>
-  </tbody>
-</table>
-<p>709 rows × 5 columns</p>
-</div>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;current_station_info.json&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">myFile</span><span class="p">:</span>
-    <span class="n">current_dict</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">myFile</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">current_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">date_list</span> <span class="ow">in</span> <span class="n">currents_station_info</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;***********Starting with**************: </span><span class="se">\n</span><span class="s1"> </span><span class="si">{}</span><span class="s1"> </span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">date_list</span><span class="p">))</span>
+    <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">el</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">date_list</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">date</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">date_list</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;1.</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">date</span><span class="p">))</span>
+            <span class="n">currents_station_info</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">element</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">date</span><span class="p">]</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;2.</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">currents_station_info</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="n">i</span><span class="p">]))</span>
+            <span class="k">if</span> <span class="n">date</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+                <span class="n">date_string</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%x</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+                <span class="n">currents_station_info</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}{:02d}{:02d}</span><span class="s1"> 00:00:00&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">now</span><span class="o">.</span><span class="n">year</span><span class="p">,</span> <span class="n">now</span><span class="o">.</span><span class="n">month</span><span class="p">,</span> <span class="n">now</span><span class="o">.</span><span class="n">day</span><span class="p">)</span>      
+                
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">tmp_list</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">date</span> <span class="ow">in</span> <span class="n">date_list</span><span class="p">[:</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="n">tmp_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">datesToInt</span><span class="p">(</span><span class="n">date</span><span class="p">))</span>
+        <span class="n">tmp_list</span> <span class="o">=</span> <span class="n">tmp_list</span> <span class="o">+</span> <span class="n">date_list</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
+        <span class="n">currents_station_info</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp_list</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;New Dictionary Entry:</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">currents_station_info</span><span class="p">[</span><span class="n">key</span><span class="p">]))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n\n\n</span><span class="s1"> ***NEXT*** </span><span class="se">\n\n\n</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12344,45 +11855,44 @@ div#notebook {
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>71
+<pre>***********Starting with**************: 
+ [&#39;May 4, 2007 02:54:00&#39;, &#39;Jun 23, 2007 21:27:00&#39;, &#34;60° 3.546&#39; N&#34;, &#34;147° 58.454&#39; W&#34;] 
+
+[&#39;May&#39;, &#39;4&#39;, &#39;2007&#39;, &#39;02&#39;, &#39;54&#39;, &#39;00&#39;]
 </pre>
 </div>
 </div>
 
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">UnboundLocalError</span>                         Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-4-38c4272bf111&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">     14</span>         tmp_list <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">]</span>
+<span class="ansi-green-intense-fg ansi-bold">     15</span>         <span class="ansi-green-fg">for</span> date <span class="ansi-green-fg">in</span> date_list<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">:</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">---&gt; 16</span><span class="ansi-red-fg">             </span>tmp_list<span class="ansi-blue-fg">.</span>append<span class="ansi-blue-fg">(</span>datesToInt<span class="ansi-blue-fg">(</span>date<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     17</span>         tmp_list <span class="ansi-blue-fg">=</span> tmp_list <span class="ansi-blue-fg">+</span> date_list<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">2</span><span class="ansi-blue-fg">:</span><span class="ansi-blue-fg">]</span>
+<span class="ansi-green-intense-fg ansi-bold">     18</span>         currents_station_info<span class="ansi-blue-fg">[</span>key<span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">=</span> tmp_list
+
+<span class="ansi-green-fg">&lt;ipython-input-3-07bc5a6bdc23&gt;</span> in <span class="ansi-cyan-fg">datesToInt</span><span class="ansi-blue-fg">(date)</span>
+<span class="ansi-green-intense-fg ansi-bold">      8</span>     day <span class="ansi-blue-fg">=</span> int<span class="ansi-blue-fg">(</span>split_date<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      9</span>     year <span class="ansi-blue-fg">=</span> int<span class="ansi-blue-fg">(</span>split_date<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">2</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">---&gt; 10</span><span class="ansi-red-fg">     </span>month <span class="ansi-blue-fg">=</span> int<span class="ansi-blue-fg">(</span>time<span class="ansi-blue-fg">.</span>strptime<span class="ansi-blue-fg">(</span>split_date<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">,</span><span class="ansi-blue-fg">&#39;%b&#39;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>tm_mon<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     11</span>     time <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">&#39;:&#39;</span><span class="ansi-blue-fg">.</span>join<span class="ansi-blue-fg">(</span>split_date<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">-</span><span class="ansi-cyan-fg">3</span><span class="ansi-blue-fg">:</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     12</span>     <span class="ansi-green-fg">return</span> <span class="ansi-blue-fg">&#39;{}{:02d}{:02d} {}&#39;</span><span class="ansi-blue-fg">.</span>format<span class="ansi-blue-fg">(</span>year<span class="ansi-blue-fg">,</span> month<span class="ansi-blue-fg">,</span> day<span class="ansi-blue-fg">,</span> time<span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">UnboundLocalError</span>: local variable &#39;time&#39; referenced before assignment</pre>
+</div>
+</div>
+
 </div>
 </div>
 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
-<span class="kn">from</span> <span class="nn">time</span> <span class="k">import</span> <span class="n">strptime</span>
-<span class="kn">import</span> <span class="nn">datetime</span>
-
-<span class="k">def</span> <span class="nf">datesToInt</span><span class="p">(</span><span class="n">date</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">date</span> <span class="o">==</span> <span class="s1">&#39;present&#39;</span><span class="p">:</span>
-        <span class="n">date_string</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%x</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
-        <span class="k">return</span> <span class="n">now</span><span class="o">.</span><span class="n">year</span><span class="p">,</span> <span class="n">now</span><span class="o">.</span><span class="n">month</span><span class="p">,</span> <span class="n">now</span><span class="o">.</span><span class="n">day</span>
-    <span class="n">date_list</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">r&quot;[\w&#39;]+&quot;</span><span class="p">,</span> <span class="n">date</span><span class="p">)</span>
-    <span class="n">day</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">date_list</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-    <span class="n">year</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">date_list</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
-    <span class="n">month</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">strptime</span><span class="p">(</span><span class="n">date_list</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="s1">&#39;%b&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">tm_mon</span><span class="p">)</span>
-    
-    <span class="k">return</span> <span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">retrieveLifetimeData</span><span class="p">(</span><span class="n">pandas_thing</span><span class="p">):</span>
@@ -12454,7 +11964,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">retrieveRecentData</span><span class="p">(</span><span class="n">pandas_thing</span><span class="p">):</span>
@@ -12523,7 +12033,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">current_stations</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
@@ -12534,508 +12044,6 @@ div#notebook {
 </pre></div>
 
 </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">metadata_dict</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[10]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>{&#39;id&#39;: &#39;cb0102&#39;,
- &#39;lat&#39;: &#39;36.9590&#39;,
- &#39;lon&#39;: &#39;-76.0126&#39;,
- &#39;name&#39;: &#39;Cape Henry LB 2CH&#39;}</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd_data</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[11]:</div>
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>b</th>
-      <th>d</th>
-      <th>s</th>
-      <th>t</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>1</td>
-      <td>294</td>
-      <td>54.700</td>
-      <td>2017-01-15 15:17</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>1</td>
-      <td>298</td>
-      <td>65.400</td>
-      <td>2017-01-15 15:23</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>1</td>
-      <td>296</td>
-      <td>65.500</td>
-      <td>2017-01-15 15:29</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>1</td>
-      <td>292</td>
-      <td>71.100</td>
-      <td>2017-01-15 15:35</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>1</td>
-      <td>298</td>
-      <td>66.400</td>
-      <td>2017-01-15 15:41</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>1</td>
-      <td>290</td>
-      <td>71.000</td>
-      <td>2017-01-15 15:47</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>1</td>
-      <td>291</td>
-      <td>70.900</td>
-      <td>2017-01-15 15:53</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>1</td>
-      <td>290</td>
-      <td>65.400</td>
-      <td>2017-01-15 15:59</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>1</td>
-      <td>295</td>
-      <td>68.100</td>
-      <td>2017-01-15 16:05</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>1</td>
-      <td>292</td>
-      <td>64.500</td>
-      <td>2017-01-15 16:11</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>1</td>
-      <td>296</td>
-      <td>60.200</td>
-      <td>2017-01-15 16:17</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>1</td>
-      <td>300</td>
-      <td>64.100</td>
-      <td>2017-01-15 16:23</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>1</td>
-      <td>299</td>
-      <td>67.700</td>
-      <td>2017-01-15 16:29</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>1</td>
-      <td>306</td>
-      <td>60.500</td>
-      <td>2017-01-15 16:35</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>1</td>
-      <td>307</td>
-      <td>50.800</td>
-      <td>2017-01-15 16:41</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>1</td>
-      <td>304</td>
-      <td>58.500</td>
-      <td>2017-01-15 16:47</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>1</td>
-      <td>311</td>
-      <td>46.200</td>
-      <td>2017-01-15 16:53</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>1</td>
-      <td>311</td>
-      <td>44.500</td>
-      <td>2017-01-15 16:59</td>
-    </tr>
-    <tr>
-      <th>18</th>
-      <td>1</td>
-      <td>334</td>
-      <td>34.200</td>
-      <td>2017-01-15 17:05</td>
-    </tr>
-    <tr>
-      <th>19</th>
-      <td>1</td>
-      <td>333</td>
-      <td>34.800</td>
-      <td>2017-01-15 17:11</td>
-    </tr>
-    <tr>
-      <th>20</th>
-      <td>1</td>
-      <td>306</td>
-      <td>38.800</td>
-      <td>2017-01-15 17:17</td>
-    </tr>
-    <tr>
-      <th>21</th>
-      <td>1</td>
-      <td>310</td>
-      <td>32.500</td>
-      <td>2017-01-15 17:23</td>
-    </tr>
-    <tr>
-      <th>22</th>
-      <td>1</td>
-      <td>314</td>
-      <td>39.300</td>
-      <td>2017-01-15 17:29</td>
-    </tr>
-    <tr>
-      <th>23</th>
-      <td>1</td>
-      <td>324</td>
-      <td>31.200</td>
-      <td>2017-01-15 17:35</td>
-    </tr>
-    <tr>
-      <th>24</th>
-      <td>1</td>
-      <td>328</td>
-      <td>32.300</td>
-      <td>2017-01-15 17:41</td>
-    </tr>
-    <tr>
-      <th>25</th>
-      <td>1</td>
-      <td>332</td>
-      <td>25.200</td>
-      <td>2017-01-15 17:47</td>
-    </tr>
-    <tr>
-      <th>26</th>
-      <td>1</td>
-      <td>338</td>
-      <td>29.800</td>
-      <td>2017-01-15 17:53</td>
-    </tr>
-    <tr>
-      <th>27</th>
-      <td>1</td>
-      <td>347</td>
-      <td>16.600</td>
-      <td>2017-01-15 17:59</td>
-    </tr>
-    <tr>
-      <th>28</th>
-      <td>1</td>
-      <td>343</td>
-      <td>17.300</td>
-      <td>2017-01-15 18:05</td>
-    </tr>
-    <tr>
-      <th>29</th>
-      <td>1</td>
-      <td>351</td>
-      <td>14.500</td>
-      <td>2017-01-15 18:11</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>678</th>
-      <td>1</td>
-      <td>88</td>
-      <td>62.800</td>
-      <td>2017-01-18 11:59</td>
-    </tr>
-    <tr>
-      <th>679</th>
-      <td>1</td>
-      <td>91</td>
-      <td>60.800</td>
-      <td>2017-01-18 12:05</td>
-    </tr>
-    <tr>
-      <th>680</th>
-      <td>1</td>
-      <td>93</td>
-      <td>54.700</td>
-      <td>2017-01-18 12:11</td>
-    </tr>
-    <tr>
-      <th>681</th>
-      <td>1</td>
-      <td>77</td>
-      <td>73.200</td>
-      <td>2017-01-18 12:17</td>
-    </tr>
-    <tr>
-      <th>682</th>
-      <td>1</td>
-      <td>87</td>
-      <td>70.900</td>
-      <td>2017-01-18 12:23</td>
-    </tr>
-    <tr>
-      <th>683</th>
-      <td>1</td>
-      <td>79</td>
-      <td>75.900</td>
-      <td>2017-01-18 12:29</td>
-    </tr>
-    <tr>
-      <th>684</th>
-      <td>1</td>
-      <td>76</td>
-      <td>70.800</td>
-      <td>2017-01-18 12:35</td>
-    </tr>
-    <tr>
-      <th>685</th>
-      <td>1</td>
-      <td>79</td>
-      <td>71.300</td>
-      <td>2017-01-18 12:41</td>
-    </tr>
-    <tr>
-      <th>686</th>
-      <td>1</td>
-      <td>72</td>
-      <td>68.100</td>
-      <td>2017-01-18 12:47</td>
-    </tr>
-    <tr>
-      <th>687</th>
-      <td>1</td>
-      <td>76</td>
-      <td>71.200</td>
-      <td>2017-01-18 12:53</td>
-    </tr>
-    <tr>
-      <th>688</th>
-      <td>1</td>
-      <td>83</td>
-      <td>63.100</td>
-      <td>2017-01-18 12:59</td>
-    </tr>
-    <tr>
-      <th>689</th>
-      <td>1</td>
-      <td>91</td>
-      <td>76.600</td>
-      <td>2017-01-18 13:05</td>
-    </tr>
-    <tr>
-      <th>690</th>
-      <td>1</td>
-      <td>90</td>
-      <td>75.100</td>
-      <td>2017-01-18 13:11</td>
-    </tr>
-    <tr>
-      <th>691</th>
-      <td>1</td>
-      <td>91</td>
-      <td>70.500</td>
-      <td>2017-01-18 13:17</td>
-    </tr>
-    <tr>
-      <th>692</th>
-      <td>1</td>
-      <td>89</td>
-      <td>72.400</td>
-      <td>2017-01-18 13:23</td>
-    </tr>
-    <tr>
-      <th>693</th>
-      <td>1</td>
-      <td>87</td>
-      <td>55.800</td>
-      <td>2017-01-18 13:41</td>
-    </tr>
-    <tr>
-      <th>694</th>
-      <td>1</td>
-      <td>86</td>
-      <td>51.300</td>
-      <td>2017-01-18 13:47</td>
-    </tr>
-    <tr>
-      <th>695</th>
-      <td>1</td>
-      <td>78</td>
-      <td>36.700</td>
-      <td>2017-01-18 13:53</td>
-    </tr>
-    <tr>
-      <th>696</th>
-      <td>1</td>
-      <td>83</td>
-      <td>34.000</td>
-      <td>2017-01-18 13:59</td>
-    </tr>
-    <tr>
-      <th>697</th>
-      <td>1</td>
-      <td>111</td>
-      <td>37.700</td>
-      <td>2017-01-18 14:05</td>
-    </tr>
-    <tr>
-      <th>698</th>
-      <td>1</td>
-      <td>108</td>
-      <td>34.200</td>
-      <td>2017-01-18 14:11</td>
-    </tr>
-    <tr>
-      <th>699</th>
-      <td>1</td>
-      <td>129</td>
-      <td>35.400</td>
-      <td>2017-01-18 14:17</td>
-    </tr>
-    <tr>
-      <th>700</th>
-      <td>1</td>
-      <td>119</td>
-      <td>30.500</td>
-      <td>2017-01-18 14:23</td>
-    </tr>
-    <tr>
-      <th>701</th>
-      <td>1</td>
-      <td>127</td>
-      <td>26.300</td>
-      <td>2017-01-18 14:29</td>
-    </tr>
-    <tr>
-      <th>702</th>
-      <td>1</td>
-      <td>130</td>
-      <td>32.000</td>
-      <td>2017-01-18 14:35</td>
-    </tr>
-    <tr>
-      <th>703</th>
-      <td>1</td>
-      <td>129</td>
-      <td>23.500</td>
-      <td>2017-01-18 14:41</td>
-    </tr>
-    <tr>
-      <th>704</th>
-      <td>1</td>
-      <td>138</td>
-      <td>25.800</td>
-      <td>2017-01-18 14:47</td>
-    </tr>
-    <tr>
-      <th>705</th>
-      <td>1</td>
-      <td>146</td>
-      <td>24.900</td>
-      <td>2017-01-18 14:53</td>
-    </tr>
-    <tr>
-      <th>706</th>
-      <td>1</td>
-      <td>153</td>
-      <td>27.800</td>
-      <td>2017-01-18 14:59</td>
-    </tr>
-    <tr>
-      <th>707</th>
-      <td>1</td>
-      <td>153</td>
-      <td>14.300</td>
-      <td>2017-01-18 15:05</td>
-    </tr>
-  </tbody>
-</table>
-<p>708 rows × 4 columns</p>
-</div>
-</div>
-
-</div>
-
 </div>
 </div>
 

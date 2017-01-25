@@ -1,60 +1,72 @@
 
 # coding: utf-8
 
-# In[2]:
+# In[1]:
 
 import requests
 import json
 from pandas.io.json import json_normalize
 import pandas as pd
 
+import re
+import time
+from time import strptime
+import datetime
+
+
+# ### Investigating currents 
+
+# In[2]:
+
+with open('current_station_info.json', 'r') as station_info_file:
+    currents_station_info = json.load(station_info_file)
+    
+with open('current_station_intervals.json', 'r') as station_dates_file:
+    currents_station_intervals = json.load(station_dates_file)
+
 
 # In[3]:
 
-pd_stations = pd.read_json('station_info.json')
-
-prefix = 'https://tidesandcurrents.noaa.gov/inventory.html?id='
+def datesToInt(date):
+    if date == '':
+        date_string = time.strftime("%x")
+        now = datetime.datetime.now()
+        return '{}{:02d}{:02d} 00:00:00'.format(now.year, now.month, now.day) 
+    split_date = re.findall(r"[\w']+", date)
+    print(split_date)
+    day = int(split_date[1])
+    year = int(split_date[2])
+    month = int(time.strptime(split_date[0],'%b').tm_mon)
+    time = ':'.join(split_date[-3:])
+    return '{}{:02d}{:02d} {}'.format(year, month, day, time)
 
 
 # In[4]:
 
-current_stations = pd.readcsv('coops-activecurrentstations.csv')
-historical_stations = pd.read_csv('coops-historiccurrentstations.csv')
-
-
-# In[9]:
-
-historical_stations
-
-
-# In[6]:
-
-with open('current_station_info.json', 'r') as myFile:
-    current_dict = json.load(myFile)
-
-print(len(current_dict.keys()))
-
-
-# In[5]:
-
-import re
-from time import strptime
-import datetime
-
-def datesToInt(date):
-    if date == 'present':
-        date_string = time.strftime("%x")
-        now = datetime.datetime.now()
-        return now.year, now.month, now.day
-    date_list = re.findall(r"[\w']+", date)
-    day = int(date_list[1])
-    year = int(date_list[2])
-    month = int(strptime(date_list[0],'%b').tm_mon)
+for key, date_list in currents_station_info.items():
+    print('***********Starting with**************: \n {} \n'.format(date_list))
+    if any(isinstance(el, list) for el in date_list):
+        for i, date in enumerate(date_list):
+            print('1.{}'.format(date))
+            currents_station_info[key][i] = [element.replace('-','') for element in date]
+            print('2.{}'.format(currents_station_info[key][i]))
+            if date[1] == '':
+                date_string = time.strftime("%x")
+                now = datetime.datetime.now()
+                currents_station_info[key][0][1] = '{}{:02d}{:02d} 00:00:00'.format(now.year, now.month, now.day)      
+                
+    else:
+        tmp_list = []
+        for date in date_list[:1]:
+            tmp_list.append(datesToInt(date))
+        tmp_list = tmp_list + date_list[2:]
+        currents_station_info[key] = tmp_list
     
-    return year, month, day
+    print('New Dictionary Entry:{}'.format(currents_station_info[key]))
+    print('\n\n\n ***NEXT*** \n\n\n')
 
 
-# In[6]:
+# In[ ]:
 
 def retrieveLifetimeData(pandas_thing):
     date_range_string = pandas_thing['dates']
@@ -118,7 +130,7 @@ def retrieveLifetimeData(pandas_thing):
             return metadata_dict, pd_data
 
 
-# In[7]:
+# In[ ]:
 
 def retrieveRecentData(pandas_thing):
     station_id = pandas_thing['Station ID']
@@ -173,23 +185,13 @@ except KeyError:
 
 
 
-# In[8]:
+# In[ ]:
 
 for index, row in current_stations.iterrows():
     metadata_dict, pd_data = retrieveRecentData(row)
     if metadata_dict is not None:
         break
     
-
-
-# In[10]:
-
-metadata_dict
-
-
-# In[11]:
-
-pd_data
 
 
 # In[ ]:
