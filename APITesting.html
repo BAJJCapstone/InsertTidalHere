@@ -11748,7 +11748,7 @@ div#notebook {
 
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
@@ -11778,7 +11778,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;current_station_info.json&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">station_info_file</span><span class="p">:</span>
@@ -11786,6 +11786,8 @@ div#notebook {
     
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;current_station_intervals.json&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">station_dates_file</span><span class="p">:</span>
     <span class="n">currents_station_intervals</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">station_dates_file</span><span class="p">)</span>
+    
+    
 </pre></div>
 
 </div>
@@ -11795,97 +11797,40 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">datesToInt</span><span class="p">(</span><span class="n">date</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">date</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
-        <span class="n">date_string</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%x</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
-        <span class="k">return</span> <span class="s1">&#39;</span><span class="si">{}{:02d}{:02d}</span><span class="s1"> 00:00:00&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">now</span><span class="o">.</span><span class="n">year</span><span class="p">,</span> <span class="n">now</span><span class="o">.</span><span class="n">month</span><span class="p">,</span> <span class="n">now</span><span class="o">.</span><span class="n">day</span><span class="p">)</span> 
-    <span class="n">split_date</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">r&quot;[\w&#39;]+&quot;</span><span class="p">,</span> <span class="n">date</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">split_date</span><span class="p">)</span>
-    <span class="n">day</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">split_date</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-    <span class="n">year</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">split_date</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
-    <span class="n">month</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">split_date</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="s1">&#39;%b&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">tm_mon</span><span class="p">)</span>
-    <span class="n">time</span> <span class="o">=</span> <span class="s1">&#39;:&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">split_date</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:])</span>
-    <span class="k">return</span> <span class="s1">&#39;</span><span class="si">{}{:02d}{:02d}</span><span class="s1"> </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="p">,</span> <span class="n">time</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">date_list</span> <span class="ow">in</span> <span class="n">currents_station_info</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;***********Starting with**************: </span><span class="se">\n</span><span class="s1"> </span><span class="si">{}</span><span class="s1"> </span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">date_list</span><span class="p">))</span>
     <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">el</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">date_list</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">date</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">date_list</span><span class="p">):</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;1.</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">date</span><span class="p">))</span>
-            <span class="n">currents_station_info</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">element</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">date</span><span class="p">]</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;2.</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">currents_station_info</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="n">i</span><span class="p">]))</span>
-            <span class="k">if</span> <span class="n">date</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
-                <span class="n">date_string</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%x</span><span class="s2">&quot;</span><span class="p">)</span>
-                <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
-                <span class="n">currents_station_info</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}{:02d}{:02d}</span><span class="s1"> 00:00:00&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">now</span><span class="o">.</span><span class="n">year</span><span class="p">,</span> <span class="n">now</span><span class="o">.</span><span class="n">month</span><span class="p">,</span> <span class="n">now</span><span class="o">.</span><span class="n">day</span><span class="p">)</span>      
-                
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">dates</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">date_list</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">date</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">dates</span><span class="p">[:</span><span class="mi">1</span><span class="p">]):</span>
+                <span class="k">if</span> <span class="n">date</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+                    <span class="n">currents_station_info</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+                    <span class="k">continue</span>
+                <span class="n">split_date</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">r&quot;[\w&#39;]+&quot;</span><span class="p">,</span> <span class="n">date</span><span class="p">)</span>
+                <span class="n">currents_station_info</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="n">year</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">split_date</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> 
+                                <span class="n">month</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">split_date</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span>
+                                <span class="n">day</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">split_date</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span> 
+                                <span class="n">hour</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">split_date</span><span class="p">[</span><span class="mi">3</span><span class="p">]),</span> 
+                                <span class="n">minute</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">split_date</span><span class="p">[</span><span class="mi">4</span><span class="p">]),</span>
+                                <span class="n">second</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">split_date</span><span class="p">[</span><span class="mi">5</span><span class="p">]))</span>   
     <span class="k">else</span><span class="p">:</span>
+        <span class="n">for_consistency</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">tmp_list</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">date</span> <span class="ow">in</span> <span class="n">date_list</span><span class="p">[:</span><span class="mi">1</span><span class="p">]:</span>
-            <span class="n">tmp_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">datesToInt</span><span class="p">(</span><span class="n">date</span><span class="p">))</span>
+            <span class="n">split_date</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">r&quot;[\w&#39;]+&quot;</span><span class="p">,</span> <span class="n">date</span><span class="p">)</span>
+            <span class="n">tmp_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="n">year</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">split_date</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span> 
+                            <span class="n">month</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">strptime</span><span class="p">(</span><span class="n">split_date</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="s1">&#39;%b&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">tm_mon</span><span class="p">),</span>
+                            <span class="n">day</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">split_date</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> 
+                            <span class="n">hour</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">split_date</span><span class="p">[</span><span class="mi">3</span><span class="p">]),</span>
+                            <span class="n">minute</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">split_date</span><span class="p">[</span><span class="mi">4</span><span class="p">]),</span>
+                            <span class="n">second</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">split_date</span><span class="p">[</span><span class="mi">5</span><span class="p">])))</span>
+        
         <span class="n">tmp_list</span> <span class="o">=</span> <span class="n">tmp_list</span> <span class="o">+</span> <span class="n">date_list</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
-        <span class="n">currents_station_info</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp_list</span>
-    
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;New Dictionary Entry:</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">currents_station_info</span><span class="p">[</span><span class="n">key</span><span class="p">]))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n\n\n</span><span class="s1"> ***NEXT*** </span><span class="se">\n\n\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">currents_station_info</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">for_consistency</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp_list</span><span class="p">)</span> <span class="c1">#put the list inside of another list</span>
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>***********Starting with**************: 
- [&#39;May 4, 2007 02:54:00&#39;, &#39;Jun 23, 2007 21:27:00&#39;, &#34;60° 3.546&#39; N&#34;, &#34;147° 58.454&#39; W&#34;] 
-
-[&#39;May&#39;, &#39;4&#39;, &#39;2007&#39;, &#39;02&#39;, &#39;54&#39;, &#39;00&#39;]
-</pre>
-</div>
-</div>
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">UnboundLocalError</span>                         Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-4-38c4272bf111&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">     14</span>         tmp_list <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">]</span>
-<span class="ansi-green-intense-fg ansi-bold">     15</span>         <span class="ansi-green-fg">for</span> date <span class="ansi-green-fg">in</span> date_list<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">:</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">---&gt; 16</span><span class="ansi-red-fg">             </span>tmp_list<span class="ansi-blue-fg">.</span>append<span class="ansi-blue-fg">(</span>datesToInt<span class="ansi-blue-fg">(</span>date<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">     17</span>         tmp_list <span class="ansi-blue-fg">=</span> tmp_list <span class="ansi-blue-fg">+</span> date_list<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">2</span><span class="ansi-blue-fg">:</span><span class="ansi-blue-fg">]</span>
-<span class="ansi-green-intense-fg ansi-bold">     18</span>         currents_station_info<span class="ansi-blue-fg">[</span>key<span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">=</span> tmp_list
-
-<span class="ansi-green-fg">&lt;ipython-input-3-07bc5a6bdc23&gt;</span> in <span class="ansi-cyan-fg">datesToInt</span><span class="ansi-blue-fg">(date)</span>
-<span class="ansi-green-intense-fg ansi-bold">      8</span>     day <span class="ansi-blue-fg">=</span> int<span class="ansi-blue-fg">(</span>split_date<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      9</span>     year <span class="ansi-blue-fg">=</span> int<span class="ansi-blue-fg">(</span>split_date<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">2</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-fg">---&gt; 10</span><span class="ansi-red-fg">     </span>month <span class="ansi-blue-fg">=</span> int<span class="ansi-blue-fg">(</span>time<span class="ansi-blue-fg">.</span>strptime<span class="ansi-blue-fg">(</span>split_date<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">,</span><span class="ansi-blue-fg">&#39;%b&#39;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>tm_mon<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">     11</span>     time <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">&#39;:&#39;</span><span class="ansi-blue-fg">.</span>join<span class="ansi-blue-fg">(</span>split_date<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">-</span><span class="ansi-cyan-fg">3</span><span class="ansi-blue-fg">:</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">     12</span>     <span class="ansi-green-fg">return</span> <span class="ansi-blue-fg">&#39;{}{:02d}{:02d} {}&#39;</span><span class="ansi-blue-fg">.</span>format<span class="ansi-blue-fg">(</span>year<span class="ansi-blue-fg">,</span> month<span class="ansi-blue-fg">,</span> day<span class="ansi-blue-fg">,</span> time<span class="ansi-blue-fg">)</span>
-
-<span class="ansi-red-fg">UnboundLocalError</span>: local variable &#39;time&#39; referenced before assignment</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -11895,234 +11840,44 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">retrieveLifetimeData</span><span class="p">(</span><span class="n">pandas_thing</span><span class="p">):</span>
-    <span class="n">date_range_string</span> <span class="o">=</span> <span class="n">pandas_thing</span><span class="p">[</span><span class="s1">&#39;dates&#39;</span><span class="p">]</span>
-    <span class="n">station_id</span> <span class="o">=</span> <span class="n">pandas_thing</span><span class="p">[</span><span class="s1">&#39;ID&#39;</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">retrieveLifetimeData</span><span class="p">(</span><span class="n">station_id</span><span class="p">,</span> <span class="n">date_lists</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">date_list</span> <span class="ow">in</span> <span class="n">date_lists</span><span class="p">:</span>
+        <span class="n">begin_date</span> <span class="o">=</span> <span class="n">date_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">end_date</span> <span class="o">=</span> <span class="n">date_list</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">date</span> <span class="o">=</span> <span class="n">begin_date</span>
+        <span class="n">month</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">month</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">first_loop</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">while</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">end_loop</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="n">next_date</span> <span class="o">=</span> <span class="n">date</span> <span class="o">+</span> <span class="n">month</span>
+            <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://tidesandcurrents.noaa.gov/api/datagetter?&#39;</span>
+            <span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s1">&#39;begin_date&#39;</span><span class="p">:</span> <span class="s1">&#39;</span><span class="si">{:02d}</span><span class="s1">/</span><span class="si">{:02d}</span><span class="s1">/</span><span class="si">{}</span><span class="s1"> </span><span class="si">{:02d}</span><span class="s1">:</span><span class="si">{:02d}</span><span class="s1">:</span><span class="si">{:02d}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">date</span><span class="o">.</span><span class="n">month</span><span class="p">,</span> <span class="n">date</span><span class="o">.</span><span class="n">day</span><span class="p">,</span> <span class="n">date</span><span class="o">.</span><span class="n">year</span><span class="p">,</span> <span class="n">date</span><span class="o">.</span><span class="n">hour</span><span class="p">,</span> <span class="n">date</span><span class="o">.</span><span class="n">minute</span><span class="p">,</span> <span class="n">date</span><span class="o">.</span><span class="n">second</span><span class="p">),</span>
+                <span class="s1">&#39;end_date&#39;</span><span class="p">:</span><span class="s1">&#39;</span><span class="si">{:02d}</span><span class="s1">/</span><span class="si">{:02d}</span><span class="s1">/</span><span class="si">{}</span><span class="s1"> </span><span class="si">{:02d}</span><span class="s1">:</span><span class="si">{:02d}</span><span class="s1">:</span><span class="si">{:02d}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">next_date</span><span class="o">.</span><span class="n">month</span><span class="p">,</span> <span class="n">next_date</span><span class="o">.</span><span class="n">day</span><span class="p">,</span> <span class="n">next_date</span><span class="o">.</span><span class="n">year</span><span class="p">,</span> <span class="n">next_date</span><span class="o">.</span><span class="n">hour</span><span class="p">,</span> <span class="n">next_date</span><span class="o">.</span><span class="n">minute</span><span class="p">,</span> <span class="n">next_date</span><span class="o">.</span><span class="n">second</span><span class="p">),</span>
+                <span class="s1">&#39;station&#39;</span><span class="p">:</span><span class="n">station_id</span><span class="p">,</span>
+                <span class="s1">&#39;product&#39;</span><span class="p">:</span><span class="s1">&#39;currents&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;units&#39;</span><span class="p">:</span><span class="s1">&#39;metric&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;time_zone&#39;</span><span class="p">:</span><span class="s1">&#39;gmt&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;application&#39;</span><span class="p">:</span><span class="s1">&#39;web_services&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;format&#39;</span><span class="p">:</span><span class="s1">&#39;json&#39;</span>    
+            <span class="p">}</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">):</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+                <span class="n">params</span><span class="p">[</span><span class="s1">&#39;bin&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span>
+                <span class="n">resp</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">first_loop</span><span class="p">:</span>
+                    <span class="k">try</span><span class="p">:</span>
+                        <span class="n">metadata_dict</span> <span class="o">=</span> <span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;metadata&#39;</span><span class="p">]</span>
+                        <span class="n">pd_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;data&#39;</span><span class="p">])</span>
+                    <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                        <span class="nb">print</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;error&#39;</span><span class="p">])</span>
+                        <span class="k">return</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
 
-    <span class="n">dates</span> <span class="o">=</span> <span class="n">date_range_string</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">dates</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span>
-    <span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span> <span class="o">=</span> <span class="n">datesToInt</span><span class="p">(</span><span class="n">dates</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-
-    <span class="n">end_year</span><span class="p">,</span> <span class="n">end_month</span><span class="p">,</span> <span class="n">end_day</span> <span class="o">=</span> <span class="n">datesToInt</span><span class="p">(</span><span class="n">dates</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-    <span class="n">this_is_silly</span> <span class="o">=</span> <span class="n">end_year</span><span class="o">*</span><span class="mi">10000</span><span class="o">+</span><span class="n">end_month</span><span class="o">*</span><span class="mi">100</span><span class="o">+</span><span class="n">end_day</span>
-
-    <span class="n">first_loop</span> <span class="o">=</span> <span class="kc">True</span>
-    <span class="k">while</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="n">end_loop</span> <span class="o">=</span> <span class="kc">False</span>
-        
-        <span class="k">if</span> <span class="n">month</span> <span class="o">==</span> <span class="mi">12</span><span class="p">:</span>
-            <span class="n">next_year</span> <span class="o">+=</span> <span class="mi">1</span>
-            <span class="n">next_month</span> <span class="o">=</span> <span class="mi">1</span>
-            <span class="n">next_day</span> <span class="o">=</span> <span class="n">day</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">next_year</span> <span class="o">=</span> <span class="n">year</span>
-            <span class="n">next_month</span> <span class="o">=</span> <span class="n">month</span>
-            <span class="n">next_day</span> <span class="o">=</span> <span class="n">day</span>
-        <span class="k">if</span> <span class="n">next_year</span><span class="o">*</span><span class="mi">10000</span><span class="o">+</span><span class="n">next_month</span><span class="o">*</span><span class="mi">100</span><span class="o">+</span><span class="n">end_day</span> <span class="o">&lt;</span> <span class="n">this_is_silly</span><span class="p">:</span>
-            <span class="n">next_year</span> <span class="o">=</span> <span class="n">end_year</span>
-            <span class="n">next_day</span> <span class="o">=</span> <span class="n">end_day</span>
-            <span class="n">next_month</span> <span class="o">=</span> <span class="n">end_month</span>
-            
-            
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:02d}</span><span class="s1">/</span><span class="si">{:02d}</span><span class="s1">/</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="p">,</span> <span class="n">year</span><span class="p">))</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:02d}</span><span class="s1">/</span><span class="si">{:02d}</span><span class="s1">/</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">next_month</span><span class="p">,</span> <span class="n">day</span><span class="p">,</span> <span class="n">next_year</span><span class="p">))</span>
-        <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://tidesandcurrents.noaa.gov/api/datagetter?&#39;</span>
-        <span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="s1">&#39;begin_date&#39;</span><span class="p">:</span> <span class="s1">&#39;</span><span class="si">{:02d}</span><span class="s1">/</span><span class="si">{:02d}</span><span class="s1">/</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="p">,</span> <span class="n">year</span><span class="p">),</span>
-            <span class="s1">&#39;end_date&#39;</span><span class="p">:</span><span class="s1">&#39;</span><span class="si">{:02d}</span><span class="s1">/</span><span class="si">{:02d}</span><span class="s1">/</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">next_month</span><span class="p">,</span> <span class="n">day</span><span class="p">,</span> <span class="n">year</span><span class="p">),</span>
-            <span class="s1">&#39;station&#39;</span><span class="p">:</span><span class="n">station_id</span><span class="p">,</span>
-            <span class="s1">&#39;product&#39;</span><span class="p">:</span><span class="s1">&#39;water_level&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;datum&#39;</span><span class="p">:</span><span class="s1">&#39;mllw&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;units&#39;</span><span class="p">:</span><span class="s1">&#39;metric&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;time_zone&#39;</span><span class="p">:</span><span class="s1">&#39;gmt&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;application&#39;</span><span class="p">:</span><span class="s1">&#39;web_services&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;format&#39;</span><span class="p">:</span><span class="s1">&#39;json&#39;</span>    
-        <span class="p">}</span>
-
-            
-        <span class="n">resp</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">first_loop</span><span class="p">:</span>
-            <span class="k">try</span><span class="p">:</span>
-                
-                <span class="n">metadata_dict</span> <span class="o">=</span> <span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;metadata&#39;</span><span class="p">]</span>
-                <span class="n">pd_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;data&#39;</span><span class="p">])</span>
-            <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;error&#39;</span><span class="p">])</span>
-                <span class="k">return</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
-            
-        <span class="n">pd_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;data&#39;</span><span class="p">])</span>
+            <span class="n">pd_data</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;data&#39;</span><span class="p">])</span>
         
         <span class="n">month</span> <span class="o">+=</span> <span class="mi">1</span>
         <span class="k">if</span> <span class="n">end_loop</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">metadata_dict</span><span class="p">,</span> <span class="n">pd_data</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">retrieveRecentData</span><span class="p">(</span><span class="n">pandas_thing</span><span class="p">):</span>
-    <span class="n">station_id</span> <span class="o">=</span> <span class="n">pandas_thing</span><span class="p">[</span><span class="s1">&#39;Station ID&#39;</span><span class="p">]</span>
-
-    <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://tidesandcurrents.noaa.gov/api/datagetter?&#39;</span>
-    <span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s1">&#39;date&#39;</span><span class="p">:</span><span class="s1">&#39;recent&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;station&#39;</span><span class="p">:</span><span class="n">station_id</span><span class="p">,</span>
-        <span class="s1">&#39;product&#39;</span><span class="p">:</span><span class="s1">&#39;currents&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;bin&#39;</span><span class="p">:</span><span class="s1">&#39;1&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;units&#39;</span><span class="p">:</span><span class="s1">&#39;metric&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;time_zone&#39;</span><span class="p">:</span><span class="s1">&#39;gmt&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;application&#39;</span><span class="p">:</span><span class="s1">&#39;web_services&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;format&#39;</span><span class="p">:</span><span class="s1">&#39;json&#39;</span>    
-    <span class="p">}</span>
-    <span class="n">resp</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
-    <span class="k">try</span><span class="p">:</span>
-
-        <span class="n">metadata_dict</span> <span class="o">=</span> <span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;metadata&#39;</span><span class="p">]</span>
-        <span class="n">pd_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;data&#39;</span><span class="p">])</span>
-        <span class="k">return</span> <span class="n">metadata_dict</span><span class="p">,</span> <span class="n">pd_data</span>    
-    
-    <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;error&#39;</span><span class="p">])</span>
-        <span class="k">return</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://tidesandcurrents.noaa.gov/api/datagetter?&#39;</span>
-<span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;date&#39;</span><span class="p">:</span><span class="s1">&#39;recent&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;station&#39;</span><span class="p">:</span><span class="n">station_id</span><span class="p">,</span>
-    <span class="s1">&#39;product&#39;</span><span class="p">:</span><span class="s1">&#39;currents&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;bin&#39;</span><span class="p">:</span><span class="s1">&#39;1&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;units&#39;</span><span class="p">:</span><span class="s1">&#39;metric&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;time_zone&#39;</span><span class="p">:</span><span class="s1">&#39;gmt&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;application&#39;</span><span class="p">:</span><span class="s1">&#39;web_services&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;format&#39;</span><span class="p">:</span><span class="s1">&#39;json&#39;</span>    
-<span class="p">}</span>
-<span class="n">resp</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
-<span class="k">try</span><span class="p">:</span>
-
-    <span class="n">metadata_dict</span> <span class="o">=</span> <span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;metadata&#39;</span><span class="p">]</span>
-    <span class="n">pd_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;data&#39;</span><span class="p">])</span>
-    <span class="k">return</span> <span class="n">metadata_dict</span><span class="p">,</span> <span class="n">pd_data</span>    
-
-<span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;error&#39;</span><span class="p">])</span>
-    <span class="k">return</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">current_stations</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
-    <span class="n">metadata_dict</span><span class="p">,</span> <span class="n">pd_data</span> <span class="o">=</span> <span class="n">retrieveRecentData</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">metadata_dict</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="k">break</span>
-    
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;token.json&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">token_file</span><span class="p">:</span>
-    <span class="n">header</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">token_file</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">try</span><span class="p">:</span>
-    <span class="n">pd_metadata</span> <span class="o">=</span> <span class="n">json_normalize</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;metadata&#39;</span><span class="p">])</span>
-    <span class="n">pd_metadata</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Station ID&#39;</span><span class="p">,</span> <span class="s1">&#39;Latitude&#39;</span><span class="p">,</span> <span class="s1">&#39;Longitude&#39;</span><span class="p">,</span> <span class="s1">&#39;Location&#39;</span><span class="p">]</span>
-    <span class="n">pd_data</span> <span class="o">=</span> <span class="n">json_normalize</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;data&#39;</span><span class="p">])</span>
-    
-<span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;error&#39;</span><span class="p">])</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># API for Climate Data</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://www.ncdc.noaa.gov/cdo-web/api/v2/datatypes?datacategoryid=HYDROMETEOR&#39;</span>
-
-<span class="n">resp</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">header</span><span class="p">)</span>
-
-<span class="k">try</span><span class="p">:</span>
-    <span class="n">pd_metadata</span> <span class="o">=</span> <span class="n">json_normalize</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;metadata&#39;</span><span class="p">])</span>
-<span class="c1">#     pd_metadata.columns = [&#39;Station ID&#39;, &#39;Latitude&#39;, &#39;Longitude&#39;, &#39;Location&#39;]</span>
-    <span class="n">pd_results</span> <span class="o">=</span> <span class="n">json_normalize</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;results&#39;</span><span class="p">])</span>
-    
-<span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;error&#39;</span><span class="p">])</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Error in the api input&#39;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://www.ncdc.noaa.gov/cdo-web/api/v2/datacategories?limit=41&#39;</span>
-<span class="n">resp</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">header</span><span class="p">)</span>
-
-<span class="k">try</span><span class="p">:</span>
-    <span class="n">pd_metadata</span> <span class="o">=</span> <span class="n">json_normalize</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;metadata&#39;</span><span class="p">])</span>
-    <span class="c1"># pd_metadata.columns = [&#39;Station ID&#39;, &#39;Latitude&#39;, &#39;Longitude&#39;, &#39;Location&#39;]</span>
-    <span class="n">pd_results</span> <span class="o">=</span> <span class="n">json_normalize</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;results&#39;</span><span class="p">])</span>
-    
-<span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;error&#39;</span><span class="p">])</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Error in the api input&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
