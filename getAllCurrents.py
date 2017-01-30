@@ -74,7 +74,6 @@ def retrieveLifetimeData(station_id, date_lists):
             if next_date > end_date:
                 next_date = end_date
                 end_loop = True
-                print('this is where it ends')
 
             url = 'https://tidesandcurrents.noaa.gov/api/datagetter?'
             params = {
@@ -106,7 +105,7 @@ def retrieveLifetimeData(station_id, date_lists):
                 monthly_data = pd.concat(bin_list, axis=1)
                 lifetime_data.append(monthly_data)
             except ValueError:
-                print('Lost data for {}  -  {}'.format(date, next_date))
+                print('No available data for {}  -  {}'.format(date, next_date))
                 pass
 
             date = next_date
@@ -116,19 +115,27 @@ def retrieveLifetimeData(station_id, date_lists):
     try:
         lifetime_dataframe = pd.concat(lifetime_data)
         lifetime_dataframe.to_pickle(os.path.join(saving_directory, '{}.pkl'.format(station_id)))
+	return lifetime_dataframe, True
     except ValueError:
         print('Error: No available data from - {}'.format(station_id))
-
-    return lifetime_dataframe
+	return None, False
 
 all_of_the_data = []
 total = len(currents_station_info.keys())
 counter = 0
 for station_id, available_dates in currents_station_info.items():
     counter += 1
+
     print('{} of {}'.format(counter, total))
     print('{}:{}'.format(station_id, available_dates))
-    all_of_the_data.append(retrieveLifetimeData(station_id, available_dates))
+    if os.path.isfile(os.path.join(saving_directory, '{}.pkl'.format(station_id))):
+        print('Already completed {}'.format(station_id))
+        all_of_the_data.append(pd.read_pickle(os.path.join(saving_directory, '{}.pkl'.format(station_id))))
+        continue
+
+    dataframe, successful = retrieveLifetimeData(station_id, available_dates)
+    if successful:
+        all_of_the_data.append(dataframe)
 
 imachampion = pd.concat(all_of_the_data, axis=1)
 imachampion.to_pickle('currents.pkl')
