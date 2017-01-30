@@ -115,10 +115,10 @@ def retrieveLifetimeData(station_id, date_lists):
     try:
         lifetime_dataframe = pd.concat(lifetime_data)
         lifetime_dataframe.to_pickle(os.path.join(saving_directory, '{}.pkl'.format(station_id)))
-	return lifetime_dataframe, True
+        return lifetime_dataframe, True
     except ValueError:
         print('Error: No available data from - {}'.format(station_id))
-	return None, False
+        return None, False
 
 all_of_the_data = []
 total = len(currents_station_info.keys())
