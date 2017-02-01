@@ -94,7 +94,7 @@ for key, loc_tuple in location_dictionary.items():
     tidal_longitude.append(convert(loc_tuple[1]))
 
 
-# In[27]:
+# In[28]:
 
 import plotly.plotly as py
 import pandas as pd
@@ -130,6 +130,7 @@ layout = dict(
         legend = dict(
         orientation = 'h',
         xanchor = 'center',
+        x=0.5,
         font = dict(
         size = '20',
         color = 'rgb(52, 165, 218)')),

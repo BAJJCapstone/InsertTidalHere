@@ -24,6 +24,8 @@ with open('current_station_intervals.json', 'r') as station_dates_file:
     currents_station_intervals = json.load(station_dates_file)
 
 for key, date_list in currents_station_info.items():
+    # Taking results from scraping - Different tables were in different formats
+    # format dates into datetime objects so it's easier to work with later
     if any(isinstance(el, list) for el in date_list):
         for i, dates in enumerate(date_list):
             for j, date in enumerate(dates[:2]):
@@ -36,6 +38,7 @@ for key, date_list in currents_station_info.items():
                                 day = int(split_date[2]),
                                 hour = int(split_date[3]),
                                 minute = int(split_date[4]))
+
     else:
         currents_station_info[key] = []
         tmp_list = []
@@ -53,6 +56,9 @@ for key, date_list in currents_station_info.items():
 
 @retry(Exception)
 def retrieveLifetimeData(station_id, date_lists):
+    '''
+    Will go through list of lists that are assigned to station_id, requesting for data between the available dates
+    '''
     lifetime_data = []
     for date_list in date_lists:
         begin_date = date_list[0]
@@ -88,19 +94,21 @@ def retrieveLifetimeData(station_id, date_lists):
 
             i=1
             while 1:
+                # Currents has specific request parameter for bins - I believe this are associated with depth
                 params['bin'] = i
                 resp = requests.get(url=url, params=params)
                 try:
                     bin_list.append(pd.DataFrame(resp.json()['data']))
                 except:
                     break
-                bin_list[i-1].drop('b', axis=1, inplace=True)
-                bin_list[i-1].set_index('t', inplace=True)
-                bin_list[i-1].rename(columns = lambda x : '{}.{}.'.format(station_id, i) + x, inplace = True)
+                bin_list[i-1].drop('b', axis=1, inplace=True) #just we just want, direction/speed
+                bin_list[i-1].set_index('t', inplace=True) #index based off time
+                bin_list[i-1].rename(columns = lambda x : '{}.{}.{}'.format(station_id, i, x), inplace = True)
                 i += 1
             try:
                 monthly_data = pd.concat(bin_list, axis=1)
-                lifetime_data.append(monthly_data)
+                lifetime_data.append(monthly_data) #easiest way to combine lots of data
+
             except ValueError:
                 print('No available data for {}  -  {}'.format(date, next_date))
                 pass
@@ -108,11 +116,13 @@ def retrieveLifetimeData(station_id, date_lists):
             date = next_date
             if end_loop:
                 break
+    # Done with getting data
     print('Done with {}'.format(station_id))
-    try:
+    try: #combine into one big dataframe
         lifetime_dataframe = pd.concat(lifetime_data)
         lifetime_dataframe.to_pickle(os.path.join(saving_directory, '{}.pkl'.format(station_id)))
         return lifetime_dataframe, True
+
     except ValueError:
         print('Error: No available data from - {}'.format(station_id))
         return None, False
@@ -127,13 +137,13 @@ for station_id, available_dates in currents_station_info.items():
     # print('{}:{}'.format(station_id, available_dates))
     if os.path.isfile(os.path.join(saving_directory, '{}.pkl'.format(station_id))):
         print('Already completed {}'.format(station_id))
-        # all_of_the_data.append(pd.read_pickle(os.path.join(saving_directory, '{}.pkl'.format(station_id))))
+        all_of_the_data.append(pd.read_pickle(os.path.join(saving_directory, '{}.pkl'.format(station_id))))
         continue
 
     dataframe, successful = retrieveLifetimeData(station_id, available_dates)
     if successful:
-        # all_of_the_data.append(dataframe)
         print('Made pkl file for {}'.format(station_id))
-print('Completed')
+        # all_of_the_data.append(dataframe)
+
 # imachampion = pd.concat(all_of_the_data, axis=1)
 # imachampion.to_pickle('currents.pkl')
