@@ -11,9 +11,6 @@ import datetime
 
 from retry_decorator import retry
 
-import sys
-sys.stdout = open('currents_output.log', 'w')
-
 import os.path
 current_directory = os.path.dirname(__file__)
 saving_directory = os.path.join(current_directory, 'currentData')
@@ -82,7 +79,7 @@ def retrieveLifetimeData(station_id, date_lists):
                 'station':station_id,
                 'product':'currents',
                 'units':'metric',
-                'time_zone':'gmt',
+                'time_zone':'lst_ldt',
                 'application':'web_services',
                 'format':'json'
             }
@@ -127,15 +124,16 @@ for station_id, available_dates in currents_station_info.items():
     counter += 1
 
     print('{} of {}'.format(counter, total))
-    print('{}:{}'.format(station_id, available_dates))
+    # print('{}:{}'.format(station_id, available_dates))
     if os.path.isfile(os.path.join(saving_directory, '{}.pkl'.format(station_id))):
         print('Already completed {}'.format(station_id))
-        all_of_the_data.append(pd.read_pickle(os.path.join(saving_directory, '{}.pkl'.format(station_id))))
+        # all_of_the_data.append(pd.read_pickle(os.path.join(saving_directory, '{}.pkl'.format(station_id))))
         continue
 
     dataframe, successful = retrieveLifetimeData(station_id, available_dates)
     if successful:
-        all_of_the_data.append(dataframe)
-
-imachampion = pd.concat(all_of_the_data, axis=1)
-imachampion.to_pickle('currents.pkl')
+        # all_of_the_data.append(dataframe)
+        print('Made pkl file for {}'.format(station_id))
+print('Completed')
+# imachampion = pd.concat(all_of_the_data, axis=1)
+# imachampion.to_pickle('currents.pkl')

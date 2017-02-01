@@ -1,7 +1,7 @@
 
 # coding: utf-8
 
-# In[1]:
+# In[ ]:
 
 import requests
 import json
@@ -19,7 +19,7 @@ sys.stdout = open('currents_output.log', 'w')
 
 # ### Investigating currents 
 
-# In[2]:
+# In[ ]:
 
 with open('current_station_info.json', 'r') as station_info_file:
     currents_station_info = json.load(station_info_file)
@@ -30,7 +30,7 @@ with open('current_station_intervals.json', 'r') as station_dates_file:
     
 
 
-# In[3]:
+# In[ ]:
 
 for key, date_list in currents_station_info.items():
     if any(isinstance(el, list) for el in date_list):
@@ -60,7 +60,7 @@ for key, date_list in currents_station_info.items():
     
 
 
-# In[4]:
+# In[ ]:
 
 def retrieveLifetimeData(station_id, date_lists):
     lifetime_data = []
@@ -123,7 +123,7 @@ def retrieveLifetimeData(station_id, date_lists):
     return pd.concat(lifetime_data)
 
 
-# In[5]:
+# In[ ]:
 
 all_of_the_data = []
 total = len(currents_station_info.keys())
@@ -136,6 +136,13 @@ for station_id, available_dates in currents_station_info.items():
 
 imachampion = pd.concat(all_of_the_data, axis=1)
 imachampion.to_pickle('currents.pkl')
+
+
+# ### Tidal Now
+
+# In[4]:
+
+
 
 
 # In[ ]:
