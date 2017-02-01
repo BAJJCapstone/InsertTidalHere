@@ -4,6 +4,8 @@ import urllib.request
 import json
 import pandas as pd
 
+
+#from CO-OPS website
 current_stations = pd.read_csv('coops-activecurrentstations.csv')
 historical_stations = pd.read_csv('coops-historiccurrentstations.csv')
 
