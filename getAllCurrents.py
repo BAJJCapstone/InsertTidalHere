@@ -137,7 +137,7 @@ for station_id, available_dates in currents_station_info.items():
     # print('{}:{}'.format(station_id, available_dates))
     if os.path.isfile(os.path.join(saving_directory, '{}.pkl'.format(station_id))):
         print('Already completed {}'.format(station_id))
-        all_of_the_data.append(pd.read_pickle(os.path.join(saving_directory, '{}.pkl'.format(station_id))))
+        # all_of_the_data.append(pd.read_pickle(os.path.join(saving_directory, '{}.pkl'.format(station_id))))
         continue
 
     dataframe, successful = retrieveLifetimeData(station_id, available_dates)

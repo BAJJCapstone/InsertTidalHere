@@ -1,14 +1,14 @@
 
 # coding: utf-8
 
-# In[4]:
+# In[2]:
 
 import json
 with open('current_station_info.json', 'r') as station_info_file:
     currents_station_info = json.load(station_info_file)
 
 
-# In[5]:
+# In[3]:
 
 import re
 
@@ -79,7 +79,7 @@ with open("tidal_location_dictionary.json", "w") as writeJSON:
     json.dump(location_dictionary, writeJSON)
 
 
-# In[6]:
+# In[4]:
 
 import json
 
@@ -94,7 +94,7 @@ for key, loc_tuple in location_dictionary.items():
     tidal_longitude.append(convert(loc_tuple[1]))
 
 
-# In[28]:
+# In[15]:
 
 import plotly.plotly as py
 import pandas as pd
@@ -108,23 +108,16 @@ data = [dict(
         lon = tidal_longitude,
         lat = tidal_latitude,
         text = stations,
-        mode = 'markers'),
-        dict(
-        type = 'scattergeo',
-        name = 'Current Measurement Stations',
-        locationmode = 'USA-states',
-        lon = dec_longitude,
-        lat = dec_latitude,
-        text = stations,
         mode = 'markers',
-        marker = dict(symbol = 'square'))
+        marker = dict(symbol = 'square-open',
+                     color = 'black')),
         ]
 
 layout = dict(
-        title = 'Available NOAA Stations<br>Tidal and Currents',
+        title = 'Tidal',
         titlefont = dict(
             size = 26,
-            color = 'rgb(52, 165, 218)'),
+            color = 'black'),
         paper_bgcolor='transparent',
         plot_bgcolor='transparent',
         legend = dict(
@@ -133,21 +126,64 @@ layout = dict(
         x=0.5,
         font = dict(
         size = '20',
-        color = 'rgb(52, 165, 218)')),
+        color = 'black')),
         geo = dict(
             scope='usa',
             showland = True,
             landcolor = "transparent",
-            subunitcolor = "rgb(52, 165, 218)",
-            countrycolor = "rgb(52, 165, 218)",
+            subunitcolor = "black",
+            countrycolor = "black",
             bgcolor = 'transparent',
-            countrywidth = 0.5,
+            countrywidth = 1,
             subunitwidth = 0.5        
         ),
     )
 
 fig = dict( data=data, layout=layout )
-py.iplot( fig, validate=False, filename='coopsstations' )
+py.iplot( fig, validate=False, filename='coops-tidal-stations' )
+
+
+# In[14]:
+
+data = [dict(
+        type = 'scattergeo',
+        name = 'Current Measurement Stations',
+        locationmode = 'USA-states',
+        lon = dec_longitude,
+        lat = dec_latitude,
+        text = stations,
+        mode = 'markers',
+        marker = dict(symbol = 'triangle-up-open'
+                     ,color = 'black'))]
+
+layout = dict(
+        title = 'Currents',
+        titlefont = dict(
+            size = 26,
+            color = 'black'),
+        paper_bgcolor='transparent',
+        plot_bgcolor='transparent',
+        legend = dict(
+        orientation = 'h',
+        xanchor = 'center',
+        x=0.5,
+        font = dict(
+        size = '20',
+        color = 'black')),
+        geo = dict(
+            scope='usa',
+            showland = True,
+            landcolor = "transparent",
+            subunitcolor = "black",
+            countrycolor = "black",
+            bgcolor = 'transparent',
+            countrywidth = 1,
+            subunitwidth = 0.5        
+        ),
+    )
+fig = dict( data=data, layout=layout )
+py.iplot( fig, validate=False, filename='coops-currents-stations' )
+
 
 
 # In[ ]:

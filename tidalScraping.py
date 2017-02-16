@@ -11,7 +11,7 @@ with urllib.request.urlopen(station_url) as url:
 
 soup = BeautifulSoup(station_html, "html.parser")
 
-stations = soup.find_all('div', {'class': lambda L: L and L.startswith('span4 station')}) 
+stations = soup.find_all('div', {'class': lambda L: L and L.startswith('span4 station')})
 
 with open('availableTypes.txt', 'r') as possible_data:
     column_list = []
